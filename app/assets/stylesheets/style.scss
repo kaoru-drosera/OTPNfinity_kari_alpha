@@ -1,0 +1,143 @@
+// .bd
+// {
+//   background: rgb(136, 194, 70);
+//   height: 100px;
+// }
+
+// スタイルシート実験
+// .stltest
+// {
+//   border: 1px solid #000;
+//   width: 25%;
+//   p
+//   {
+//     padding: 20px;
+//   }
+// }
+// スタイルシート実験　ここまで
+
+// 基本的な設定
+
+.container
+{
+  margin: auto;
+  width: 90%;
+  max-width: 1200px;
+}
+.flexer
+{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sound-library
+{
+  width: 18%;
+
+  background-color: #ddd;
+  padding: 20px;
+}
+.main-sumpler
+{
+  width: 45%;
+  background-color: #ddd;
+  padding: 30px;
+}
+.right-sumpler-custom
+{
+  width: 20%;
+  background-color: #ddd;
+  padding: 30px;
+}
+
+
+// 基本的な設定 ここまで
+
+
+// 効果音ライブラリ
+
+.sl-content
+{
+  a
+  {
+    padding: 20px;
+    background-color: #eee;
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 10px 0;
+    p
+    {
+      display: inline-block;
+    }
+  }
+}
+
+// 効果音ライブラリ ここまで
+
+
+
+// メインサンプラー
+
+.sumpler-btn-wrap
+{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-between;
+  // flex-flow: wrap;
+}
+.btnwrapper-v1
+{
+  width: 500px;
+
+}
+.case-btn
+{
+  width: 23%;
+  height: 100px;
+  border: 1px solid #000;
+  display: inline-block;
+  cursor: pointer;
+  input[type=range]
+  {
+    width: 100%;
+  }
+}
+
+// メインサンプラー ここまで
+
+
+// サンプラー設定
+
+.lsc-content
+{
+  a
+  {
+    padding: 20px;
+    background-color: #eee;
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 10px 0;
+    p
+    {
+      display: inline-block;
+    }
+  }
+}
+
+
+// サンプラー設定 ここまで
+
+
+// テストデータ等
+
+.btnwrapper-v2
+{
+  padding-bottom: 20px;
+  border-bottom: 1px solid #000;
+  margin-bottom: 20px;
+}
+
+// テストデータ等 ここまで

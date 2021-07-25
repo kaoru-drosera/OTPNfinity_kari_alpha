@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>効果音ポン出しwebアプリ・主機能のみテスト</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.ico">
+  <link rel="apple-touch-icon-precomposed" href="/favicon-152.png">
+
+</head>
+<body>
+
+  <!-- <div class="stltest">
+    <p>longrangeshooting</p>
+  </div> -->
+
+  <div class="btnwrapper-v1">
+    <!-- 上段 -->
+    <div class="case-btn-q case-btn" onclick="play(soundQ, loopQ, loopValue_q)">
+      <p>Q</p>
+      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
+      <input type="range" onchange="volumeInit(soundQ, volumeQ, volumeValue_q)" id="vol-q" value="50" min="1" max="99">
+      <input type="file" id="selectFile_q" onclick="readFile(soundQ, form_fileQ)" accept="sounds/*">
+      <input type="checkbox" onclick="loopInit(soundQ, loopQ, loopValue_q)" id="loopable_q" name="loopable?" value="">
+    </div><!--  .case-btn-d -->
+    <div class="case-btn-w case-btn" onclick="play(soundW, loopW, loopValue_w)">
+      <p>W</p>
+      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
+      <input type="range" onchange="volumeInit(soundW, volumeW, volumeValue_w)" id="vol-w" value="50" min="1" max="99">
+      <input type="file" id="selectFile_w" onclick="readFile(soundW, form_fileW)" accept="sounds/*">
+      <input type="checkbox" onclick="loopInit(soundW, loopW, loopValue_w)" id="loopable_w" name="loopable?" value="">
+    </div><!--  .case-btn-d -->
+    <div class="case-btn-e case-btn" onclick="play(soundE, loopE, loopValue_e)">
+      <p>E</p>
+      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
+      <input type="range" onchange="volumeInit(soundE, volumeE, volumeValue_e)" id="vol-e" value="50" min="1" max="99">
+      <input type="file" id="selectFile_e" onclick="readFile(soundE, form_fileE)" accept="sounds/*">
+      <input type="checkbox" onclick="loopInit(soundE, loopE, loopValue_e)" id="loopable_e" name="loopable?" value="">
+    </div><!--  .case-btn-d -->
+    <div class="case-btn-r case-btn" onclick="play(soundR, loopR, loopValue_r)">
+      <p>R</p>
+      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
+      <input type="range" onchange="volumeInit(soundR, volumeR, volumeValue_r)" id="vol-r" value="50" min="1" max="99">
+      <input type="file" id="selectFile_r" onclick="readFile(soundR, form_fileR)" accept="sounds/*">
+      <input type="checkbox" onclick="loopInit(soundR, loopR, loopValue_r)" id="loopable_r" name="loopable?" value="">
+    </div><!--  .case-btn-d -->
+
+
+
+    <!-- 中段 -->
+    <div class="case-btn-a case-btn" onclick="play(soundA,loopA,loopValue_a)">
+      <p>A</p>
+      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
+      <input type="range" onchange="volumeInit(soundA, volumeA, volumeValue_a)" id="vol-a" value="50" min="1" max="99">
+      <input type="file" id="selectFile_a" onclick="readFile(soundA, form_fileA)" accept="sounds/*">
+      <input type="checkbox" onclick="loopInit(soundA, loopA, loopValue_a)" id="loopable_a" name="loopable?" value="">
+    </div><!--  .case-btn-d -->
+    <div class="case-btn-s case-btn" onclick="play(soundS,loopS,loopValue_s)">
+      <p>S</p>
+      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
+      <input type="range" onchange="volumeInit(soundS, volumeS, volumeValue_s)" id="vol-s" value="50" min="1" max="99">
+      <input type="file" id="selectFile_s" onclick="readFile(soundS, form_fileS)" accept="sounds/*">
+      <input type="checkbox" onclick="loopInit(soundS, loopS, loopValue_s)" id="loopable_s" name="loopable?" value="">
+    </div><!--  .case-btn-d -->
+    <div class="case-btn-d case-btn"  id="caseBtn_d" onclick="play(soundD,loopD,loopValue_d)" keytouch="d">
+      <p>D</p>
+      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
+      <input type="range" onchange="volumeInit(soundD, volumeD, volumeValue_d)" id="vol-d" value="50" min="1" max="99">
+      <input type="file" id="selectFile_d" onclick="readFile(soundD, form_fileD)" accept="sounds/*">
+      <input type="checkbox" onclick="loopInit(soundD, loopD, loopValue_d)" id="loopable_d" name="loopable?" value="">
+    </div><!--  .case-btn-d -->
+    <div class="case-btn-f case-btn" id="caseBtn_f" onclick="play(soundF,loopF,loopValue_f)" keytouch="f">
+      <p>F</p>
+      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
+      <input type="range" onchange="volumeInit(soundF, volumeF, volumeValue_f)" id="vol-f" value="50" min="1" max="99">
+      <input type="file" id="selectFile_f" onclick="readFile(soundF, form_fileF)" accept="sounds/*">
+      <input type="checkbox" onclick="loopInit(soundF, loopF, loopValue_f)" id="loopable_f" name="loopable?" value="">
+    </div><!--  .case-btn-d -->
+
+
+
+    <!-- 下段 -->
+    <div class="case-btn-z case-btn" onclick="play(soundZ, loopZ, loopValue_z)">
+      <p>Z</p>
+      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
+      <input type="range" onchange="volumeInit(soundZ, volumeZ, volumeValue_z)" id="vol-z" value="50" min="1" max="99">
+      <input type="file" id="selectFile_z" onclick="readFile(soundZ, form_fileZ)" accept="sounds/*">
+      <input type="checkbox" onclick="loopInit(soundZ, loopZ, loopValue_z)" id="loopable_z" name="loopable?" value="">
+    </div><!--  .case-btn-d -->
+    <div class="case-btn-x case-btn" onclick="play(soundX, loopX, loopValue_x)">
+      <p>X</p>
+      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
+      <input type="range" onchange="volumeInit(soundX, volumeX, volumeValue_x)" id="vol-x" value="50" min="1" max="99">
+      <input type="file" id="selectFile_x" onclick="readFile(soundX, form_fileX)" accept="sounds/*">
+      <input type="checkbox" onclick="loopInit(soundX, loopX, loopValue_x)" id="loopable_x" name="loopable?" value="">
+    </div><!--  .case-btn-d -->
+    <div class="case-btn-c case-btn" onclick="play(soundC, loopC, loopValue_c)">
+      <p>C</p>
+      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
+      <input type="range" onchange="volumeInit(soundC, volumeC, volumeValue_c)" id="vol-c" value="50" min="1" max="99">
+      <input type="file" id="selectFile_c" onclick="readFile(soundC, form_fileC)" accept="sounds/*">
+      <input type="checkbox" onclick="loopInit(soundC, loopC, loopValue_c)" id="loopable_c" name="loopable?" value="">
+    </div><!--  .case-btn-d -->
+    <div class="case-btn-v case-btn" onclick="play(soundV, loopV, loopValue_v)">
+      <p>V</p>
+      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
+      <input type="range" onchange="volumeInit(soundV, volumeV, volumeValue_v)" id="vol-v" value="50" min="1" max="99">
+      <input type="file" id="selectFile_v" onclick="readFile(soundV, form_fileV)" accept="sounds/*">
+      <input type="checkbox" onclick="loopInit(soundV, loopV, loopValue_v)" id="loopable_v" name="loopable?" value="">
+    </div><!--  .case-btn-d -->
+  </div><!--  .btnwrapper-v1 -->
+
+  <div class="casewithform-wrap">
+    <input type="file" id="myAudio" accept="sounds/*">
+  </div><!--  .casewithform-wrap -->
+  <audio id="cwf_preview" controls>
+    <source id="cwf_preview_source">
+  </audio><!-- #preview  -->
+  <audio src="sounds/gun-reload1.mp3" id="cwf_preview_0" controls></audio><!-- #preview  -->
+
+  <!-- header -->
+  <!-- nav(>.site-logo+.header-sumpler-custom-cell-container(>.header-sumpler-custom-cell*8+.header-login-cell(>p.login+p.regist))) -->
+  <nav>
+    <div class="site-logo">site-logo</div><!--  .site-logo -->
+    <div class="header-sumpler-custom-cell-container">
+      <div class="header-sumpler-custom-cell"></div><!--  .header-sumpler-custom-cell -->
+      <div class="header-sumpler-custom-cell"></div><!--  .header-sumpler-custom-cell -->
+      <div class="header-sumpler-custom-cell"></div><!--  .header-sumpler-custom-cell -->
+      <div class="header-sumpler-custom-cell"></div><!--  .header-sumpler-custom-cell -->
+      <div class="header-sumpler-custom-cell"></div><!--  .header-sumpler-custom-cell -->
+      <div class="header-sumpler-custom-cell"></div><!--  .header-sumpler-custom-cell -->
+      <div class="header-sumpler-custom-cell"></div><!--  .header-sumpler-custom-cell -->
+      <div class="header-sumpler-custom-cell"></div><!--  .header-sumpler-custom-cell -->
+      <div class="header-login-cell">
+        <p class="login"></p><!--  .login -->
+        <p class="regist"></p><!--  .regist -->
+      </div><!--  .header-login-cell -->
+    </div><!--  .header-sumpler-custom-cell-container -->
+  </nav>
+
+  <section class="container">
+    <section class="wrapper">
+      <div class="flexer">
+
+
+        <!-- sound-library -->
+        <!-- section.sound-library(>input.sl-search+ul.sl-wrapper(>li.sl-content(>a(>p{sound effect$}))*12)) -->
+        <section class="sound-library">
+          <input type="text" class="sl-search">
+          <ul class="sl-wrapper">
+            <!-- li.sl-content(>a(>p{sound effect$}))*12 -->
+            <li class="sl-content"><a href="">
+                <p>sound effect1</p>
+              </a></li><!--  .sl-content -->
+            <li class="sl-content"><a href="">
+                <p>sound effect2</p>
+              </a></li><!--  .sl-content -->
+            <li class="sl-content"><a href="">
+                <p>sound effect3</p>
+              </a></li><!--  .sl-content -->
+            <li class="sl-content"><a href="">
+                <p>sound effect4</p>
+              </a></li><!--  .sl-content -->
+            <li class="sl-content"><a href="">
+                <p>sound effect5</p>
+              </a></li><!--  .sl-content -->
+            <li class="sl-content"><a href="">
+                <p>sound effect6</p>
+              </a></li><!--  .sl-content -->
+            <li class="sl-content"><a href="">
+                <p>sound effect7</p>
+              </a></li><!--  .sl-content -->
+            <li class="sl-content"><a href="">
+                <p>sound effect8</p>
+              </a></li><!--  .sl-content -->
+            <li class="sl-content"><a href="">
+                <p>sound effect9</p>
+              </a></li><!--  .sl-content -->
+            <li class="sl-content"><a href="">
+                <p>sound effect10</p>
+              </a></li><!--  .sl-content -->
+            <li class="sl-content"><a href="">
+                <p>sound effect11</p>
+              </a></li><!--  .sl-content -->
+            <li class="sl-content"><a href="">
+                <p>sound effect12</p>
+              </a></li><!--  .sl-content -->
+          </ul><!--  .sl-wrapper -->
+        </section><!--  .sound-library -->
+
+        <!-- main-sumbler -->
+        <!-- section.main-sumpler(>.custom-wrap(>.custom)+form.sumpler-form(>.sumpler-btn-wrap(>.sumpler-btn*12)+input[action=submit])) -->
+        <section class="main-sumpler">
+          <div class="custom-wrap">
+            <div class="custom"></div><!--  .custom -->
+          </div><!--  .custom-wrap -->
+          <form action="" class="sumpler-form">
+            <div class="sumpler-btn-wrap">
+              <div class="sumpler-btn"></div><!--  .sumpler-btn -->
+              <div class="sumpler-btn"></div><!--  .sumpler-btn -->
+              <div class="sumpler-btn"></div><!--  .sumpler-btn -->
+              <div class="sumpler-btn"></div><!--  .sumpler-btn -->
+              <div class="sumpler-btn"></div><!--  .sumpler-btn -->
+              <div class="sumpler-btn"></div><!--  .sumpler-btn -->
+              <div class="sumpler-btn"></div><!--  .sumpler-btn -->
+              <div class="sumpler-btn"></div><!--  .sumpler-btn -->
+              <div class="sumpler-btn"></div><!--  .sumpler-btn -->
+              <div class="sumpler-btn"></div><!--  .sumpler-btn -->
+              <div class="sumpler-btn"></div><!--  .sumpler-btn -->
+              <div class="sumpler-btn"></div><!--  .sumpler-btn -->
+            </div><!--  .sumpler-btn-wrap -->
+            <input type="submit" value="設定を保存する">
+          </form><!--  .sumpler-form -->
+        </section><!--  .main-sumpler -->
+
+        <!-- right-sumpler-custom -->
+        <!-- section.right-sumpler-custom(>.lscw-search-container(>input.lscw-search)+ul.lscw-list(>li.lsc-content(>a(>p{sumpler custom $}))*12)) -->
+        <section class="right-sumpler-custom">
+          <div class="lscw-search-container"><input type="text" class="lscw-search"></div><!--  .lscw-search-container -->
+          <ul class="lscw-list">
+            <!-- li.lsc-content(>a(>p{sumpler custom $}))*12 -->
+            <li class="lsc-content"><a href="">
+                <p>sumpler custom 1</p>
+              </a></li><!--  .lsc-content -->
+            <li class="lsc-content"><a href="">
+                <p>sumpler custom 2</p>
+              </a></li><!--  .lsc-content -->
+            <li class="lsc-content"><a href="">
+                <p>sumpler custom 3</p>
+              </a></li><!--  .lsc-content -->
+            <li class="lsc-content"><a href="">
+                <p>sumpler custom 4</p>
+              </a></li><!--  .lsc-content -->
+            <li class="lsc-content"><a href="">
+                <p>sumpler custom 5</p>
+              </a></li><!--  .lsc-content -->
+            <li class="lsc-content"><a href="">
+                <p>sumpler custom 6</p>
+              </a></li><!--  .lsc-content -->
+            <li class="lsc-content"><a href="">
+                <p>sumpler custom 7</p>
+              </a></li><!--  .lsc-content -->
+            <li class="lsc-content"><a href="">
+                <p>sumpler custom 8</p>
+              </a></li><!--  .lsc-content -->
+            <li class="lsc-content"><a href="">
+                <p>sumpler custom 9</p>
+              </a></li><!--  .lsc-content -->
+            <li class="lsc-content"><a href="">
+                <p>sumpler custom 10</p>
+              </a></li><!--  .lsc-content -->
+            <li class="lsc-content"><a href="">
+                <p>sumpler custom 11</p>
+              </a></li><!--  .lsc-content -->
+            <li class="lsc-content"><a href="">
+                <p>sumpler custom 12</p>
+              </a></li><!--  .lsc-content -->
+          </ul><!--  .lscw-list -->
+        </section><!--  .right-sumpler-custom -->
+
+
+      </div><!--  .flexer -->
+    </section><!--  .wrapper -->
+  </section><!--  .container -->
+
+
+  <script>
+
+    console.log('hello,gulp.lol');
+
+
+
+    // 上段
+    var soundQ = new Audio();
+    var soundW = new Audio();
+    var soundE = new Audio();
+    var soundR = new Audio();
+    soundQ.src = "./sounds/ラッパのファンファーレ.mp3";
+    soundW.src = "./sounds/ドンドンパフパフ.mp3";
+    soundE.src = "./sounds/レベルアップ.mp3";
+    soundR.src = "./sounds/歓声と拍手.mp3";
+    var volumeQ = document.getElementById("vol-q");
+    var volumeW = document.getElementById("vol-w");
+    var volumeE = document.getElementById("vol-e");
+    var volumeR = document.getElementById("vol-r");
+    var loopQ = document.getElementById("loopable_q");
+    var loopW = document.getElementById("loopable_w");
+    var loopE = document.getElementById("loopable_e");
+    var loopR = document.getElementById("loopable_r");
+    var form_fileQ = document.getElementById("selectFile_q");
+    var form_fileW = document.getElementById("selectFile_w");
+    var form_fileE = document.getElementById("selectFile_e");
+    var form_fileR = document.getElementById("selectFile_r");
+    var volumeValue_q;
+    var volumeValue_w;
+    var volumeValue_e;
+    var volumeValue_r;
+    var loopValue_q;
+    var loopValue_w;
+    var loopValue_e;
+    var loopValue_r;
+    console.log(volumeQ);
+    console.log(volumeW);
+    console.log(volumeE);
+    console.log(volumeR);
+
+
+    // 中段
+    var soundA = new Audio();
+    var soundS = new Audio();
+    var soundD = new Audio();
+    var soundF = new Audio();
+    soundA.src = "./sounds/和太鼓でドン.mp3";
+    soundS.src = "./sounds/和太鼓でドドン.mp3";
+    soundD.src = "./sounds/ピコピコハンマー.mp3";
+    soundF.src = "./sounds/チーン1.mp3";
+    var form_fileA = document.getElementById("selectFile_a");
+    var form_fileS = document.getElementById("selectFile_s");
+    var form_fileD = document.getElementById("selectFile_d");
+    var form_fileF = document.getElementById("selectFile_f");
+    var volumeA = document.getElementById("vol-a");
+    var volumeS = document.getElementById("vol-s");
+    var volumeD = document.getElementById("vol-d");
+    var volumeF = document.getElementById("vol-f");
+    var loopA = document.getElementById("loopable_a");
+    var loopS = document.getElementById("loopable_s");
+    var loopD = document.getElementById("loopable_d");
+    var loopF = document.getElementById("loopable_f");
+    var volumeValue_a;
+    var volumeValue_s;
+    var volumeValue_d;
+    var volumeValue_f;
+    var loopValue_a;
+    var loopValue_s;
+    var loopValue_d;
+    var loopValue_f;
+    console.log(volumeA);
+    console.log(volumeS);
+    console.log(volumeD);
+    console.log(volumeF);
+
+    // 下段
+    var soundZ = new Audio();
+    var soundX = new Audio();
+    var soundC = new Audio();
+    var soundV = new Audio();
+    soundZ.src = "./sounds/クイズ出題1.mp3";
+    soundX.src = "./sounds/決定、ボタン押下22.mp3";
+    soundC.src = "./sounds/クイズ不正解1.mp3";
+    soundV.src = "./sounds/クイズ正解1.mp3";
+    var volumeZ = document.getElementById("vol-z");
+    var volumeX = document.getElementById("vol-x");
+    var volumeC = document.getElementById("vol-c");
+    var volumeV = document.getElementById("vol-v");
+    var loopZ = document.getElementById("loopable_z");
+    var loopX = document.getElementById("loopable_x");
+    var loopC = document.getElementById("loopable_c");
+    var loopV = document.getElementById("loopable_v");
+    var form_fileZ = document.getElementById("selectFile_z");
+    var form_fileX = document.getElementById("selectFile_x");
+    var form_fileC = document.getElementById("selectFile_c");
+    var form_fileV = document.getElementById("selectFile_v");
+    var volumeValue_z;
+    var volumeValue_x;
+    var volumeValue_c;
+    var volumeValue_v;
+    var loopValue_z;
+    var loopValue_x;
+    var loopValue_c;
+    var loopValue_v;
+    console.log(volumeZ);
+    console.log(volumeX);
+    console.log(volumeC);
+    console.log(volumeV);
+
+    var sound = [soundQ, soundW, soundE, soundR, soundA, soundS, soundD, soundF, soundZ, soundX, soundC, soundV];
+    // var reader = [readerQ, readerW, readerE, readerR, readerA, readerS, readerD, readerF, readerZ, readerX, readerC, readerV];
+    // var reader = [readerD, readerF];
+
+    // エラー抑制
+    // https://qiita.com/krmbn0576/items/e9bc5384b790df9e39ab
+    // var promise = Promise.reject(new Error('promise!!!'));
+    // promise.catch(function(e){});
+    // setTimeout(function(){promise.catch(/* 適切なエラーハンドル */)},1000);
+
+
+
+    // // クリックでの再生
+    // function disc(ele){
+    //   // const data = e.currentTarget.dataset['index'];
+    //   var attr = ele.getAttribute('keytouch');
+    //   console.log(attr);
+    //
+    //   switch (attr) {
+    //     case 'd':
+    //     play(soundD);
+    //       break;
+    //     case 'f':
+    //     play(soundF);
+    //       break;
+    //   };
+    //
+    // };
+
+    // 初期化？
+    var init = sound.map(function(value){
+        console.log(value);
+        value.preload = "auto";
+        value.load();
+      }
+    );
+
+    function volumeInit(soundName, volume, volumeValue){
+      // 音量調節
+      volume.addEventListener('click', function () {
+        volumeValue = (volume.value.length == 1) ? "0.0" + volume.value : "0." + volume.value ;
+        soundName.volume = volumeValue;
+      },false);
+    }
+
+    function loopInit(soundName, loop, loopValue){
+      // ループ切り替え
+      loop.addEventListener('change', function () {
+        loopValue = (loop.checked == true) ? loop.loop = true : loop.loop = false;
+        soundName.loop = loopValue;
+      },false);
+    }
+    console.log(soundD.loop);
+    // console.log(loopValue_f);
+
+    var playbtn = document.querySelectorAll('.playbtn');
+
+    // キータッチでの再生
+    document.body.addEventListener("keydown",
+      event => {
+        var whatIsKey = event.key;
+        switch (whatIsKey) {
+
+          // 上段
+          case 'q':
+            play(soundQ, loopQ, loopValue_q);
+            console.log("q pressed");
+            break;
+          case 'w':
+            play(soundW, loopW, loopValue_w);
+            console.log("w pressed");
+            break;
+          case 'e':
+            play(soundE, loopE, loopValue_e);
+            console.log("e pressed");
+            break;
+          case 'r':
+            play(soundR, loopR, loopValue_r);
+            console.log("r pressed");
+            break;
+
+          // 中段
+          case 'a':
+            play(soundA,loopA,loopValue_a);
+            console.log("a pressed");
+            break;
+          case 's':
+            play(soundS,loopS,loopValue_s);
+            console.log("s pressed");
+            break;
+          case 'd':
+            // document.getElementById("caseBtn_d").onclick;
+            play(soundD,loopD,loopValue_d);
+            console.log("d pressed");
+            break;
+          case 'f':
+            // document.getElementById("caseBtn_f").onclick;
+            play(soundF,loopF,loopValue_f);
+            console.log("f pressed");
+            break;
+
+            // 下段
+            case 'z':
+              play(soundZ, loopZ, loopValue_z);
+              console.log("z pressed");
+              break;
+            case 'x':
+              play(soundX, loopX, loopValue_x);
+              console.log("x pressed");
+              break;
+            case 'c':
+              play(soundC, loopC, loopValue_c);
+              console.log("c pressed");
+              break;
+            case 'v':
+              play(soundV, loopV, loopValue_v);
+              console.log("v pressed");
+              break;
+        }
+      }
+    );
+
+
+    function play(plaing,loop,loopValue){
+      if(loop.loop == true){
+        console.log("switchPlay mode");
+        if(plaing.paused == false){
+          plaing.pause();
+        } else {
+          plaing.currentTime = 0;
+          plaing.play();
+        };
+      } else {
+        console.log("normalPlay mode");
+        plaing.currentTime = 0;
+        plaing.play();
+      };
+      console.log(plaing.paused);
+    };
+
+
+    // 音声選択フォーム読み込み(プロトタイプ)
+    function readFile(soundName,form){
+      form.addEventListener('change',function(form){
+        var reader = new FileReader();
+        reader.onload = function(form){
+          soundName.src = form.target.result;
+        }
+        reader.readAsDataURL(form.target.files[0]);
+
+        console.log(soundName);
+        console.log(form);
+        console.log(reader);
+      });
+    };
+
+
+
+    // // 音声選択フォーム読み込み(プロトタイプ)
+    // var myAudio = document.getElementById('myAudio');
+    // var cwf_preview = document.getElementById('cwf_preview');
+    // var cwf_preview_source = document.getElementById('cwf_preview_source');
+    // var reader = new FileReader();
+    //
+    // myAudio.addEventListener('change',function(e){
+    //   reader.onload = function(e){
+    //     // console.log(cwf_preview);
+    //     soundD.src = e.target.result;
+    //     // cwf_preview.src = e.target.result;
+    //     console.log(soundD.src);
+    //   }
+    //   reader.readAsDataURL(e.target.files[0]);
+    // });
+
+
+
+    // window.addEventListener('DOMContentLoaded',function(){
+    //   // ファイルが選択されたら実行
+    //   var file_reader = new FileReader();
+    //   file_reader.addEventListener('load',function(e){
+    //     // audio要素を作成?
+    //     var audio_element = document.createElement('audio');
+    //   });
+    // });
+
+
+
+
+
+    init;
+
+  </script>
+</body>
+</html>

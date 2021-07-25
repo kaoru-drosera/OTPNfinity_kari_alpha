@@ -1,0 +1,162 @@
+<div class="modal fade" id="signUpModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><h1>Sign UpPPP</h1></h5>
+        <button type="button" class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+      <p class="alert"><%= alert %></p><!--  .alert -->
+      <%= render "users/shared/error_messages", resource: resource %>
+      <div class="modal-body">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <div class="field">
+            <div class="field-cell"><%= f.label :email %></div><!--  .field-cell -->
+            <p class="field-cell" id="errmsg-email"></p><!--  .field-cell -->
+            <div class="field-cell"><%= f.email_field :email, autofocus: true, autocomplete: "email", size: "30", class:"email_cell" %></div><!--  .field-cell -->
+          </div>
+
+          <div class="field">
+            <div class="field-cell"><%= f.label :user_name %></div><!--  .field-cell -->
+            <p class="field-cell" id="errmsg-username"></p><!--  .field-cell -->
+            <div class="field-cell"><%= f.text_field :user_name, autocomplete: "off" %></div><!--  .field-cell -->
+          </div><!--  .field -->
+
+          <div class="field">
+            <div class="field-cell"><%= f.label :password %></div><!--  .field-cell -->
+            <p class="field-cell" id="errmsg-password"></p><!--  .field-cell -->
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+            <div class="field-cell"><%= f.password_field :password, autocomplete: "off", size: "30" %></div><!--  .field-cell -->
+          </div>
+
+          <div class="field">
+            <div class="field-cell"><%= f.label :password_confirmation %></div><!--  .field-cell -->
+            <p class="field-cell" id="errmsg-pswconfirm"></p><!--  .field-cell -->
+            <div class="field-cell"><%= f.password_field :password_confirmation, autocomplete: "off", size: "30" %></div><!--  .field-cell -->
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Sign up", class: 'btn btn-primary', id:'signup_submit' %>
+          </div>
+          <div>
+              <% render "devise/shared/links" %>
+          </div>
+
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+
+  window.addEventListener('DOMContentLoaded', () => {
+
+      // 「送信」ボタンの要素を取得
+      const submit = document.getElementById('signup_submit');
+
+      // 「送信」ボタンの要素にクリックイベントを設定する
+      submit.addEventListener('click', (e) => {
+
+          // 「メールアドレス」入力欄の空欄チェック
+          // フォームの要素を取得
+          const email = document.getElementById('user_email');
+          // エラーメッセージを表示させる要素を取得
+          const errMsgEmail = document.getElementById('errmsg-email');
+          if(!email.value){
+              // デフォルトアクションをキャンセル
+             e.preventDefault();
+
+              // クラスを追加(エラーメッセージを表示する)
+              errMsgEmail.classList.add('form-invalid');
+              // エラーメッセージのテキスト
+              errMsgEmail.textContent = 'メールアドレスが入力されていません';
+              // クラスを追加(フォームの枠線を赤くする)
+              email.classList.add('input-invalid');
+              // 後続の処理を止める
+              return;
+          }else if(!email.value.match(/^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/)){
+            // デフォルトアクションをキャンセル
+           e.preventDefault();
+            // クラスを追加(エラーメッセージを表示する)
+            errMsgEmail.classList.add('form-invalid');
+            // エラーメッセージのテキスト
+            errMsgEmail.textContent = 'メールアドレスの形式が違います。';
+            // クラスを追加(フォームの枠線を赤くする)
+            email.classList.add('input-invalid');
+            // 後続の処理を止める
+            return;
+          }else{
+            // エラーメッセージのテキストに空文字を代入
+            errMsgEmail.textContent ='';
+            // クラスを削除
+            email.classList.remove('input-invalid');
+          }
+
+
+          // ユーザーネームの値をチェック(要追記)
+          const username = document.getElementById('user_user_name');
+          const errUsername = document.getElementById('errmsg-username');
+          if(!username.value){
+              // デフォルトアクションをキャンセル
+              e.preventDefault();
+              errUsername.classList.add('form-invalid');
+              errUsername.textContent = 'ユーザーネームは必須項目です。';
+              return;
+          }else if(!username.value.match(/^(?!.*?[亜-熙ぁ-んァ-ヶ])[a-zA-Z0-9\s\W_]{2,50}$/)){
+            e.preventDefault();
+            errUsername.classList.add('form-invalid');
+            errUsername.textContent = 'ユーザーネームは半角英数字(スペース・記号可)で入力してください。';
+            return;
+          }else{
+              errUsername.textContent ='';
+              username.classList.remove('input-invalid');
+          };
+
+
+
+          // 「パスワード」入力欄の形式チェック
+          const pass = document.getElementById('user_password');
+          const errMsgPass = document.getElementById('errmsg-password');
+          // パスワードが5文字以上の半角英数字であるかどうかのチェック
+          if(!pass.value.match(/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d\W]{5,35}$/i)){
+              // デフォルトアクションをキャンセル
+              e.preventDefault();
+
+              errMsgPass.classList.add('form-invalid');
+              errMsgPass.textContent = '半角英数字5文字以上35文字以下で入力してください';
+              pass.classList.add('input-invalid');
+              return;
+          }else{
+              errMsgPass.textContent ='';
+              pass.classList.remove('input-invalid');
+          }
+
+
+          // 「パスワード」と「パスワード再入力」が一致しているかどうかのチェック
+          const passRe = document.getElementById('user_password_confirmation');
+          const errMsgPassRe = document.getElementById('errmsg-pswconfirm');
+          if(pass.value !== passRe.value){
+              // デフォルトアクションをキャンセル
+              e.preventDefault();
+
+              errMsgPassRe.classList.add('form-invalid');
+              errMsgPassRe.textContent = 'パスワードとパスワード再入力が一致していません';
+              passRe.classList.add('input-invalid');
+              return;
+          }else{
+              errMsgPassRe.textContent ='';
+              passRe.classList.remove('input-invalid');
+          }
+
+      }, false);
+  }, false);
+
+</script>
