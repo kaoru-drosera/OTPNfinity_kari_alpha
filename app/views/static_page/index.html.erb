@@ -114,6 +114,13 @@
     </div><!--  .case-btn-d -->
   </div><!--  .btnwrapper-v1 -->
 
+
+  <div class="volchangerbtn-wrap">
+    <span id="volchangebtnD" style="height: 50px; width: 175px; background-color: #ff0; display: block;">press here to change volumeD</span>
+  </div><!--  .volchangerbtn-wrap -->
+
+
+
   <div class="casewithform-wrap">
     <input type="file" id="myAudio" accept="sounds/*">
   </div><!--  .casewithform-wrap -->
@@ -563,6 +570,23 @@
     // });
 
 
+    // ボリューム変更ボタン(test)
+    var volChangerD = document.getElementById("volchangebtnD");
+
+    volChangerD.addEventListener('click',function(){
+
+      // 音量変更
+      volumeD.value = 15;
+      soundD.volume = 0.15;
+      soundD.src = "./sounds/ビシッとツッコミ1.mp3";
+      form_fileD.value = "";
+
+      // form_fileD.value = "./sounds/ビシッとツッコミ1.mp3";
+      // ↑のように「フォームの値を変更」はセキュリティ上の理由で不可能。
+      // その代わりとして「フォームの値をリセットしてsoundD.srcを直接変更」
+      // …という方法で行うことにした。
+
+    });
 
 
 

@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
 
 
+  get 'sefile/show'
+  get 'sampler/save'
+  get 'sampler/show'
   devise_for :users, controllers: {
     registrations: "users/registrations",
     sessions: "users/sessions"
