@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'sefile/show'
   get 'sampler/save'
+  # post 'sampler/save', to: 'sampler/submit' 
   get 'sampler/show'
   devise_for :users, controllers: {
     registrations: "users/registrations",

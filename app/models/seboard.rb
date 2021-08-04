@@ -1,4 +1,4 @@
 class Seboard < ApplicationRecord
   belongs_to :sampler
-  belongs_to :sefile
+  has_one :sefile
 end
