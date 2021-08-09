@@ -18,107 +18,15 @@
     <p>longrangeshooting</p>
   </div> -->
 
-  <div class="btnwrapper-v1">
-    <!-- 上段 -->
-    <div class="case-btn-q case-btn" onclick="play(soundQ, loopQ, loopValue_q)">
-      <p>Q</p>
-      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
-      <input type="range" onchange="volumeInit(soundQ, volumeQ, volumeValue_q)" id="vol-q" value="50" min="1" max="99">
-      <input type="file" id="selectFile_q" onclick="readFile(soundQ, form_fileQ)" accept="sounds/*">
-      <input type="checkbox" onclick="loopInit(soundQ, loopQ, loopValue_q)" id="loopable_q" name="loopable?" value="">
-    </div><!--  .case-btn-d -->
-    <div class="case-btn-w case-btn" onclick="play(soundW, loopW, loopValue_w)">
-      <p>W</p>
-      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
-      <input type="range" onchange="volumeInit(soundW, volumeW, volumeValue_w)" id="vol-w" value="50" min="1" max="99">
-      <input type="file" id="selectFile_w" onclick="readFile(soundW, form_fileW)" accept="sounds/*">
-      <input type="checkbox" onclick="loopInit(soundW, loopW, loopValue_w)" id="loopable_w" name="loopable?" value="">
-    </div><!--  .case-btn-d -->
-    <div class="case-btn-e case-btn" onclick="play(soundE, loopE, loopValue_e)">
-      <p>E</p>
-      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
-      <input type="range" onchange="volumeInit(soundE, volumeE, volumeValue_e)" id="vol-e" value="50" min="1" max="99">
-      <input type="file" id="selectFile_e" onclick="readFile(soundE, form_fileE)" accept="sounds/*">
-      <input type="checkbox" onclick="loopInit(soundE, loopE, loopValue_e)" id="loopable_e" name="loopable?" value="">
-    </div><!--  .case-btn-d -->
-    <div class="case-btn-r case-btn" onclick="play(soundR, loopR, loopValue_r)">
-      <p>R</p>
-      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
-      <input type="range" onchange="volumeInit(soundR, volumeR, volumeValue_r)" id="vol-r" value="50" min="1" max="99">
-      <input type="file" id="selectFile_r" onclick="readFile(soundR, form_fileR)" accept="sounds/*">
-      <input type="checkbox" onclick="loopInit(soundR, loopR, loopValue_r)" id="loopable_r" name="loopable?" value="">
-    </div><!--  .case-btn-d -->
 
-
-
-    <!-- 中段 -->
-    <div class="case-btn-a case-btn" onclick="play(soundA,loopA,loopValue_a)">
-      <p>A</p>
-      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
-      <input type="range" onchange="volumeInit(soundA, volumeA, volumeValue_a)" id="vol-a" value="50" min="1" max="99">
-      <input type="file" id="selectFile_a" onclick="readFile(soundA, form_fileA)" accept="sounds/*">
-      <input type="checkbox" onclick="loopInit(soundA, loopA, loopValue_a)" id="loopable_a" name="loopable?" value="">
-    </div><!--  .case-btn-d -->
-    <div class="case-btn-s case-btn" onclick="play(soundS,loopS,loopValue_s)">
-      <p>S</p>
-      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
-      <input type="range" onchange="volumeInit(soundS, volumeS, volumeValue_s)" id="vol-s" value="50" min="1" max="99">
-      <input type="file" id="selectFile_s" onclick="readFile(soundS, form_fileS)" accept="sounds/*">
-      <input type="checkbox" onclick="loopInit(soundS, loopS, loopValue_s)" id="loopable_s" name="loopable?" value="">
-    </div><!--  .case-btn-d -->
-    <div class="case-btn-d case-btn"  id="caseBtn_d" onclick="play(soundD,loopD,loopValue_d)" keytouch="d">
-      <p>D</p>
-      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
-      <input type="range" onchange="volumeInit(soundD, volumeD, volumeValue_d)" id="vol-d" value="50" min="1" max="99">
-      <input type="file" id="selectFile_d" onclick="readFile(soundD, form_fileD)" accept="sounds/*">
-      <input type="checkbox" onclick="loopInit(soundD, loopD, loopValue_d)" id="loopable_d" name="loopable?" value="">
-    </div><!--  .case-btn-d -->
-    <div class="case-btn-f case-btn" id="caseBtn_f" onclick="play(soundF,loopF,loopValue_f)" keytouch="f">
-      <p>F</p>
-      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
-      <input type="range" onchange="volumeInit(soundF, volumeF, volumeValue_f)" id="vol-f" value="50" min="1" max="99">
-      <input type="file" id="selectFile_f" onclick="readFile(soundF, form_fileF)" accept="sounds/*">
-      <input type="checkbox" onclick="loopInit(soundF, loopF, loopValue_f)" id="loopable_f" name="loopable?" value="">
-    </div><!--  .case-btn-d -->
-
-
-
-    <!-- 下段 -->
-    <div class="case-btn-z case-btn" onclick="play(soundZ, loopZ, loopValue_z)">
-      <p>Z</p>
-      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
-      <input type="range" onchange="volumeInit(soundZ, volumeZ, volumeValue_z)" id="vol-z" value="50" min="1" max="99">
-      <input type="file" id="selectFile_z" onclick="readFile(soundZ, form_fileZ)" accept="sounds/*">
-      <input type="checkbox" onclick="loopInit(soundZ, loopZ, loopValue_z)" id="loopable_z" name="loopable?" value="">
-    </div><!--  .case-btn-d -->
-    <div class="case-btn-x case-btn" onclick="play(soundX, loopX, loopValue_x)">
-      <p>X</p>
-      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
-      <input type="range" onchange="volumeInit(soundX, volumeX, volumeValue_x)" id="vol-x" value="50" min="1" max="99">
-      <input type="file" id="selectFile_x" onclick="readFile(soundX, form_fileX)" accept="sounds/*">
-      <input type="checkbox" onclick="loopInit(soundX, loopX, loopValue_x)" id="loopable_x" name="loopable?" value="">
-    </div><!--  .case-btn-d -->
-    <div class="case-btn-c case-btn" onclick="play(soundC, loopC, loopValue_c)">
-      <p>C</p>
-      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
-      <input type="range" onchange="volumeInit(soundC, volumeC, volumeValue_c)" id="vol-c" value="50" min="1" max="99">
-      <input type="file" id="selectFile_c" onclick="readFile(soundC, form_fileC)" accept="sounds/*">
-      <input type="checkbox" onclick="loopInit(soundC, loopC, loopValue_c)" id="loopable_c" name="loopable?" value="">
-    </div><!--  .case-btn-d -->
-    <div class="case-btn-v case-btn" onclick="play(soundV, loopV, loopValue_v)">
-      <p>V</p>
-      <!-- <button onclick="play()" class="playbtn">[D]</button> -->
-      <input type="range" onchange="volumeInit(soundV, volumeV, volumeValue_v)" id="vol-v" value="50" min="1" max="99">
-      <input type="file" id="selectFile_v" onclick="readFile(soundV, form_fileV)" accept="sounds/*">
-      <input type="checkbox" onclick="loopInit(soundV, loopV, loopValue_v)" id="loopable_v" name="loopable?" value="">
-    </div><!--  .case-btn-d -->
-  </div><!--  .btnwrapper-v1 -->
 
 
   <div class="volchangerbtn-wrap">
     <span id="volchangebtnD" style="height: 50px; width: 175px; background-color: #ff0; display: block;">press here to change volumeD</span>
+    <span id="volchangebtnQ" style="height: 50px; width: 175px; background-color: #808; display: block;">press here to change volumeQ</span>
   </div><!--  .volchangerbtn-wrap -->
 
+  <%= render 'sampler/seindex' %>
 
 
   <div class="casewithform-wrap">
@@ -298,6 +206,12 @@
     var loopW = document.getElementById("loopable_w");
     var loopE = document.getElementById("loopable_e");
     var loopR = document.getElementById("loopable_r");
+    var btnColorQ = document.getElementsByName("sampler[seboards_attributes][1][btncolor]");
+    var btnColorW = document.getElementsByName("sampler[seboards_attributes][2][btncolor]");
+    var bg_Q = document.getElementById("bg-q");
+    var bg_W = document.getElementById("bg-w");
+    // var btnColorE = document.getElementByName("sampler[seboards_attributes][3][btncolor]");
+    // var btnColorR = document.getElementByName("sampler[seboards_attributes][4][btncolor]");
     var form_fileQ = document.getElementById("selectFile_q");
     var form_fileW = document.getElementById("selectFile_w");
     var form_fileE = document.getElementById("selectFile_e");
@@ -314,6 +228,10 @@
     console.log(volumeW);
     console.log(volumeE);
     console.log(volumeR);
+    console.log(btnColorQ);
+    console.log(btnColorW);
+    console.log(bg_Q);
+    console.log(bg_W);
 
 
     // 中段
@@ -572,6 +490,7 @@
 
     // ボリューム変更ボタン(test)
     var volChangerD = document.getElementById("volchangebtnD");
+    var volChangerQ = document.getElementById("volchangebtnQ");
 
     volChangerD.addEventListener('click',function(){
 
@@ -587,6 +506,50 @@
       // …という方法で行うことにした。
 
     });
+    volChangerQ.addEventListener('click',function(){
+
+      // 音量変更
+      volumeQ.value = 15;
+      soundQ.volume = 0.15;
+      soundQ.src = "./sounds/ビシッとツッコミ1.mp3";
+      form_fileQ.value = "";
+      bg_Q.style.backgroundColor = "#808";
+
+      // form_fileD.value = "./sounds/ビシッとツッコミ1.mp3";
+      // ↑のように「フォームの値を変更」はセキュリティ上の理由で不可能。
+      // その代わりとして「フォームの値をリセットしてsoundD.srcを直接変更」
+      // …という方法で行うことにした。
+
+    });
+
+
+    // ボタン色
+    function btnColorInit(btnColor, bg){
+      console.log(btnColor);
+      console.log(bg);
+      for(var i=0; i<btnColor.length; i++){
+        if(btnColor[i].checked){
+          // console.log(i);
+          console.log(btnColor);
+          var a = btnColor[i].value;
+          console.log(a);
+          // break;
+
+          switch (a) {
+            case "1":
+              bg.style.backgroundColor = "#f88";
+              break;
+            case "2":
+              bg.style.backgroundColor = "#88f";
+              break;
+            case "3":
+              bg.style.backgroundColor = "#fff";
+              break;
+          }
+        }
+      }
+    }
+
 
 
 

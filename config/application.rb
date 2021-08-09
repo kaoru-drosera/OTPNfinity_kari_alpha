@@ -28,5 +28,8 @@ module OTPNfinityKari
     end
     config.autoload_paths += %W(#{config.root}/lib)
     config.i18n.default_locale = :ja  #:jaはjapaneseのja
+
+    # carrierwaveエラー対策
+    config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
   end
 end

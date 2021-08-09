@@ -1,5 +1,8 @@
 class User < ApplicationRecord
-  
+
+  has_many :sampler, foreign_key: 'user_id'#, dependent: :destroy
+  has_many :sefile, foreign_key: 'user_id'#, dependent: :destroy
+
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable,  :authentication_keys => [:user_name]#:validatable,

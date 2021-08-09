@@ -18,9 +18,13 @@ gem 'capybara', '>= 3.26'
 gem 'selenium-webdriver'
 gem 'font-awesome-rails'
 
+# 画像投稿
+gem 'carrierwave'
+
 gem 'jquery-rails'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
+gem 'pry-rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.2.3'
 

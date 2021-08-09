@@ -4,8 +4,12 @@ Rails.application.routes.draw do
 
   get 'sefile/show'
   get 'sampler/save'
-  # post 'sampler/save', to: 'sampler/submit' 
+  # ↓「ホーム画面から投稿がしたい」という時は
+  # post元を「/」にする。
+  post '/' => 'sampler#submit'
+  # get '/' => 'sampler#seindex'
   get 'sampler/show'
+  resources :sampler, only: [:seindex, :save, :submit, :show]
   devise_for :users, controllers: {
     registrations: "users/registrations",
     sessions: "users/sessions"
