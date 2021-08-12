@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_09_111346) do
+ActiveRecord::Schema.define(version: 2021_08_10_170607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_08_09_111346) do
 
   create_table "seboards", force: :cascade do |t|
     t.bigint "sampler_id", null: false
-    t.bigint "sefile_id", null: false
+    t.bigint "sefile_id"
     t.integer "position"
     t.integer "btncolor"
     t.integer "volume"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_08_09_111346) do
   create_table "sefiles", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "sename"
-    t.binary "sedata"
+    t.string "sedata"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "seboard_id"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_08_09_111346) do
 
   add_foreign_key "samplers", "users"
   add_foreign_key "seboards", "samplers"
+  add_foreign_key "seboards", "sefiles"
   add_foreign_key "sefiles", "seboards"
   add_foreign_key "sefiles", "users"
 end

@@ -3,11 +3,8 @@
 <div class="btnwrapper-v1">
 
   <%= form_with model: @sampler do |sp| %>
-    <%= fields_for :seboards do |sb| %>
-      <%= fields_for :sefile do |sf| %>
-
-
-
+    <%= sp.fields_for :seboards do |sb| %>
+      <%= sb.fields_for :sefile do |sf| %>
 
   <!-- 上段 -->
   <div id="bg-q" class="case-btn-q case-btn" onclick="play(soundQ, loopQ, loopValue_q); btnColorInit(btnColorQ, bg_Q)">

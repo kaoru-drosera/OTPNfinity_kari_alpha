@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
-  has_many :sampler, foreign_key: 'user_id'#, dependent: :destroy
-  has_many :sefile, foreign_key: 'user_id'#, dependent: :destroy
+  has_many :sampler, foreign_key: 'user_id',inverse_of: :user#, dependent: :destroy
+  has_many :sefile, foreign_key: 'user_id',inverse_of: :user#, dependent: :destroy
 
 
   devise :database_authenticatable, :registerable,
