@@ -1,4 +1,17 @@
 <h4>サンプラー一覧</h4>
 <% @samplers.each do |sampler| %>
-  <h3><%= sampler.sampler_name %></h3>
+  <div class="sampler-wrapper" style="margin-bottom: 10px;">
+    <h5 style="color: #880;"><%= sampler.sampler_name %></h5>
+    <p style="font-size: 8px;"><%= sampler.created_at %>   <%= sampler.updated_at %></p>
+
+  <% sampler.seboards.each do |seboard| %>
+  <p><%= seboard.position %> | <%= seboard.btncolor %> | <%= seboard.volume %> | <%= seboard.loopable %></p>
+
+  <p><%= seboard.sefile.sedata %></p>
+  <p><%= seboard.sefile.sename %></p>
+
+
+  <% end %>
+  </div><!--  .sampler-wrapper -->
+
 <% end %>

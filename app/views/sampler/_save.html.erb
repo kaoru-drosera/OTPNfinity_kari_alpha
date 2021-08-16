@@ -3,6 +3,7 @@
 <div class="btnwrapper-v1">
 
   <%= form_with model: @sampler do |sp| %>
+
     <%= sp.fields_for :seboards do |sb| %>
       <%= sb.fields_for :sefile do |sf| %>
 
@@ -129,13 +130,14 @@
     <input type="checkbox" onclick="loopInit(soundV, loopV, loopValue_v)" id="loopable_v" name="loopable?" value="">
   </div><!--  .case-btn-d -->
 
+
+  <% end %>
+  <% end %>
+
   <p>サンプラー名</p>
-
-  <% end %>
-  <% end %>
-
-  <%= sp.text_field :sampler_name %>
+  <%= sp.text_field :sampler_name, :name=>"sampler[sampler_name]",required: true %>
   <%= sp.submit "保存する" %>
+
   <% end %>
 
 
