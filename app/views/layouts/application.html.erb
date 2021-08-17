@@ -15,11 +15,13 @@
     <p class="notice"><%= notice %></p><!--  .notice -->
     <p class="alert"><%= alert %></p><!--  .alert -->
 
-    <%= render 'layouts/navbar' %>
+    <%= render partial: 'layouts/navbar' %>
 
-    <%= render 'sampler/save' %>
+    <%= render partial: 'sampler/save' %>
 
-    <%= render 'sampler/index' %>
+    <% if user_signed_in? %>
+      <%= render partial: 'sampler/index' %>
+    <% end %>
 
     <%= yield %>
 
@@ -27,6 +29,9 @@
 
       <%= render partial: 'devise/registrations/new' %>
       <%= render partial: 'devise/sessions/new' %>
+
+    <% else %>
+
 
     <% end %>
   </body>

@@ -5,7 +5,7 @@ class SamplerController < ApplicationController
   # 投稿を一覧形式にする(予定)
   def index
     @user = current_user.id
-    @samplers = Sampler.all.includes(seboards: :sefile)
+    @samplers = current_user.sampler.all.includes(seboards: :sefile)
   end
 
   def save
