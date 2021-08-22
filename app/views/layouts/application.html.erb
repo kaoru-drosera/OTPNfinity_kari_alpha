@@ -19,11 +19,13 @@
 
     <%= render partial: 'sampler/save' %>
 
-    <% if user_signed_in? %>
-      <%= render partial: 'sampler/index' %>
-    <% end %>
 
     <%= yield %>
+
+    <% if user_signed_in? %>
+    <%= render partial: 'sampler/index' %>
+    <% end %>
+    
 
     <% unless user_signed_in? %>
 

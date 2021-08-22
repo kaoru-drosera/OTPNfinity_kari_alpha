@@ -1,6 +1,7 @@
 class SamplerController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :sampler_name_picker, only:[:show, :submit]
 
   # 投稿を一覧形式にする(予定)
   def index
@@ -9,18 +10,25 @@ class SamplerController < ApplicationController
   end
 
   def save
-    @sampler = current_user.samplers.build
-    @sampler.seboards.build
-    @sampler.sefile.find_or_initialize_by(sename: params[:sename], sedata: params[:sedata])
+    puts sampler_name_picker.nil?
+
+    puts sampler_name_picker.new_record?
+
+    # @sampler.seboards.build
+    # @sampler.sefile.find_or_initialize_by(sename: params[:sename], sedata: params[:sedata])
     # @sampler.sefile.find_or_initialize_by(sename: params[:sename], sedata: params[:sedata])
   end
 
   def submit
-    @sampler = current_user.sampler.find_or_initialize_by(sampler_name: params[:sampler_name])
-    # @sampler.seboards.build
-    # @sampler.seboards.sefiles.build_seboard
-    # sampler_sefile = Sampler.seboard.sefile.find_or_initialize_by(sename: params[:sename], sedata: params[:sedata])
-    unless @sampler.persisted?
+    # puts sampler_name_picker.nil?
+    #
+    # puts sampler_name_picker.new_record?
+
+    if sampler_name_picker.new_record?
+      puts sampler_name_picker.new_record?
+
+      puts '保存乙'
+
       @sampler = current_user.sampler.build(sampler_params)
       # @sampler = current_user.sampler.map(&:seboard).sefile.new(sampler_params)
       # @sampler.user_id = current_user.id
@@ -32,17 +40,19 @@ class SamplerController < ApplicationController
       end
 
     else
-      @sampler = current_user.sampler.update(update_sampler_params)
-      # @sampler.save
+      puts sampler_name_picker.new_record?
 
-      unless @sampler.save!
+      # @sampler = User.find(current_user.id).sampler.find_or_initialize_by(sampler_name: params[:sampler_name])
+      puts '更新乙'
+
+
+      unless @sampler.update(update_sampler_params)
         flash[:danger] = "更新に失敗しました"
       else
         flash[:success] = "更新しました"
       end
 
     end
-
     redirect_to root_path
 
   end
@@ -60,7 +70,15 @@ class SamplerController < ApplicationController
   end
 
   def update_sampler_params
-    params.require(:sampler).permit(:sampler_name, seboards_attributes: [:position, :btncolor, :volume, :loopable, sefile_attributes: [:sename, :sedata]],)#.deep_merge!(seboards_attributes:[sefile_attribute:[user_id: current_user.id]])
+    params.require(:sampler).permit(:sampler_name, seboards_attributes: [:position, :btncolor, :volume, :loopable, :id, sefile_attributes: [:sename, :sedata, :id]],)#.deep_merge!(seboards_attributes:[sefile_attribute:[user_id: current_user.id]])
+  end
+
+  def sampler_name_picker
+    Sampler.find_or_initialize_by(sampler_name: params[:sampler_name])
+  end
+
+  def find_or_initialize
+
   end
 
 
