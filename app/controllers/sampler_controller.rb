@@ -42,11 +42,11 @@ class SamplerController < ApplicationController
     else
       puts sampler_name_picker.new_record?
 
-      # @sampler = User.find(current_user.id).sampler.find_or_initialize_by(sampler_name: params[:sampler_name])
+      @sampler = sampler_name_picker
       puts '更新乙'
 
 
-      unless @sampler.update(update_sampler_params)
+      unless @sampler.update(sampler_params)
         flash[:danger] = "更新に失敗しました"
       else
         flash[:success] = "更新しました"
@@ -73,8 +73,12 @@ class SamplerController < ApplicationController
     params.require(:sampler).permit(:sampler_name, seboards_attributes: [:position, :btncolor, :volume, :loopable, :id, sefile_attributes: [:sename, :sedata, :id]],)#.deep_merge!(seboards_attributes:[sefile_attribute:[user_id: current_user.id]])
   end
 
+  def sampler_name_param
+    sampler_params[:sampler_name]
+  end
+
   def sampler_name_picker
-    Sampler.find_or_initialize_by(sampler_name: params[:sampler_name])
+    Sampler.find_or_initialize_by(sampler_name: sampler_name_param)
   end
 
   def find_or_initialize
