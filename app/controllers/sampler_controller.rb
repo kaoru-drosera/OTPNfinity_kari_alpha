@@ -78,7 +78,7 @@ class SamplerController < ApplicationController
   end
 
   def sampler_name_picker
-    Sampler.find_or_initialize_by(sampler_name: sampler_name_param)
+    current_user.sampler.find_or_initialize_by(sampler_name: sampler_name_param)
   end
 
   def find_or_initialize
