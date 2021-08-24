@@ -8,6 +8,8 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag('jquery.jscroll.min') %>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/1.4.4/instantsearch.min.css" integrity="sha512-0skeikhsHZnvubV5SsyW1roftIpq0p3pYSC6KwBdUtUncSgfrm1Llq4C4EAWkW4q1Pgy7Szhlm5FUGs5tBPbLQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
   </head>
 
 
@@ -25,7 +27,7 @@
     <% if user_signed_in? %>
     <%= render partial: 'sampler/index' %>
     <% end %>
-    
+
 
     <% unless user_signed_in? %>
 

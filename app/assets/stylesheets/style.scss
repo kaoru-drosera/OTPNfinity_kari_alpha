@@ -56,6 +56,58 @@
 // 基本的な設定 ここまで
 
 
+// 無限スクロール
+
+nav.pagination
+{
+  display: none;
+}
+.jscroll
+{
+  // margin-bottom: 300px;
+  .sampler
+  {
+    background-color: #eee;
+    margin-bottom: 20px;
+  }
+}
+
+// 無限スクロール ここまで
+
+
+
+// リアルタイム検索
+
+.algolia-autocomplete {
+    width: 100%;
+}
+.algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+    width: 100%;
+}
+.algolia-autocomplete .aa-hint {
+    color: #999;
+}
+.algolia-autocomplete .aa-dropdown-menu {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #999;
+    border-top: none;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+    cursor: pointer;
+    padding: 5px 4px;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+    background-color: #B2D7FF;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+    font-weight: bold;
+    font-style: normal;
+}
+
+// リアルタイム検索 ここまで
+
+
 // 効果音ライブラリ
 
 .sl-content
@@ -91,6 +143,7 @@
 .btnwrapper-v1
 {
   width: 50%;
+  margin-bottom: 80px;
 }
 .case-btn
 {
@@ -134,6 +187,16 @@
 
 
 // サンプラー設定 ここまで
+
+
+// サンプラー一覧
+
+.sampler-index
+{
+  background-color: #ddd;
+}
+
+// サンプラー一覧 ここまで
 
 
 // テストデータ等

@@ -55,6 +55,9 @@ group :development, :test do
 gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 gem 'sqlite3'
 gem 'audiojs-rails'
+gem 'kaminari'
+gem "algoliasearch-rails"
+
 end
 
 group :development do

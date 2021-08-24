@@ -15,4 +15,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.paths << Rails.root.join("app", "assets", "sounds")
 Rails.application.config.assets.precompile += ['*.js','*.css']
-Rails.application.config.assets.precompile += %w( click.mp3 )
+Rails.application.config.assets.precompile += %w( jquery.jscroll.min )
+Rails.application.config.assets.precompile += %w( instantsearch )

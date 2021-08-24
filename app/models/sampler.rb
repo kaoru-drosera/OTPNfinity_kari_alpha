@@ -9,6 +9,15 @@ class Sampler < ApplicationRecord
   has_many :seboards, inverse_of: :sampler#, class_name: "Seboard", foreign_key: 'seboard_id'
   accepts_nested_attributes_for :seboards
 
+  #
+
+  # 検索機能
+  include AlgoliaSearch
+
+  algoliasearch do
+    attribute :sampler_name
+    searchableAttributes %w[sampler_name]
+  end
   # バリデーション(予定)
 
 

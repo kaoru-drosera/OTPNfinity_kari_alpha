@@ -29,3 +29,16 @@ import "bootstrap"
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+//= require jquery.jscroll.min.js
+
+$(window).on('scroll', function() {
+  scrollHeight = $(document).height();
+  scrollPosition = $(window).height() + $(window).scrollTop();
+  if ( (scrollHeight - scrollPosition) / scrollHeight <= 0.15) {
+    $('.jscroll').jscroll({
+      contentSelector: '.scroll-list',
+      nextSelector: 'span.next:last a'
+    });
+  }
+});
