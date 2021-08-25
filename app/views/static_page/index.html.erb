@@ -11,6 +11,12 @@
   <link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.ico">
   <link rel="apple-touch-icon-precomposed" href="/favicon-152.png">
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.1/dist/instantsearch.min.css">
+
+  <!-- You can also add this theme to add a Bootstrap-like appearance to your widgets. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.1/dist/instantsearch-theme-algolia.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css" integrity="sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc=" crossorigin="anonymous">
+
 </head>
 <body>
 
@@ -400,16 +406,14 @@
     });
 
 
-    
+
 
 
     // リアルタイム検索実装
 
-
-
-
-
-
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js" integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js" integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
+  <%# javascript_pack_tag 'app' %>
 </body>
 </html>
