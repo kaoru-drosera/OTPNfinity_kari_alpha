@@ -136,9 +136,16 @@
   <% end %>
   <% end %>
 
+
+
   <p>サンプラー名</p>
+
+  <% if user_signed_in? %>
+
   <%= sp.text_field :sampler_name, :name=>"sampler[sampler_name]",required: true %>
   <%= sp.submit "保存する" %>
+
+  <% end %>
 
   <% end %>
 

@@ -13,18 +13,22 @@ search.addWidgets([
 
   // 3. Plug the search results into the product container
   instantsearch.widgets.hits({
-    container: '#search-index',
-    templates: {
-      item: '{{#helpers.highlight}}{ "attribute": "sampler_name;" }{{/helpers.highlight}}',
-    },
+    container: '#search-index'
   }),
 
 //   // 4. Make the brands refinable … i have no "blands"! 😂
-  instantsearch.widgets.refinementList({
-    container: '#brand',
-    attribute: 'brand',
-  }),
+  // instantsearch.widgets.refinementList({
+  //   container: '#brand',
+  //   attribute: 'brand',
+  // }),
 ]);
 
 // 5. Start the search!
 search.start();
+
+
+
+function getTemplate(templateName) {
+  return document.querySelector('#' + templateName + '-
+template').innerHTML;
+}

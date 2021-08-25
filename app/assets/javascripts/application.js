@@ -3,6 +3,9 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
+require ('index_script')
+
+
 import "bootstrap"
 
 // This file is automatically compiled by Webpack, along with any other files
@@ -21,8 +24,8 @@ import "bootstrap"
 
 //= require audiojs
 
-//= require_tree .
 
+//= require jquery
 //= require jquery
 
 
@@ -42,3 +45,17 @@ $(window).on('scroll', function() {
     });
   }
 });
+
+
+// クリックで値を変更
+
+
+// config.assets.precompile << "index_script.js.erb"
+
+
+
+
+
+
+
+//= require_tree .

@@ -6,7 +6,7 @@ class SamplerController < ApplicationController
   # 投稿を一覧形式にする(予定)
   def index
     @user = current_user.id
-    @samplers = current_user.sampler.includes(seboards: :sefile).order("created_at DESC").algolia_search(params[:query], hitsPerPage: 3, page: params[:page])
+    @samplers = current_user.sampler.includes(seboards: :sefile).order("created_at DESC").algolia_search(params[:query])
   end
 
   def save
@@ -14,8 +14,12 @@ class SamplerController < ApplicationController
 
     puts sampler_name_picker.new_record?
 
-    sampler_name_picker.seboards.sefile.sedata.cache! unless sampler_name_picker.seboards.sefile.sedata.blank?
+    if sampler_name_picker.seboards.sefile.sedata.blank?
 
+    end
+
+    sampler_name_picker.seboards.sefile.sedata.retrieve_from_cache! unless sampler_name_picker.seboards.sefile.sedata.blank?
+    sampler_name_picker.seboards.sefile.sedata_cache = sampler_name_picker.seboards.sefile.sedata.cache_name
 
   end
 
@@ -27,6 +31,8 @@ class SamplerController < ApplicationController
       puts '保存乙'
 
       @sampler = current_user.sampler.build(sampler_params)
+      sampler_name_picker.seboards.sefile.sedata.retrieve_from_cache! unless sampler_name_picker.seboards.sefile.sedata.blank?
+
 
       # @sampler = current_user.sampler.map(&:seboard).sefile.new(sampler_params)
       # @sampler.user_id = current_user.id
@@ -65,7 +71,7 @@ class SamplerController < ApplicationController
   private
 
   def sampler_params
-    params.require(:sampler).permit(:sampler_name, seboards_attributes: [:position, :btncolor, :volume, :loopable, sefile_attributes: [:sename, :sedata]],)#.deep_merge!(seboards_attributes:[sefile_attributes:[user_id: current_user.id]])
+    params.require(:sampler).permit(:sampler_name, seboards_attributes: [:position, :btncolor, :volume, :loopable, sefile_attributes: [:sename, :sedata, :sedata_cache]])#.deep_merge!(seboards_attributes:[sefile_attributes:[user_id: current_user.id]])
   end
 
   def update_sampler_params

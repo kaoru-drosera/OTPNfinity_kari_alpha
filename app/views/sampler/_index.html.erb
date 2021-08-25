@@ -12,84 +12,90 @@
         <%= f.text_field :query, value: params[:query], class: 'input', id: 'search-field query', autocomplete: 'off' %>
       </div><!--  .controll is-expanded -->
         <%# javascript_pack_tag 'suggestionForm' %>
-        <%# javascript_pack_tag 'InstantSearch' %>
+        <%= javascript_pack_tag 'InstantSearch' %>
     </div><!--  .field has-addons -->
   <% end %>
 
 
 
-  <div class="scroll-list jscroll" id="search-index">
 
+  <div class="jscroll">
 
     <% @samplers.each do |sampler| %>
-    <div class="sampler" id="sampler_<%= sampler.id %>" style="">
-      <p><%= sampler.sampler_name %></p>
+    <div class="scroll-list" id="search-index">
 
-      <%
-      @seboard_Q = sampler.seboards.order(id: :desc).find_by(position: 1)
-      @seboard_W = sampler.seboards.order(id: :desc).find_by(position: 2)
-      %>
-      <div style="padding:10px; margin-bottom:10px; display: inline-block; border: 1px solid #000;">
-        Q | <%= @seboard_Q.position %> | <%= @seboard_Q.btncolor %> | <%= @seboard_Q.volume %> | <%= @seboard_Q.loopable %> | <%= @seboard_Q.sefile.sedata %> | <%= @seboard_Q.sefile.sename %>
-      </div>
-      <div style="padding:10px; margin-bottom:10px; display: inline-block; border: 1px solid #000;">
-        W | <%= @seboard_W.position %> | <%= @seboard_W.btncolor %> | <%= @seboard_W.volume %> | <%= @seboard_W.loopable %> | <%= @seboard_W.sefile.sedata %> | <%= @seboard_W.sefile.sedata.identifier %> | <%= @seboard_W.sefile.sename %>
-      </div>
+      <div class="sampler" id="sampler_<%= sampler.id %>" style="">
+        <p><%= sampler.sampler_name %></p>
 
-      <script>
-        var samplerPost_<%= sampler.id %> = document.getElementById('sampler_<%= sampler.id %>');
-
-        samplerPost_<%= sampler.id %>.addEventListener('click',function(){
-          // 音量変更
-
-          samplerName.value = "<%= sampler.sampler_name %>";
-
-          // 上段
-          // Q
-          volumeQ.value = <%= @seboard_Q.volume %>;
-          soundQ.volume = <%= @seboard_Q.volume %> * 0.01;
-          btnColorQ[<%= @seboard_Q.btncolor %> - 1].checked = true;
-          btnColorInit(btnColorQ, bg_Q);
-          soundQ.src = "<%= @seboard_Q.sefile.sedata %>";
-
-          loopQ.checked = <%= @seboard_Q.loopable %>;
-          loopQ.loop = <%= @seboard_Q.loopable %>;
-          loopValue_q = <%= @seboard_Q.loopable %>;
-          soundQ.loop = <%= @seboard_Q.loopable %>;
+        <%
+        @seboard_Q = sampler.seboards.order(id: :desc).find_by(position: 1)
+        @seboard_W = sampler.seboards.order(id: :desc).find_by(position: 2)
+        %>
+        <div style="padding:10px; margin-bottom:10px; display: inline-block; border: 1px solid #000;">
+          Q | <%= @seboard_Q.position %> | <%= @seboard_Q.btncolor %> | <%= @seboard_Q.volume %> | <%= @seboard_Q.loopable %> | <%= @seboard_Q.sefile.sedata %> | <%= @seboard_Q.sefile.sename %>
+        </div>
+        <div style="padding:10px; margin-bottom:10px; display: inline-block; border: 1px solid #000;">
+          W | <%= @seboard_W.position %> | <%= @seboard_W.btncolor %> | <%= @seboard_W.volume %> | <%= @seboard_W.loopable %> | <%= @seboard_W.sefile.sedata %> | <%= @seboard_W.sefile.sedata.identifier %> | <%= @seboard_W.sefile.sename %>
+        </div>
 
 
-          // W
-          volumeW.value = <%= @seboard_W.volume %>;
-          soundW.volume = <%= @seboard_W.volume %> * 0.01;
-          btnColorW[<%= @seboard_W.btncolor %> - 1].checked = true;
-          btnColorInit(btnColorW, bg_W);
-          soundW.src = "<%= @seboard_W.sefile.sedata %>";
+        <script type="text/javascript">
+          var samplerPost_<%= sampler.id %> = document.getElementById('sampler_<%= sampler.id %>');
 
-          loopW.checked = <%= @seboard_W.loopable %>;
-          loopW.loop = <%= @seboard_W.loopable %>;
-          loopValue_w = <%= @seboard_W.loopable %>;
-          soundW.loop = <%= @seboard_W.loopable %>;
+          samplerPost_<%= sampler.id %>.addEventListener('click',function(){
+            // 音量変更
+
+            console.log(samplerPost_<%= sampler.id %>);
+            samplerName.value = "<%= sampler.sampler_name %>";
+
+            // 上段
+            // Q
+            volumeQ.value = <%= @seboard_Q.volume %>;
+            soundQ.volume = <%= @seboard_Q.volume %> * 0.01;
+            btnColorQ[<%= @seboard_Q.btncolor %> - 1].checked = true;
+            btnColorInit(btnColorQ, bg_Q);
+            soundQ.src = "<%= @seboard_Q.sefile.sedata %>";
+
+            loopQ.checked = <%= @seboard_Q.loopable %>;
+            loopQ.loop = <%= @seboard_Q.loopable %>;
+            loopValue_q = <%= @seboard_Q.loopable %>;
+            soundQ.loop = <%= @seboard_Q.loopable %>;
 
 
+            // W
+            volumeW.value = <%= @seboard_W.volume %>;
+            soundW.volume = <%= @seboard_W.volume %> * 0.01;
+            btnColorW[<%= @seboard_W.btncolor %> - 1].checked = true;
+            btnColorInit(btnColorW, bg_W);
+            soundW.src = "<%= @seboard_W.sefile.sedata %>";
 
-
-
-        });
+            loopW.checked = <%= @seboard_W.loopable %>;
+            loopW.loop = <%= @seboard_W.loopable %>;
+            loopValue_w = <%= @seboard_W.loopable %>;
+            soundW.loop = <%= @seboard_W.loopable %>;
 
 
 
 
-      </script>
 
-    </div><!--  .option_Q -->
+          });
+        </script>
+
+      </div><!--  .option_Q -->
+
+    </div><!--  .sampler-index -->
+
+
+
     <% end %>
     <%= paginate @samplers %>
-  </div><!--  .scroll-list jscroll -->
+  </div><!--  .jscroll -->
+</div><!--  .scroll-list jscroll -->
 
 
 
 
-</div><!--  .sampler-index -->
+
 
 
 <% end %>
