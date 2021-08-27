@@ -32,7 +32,7 @@
         @seboard_W = sampler.seboards.order(id: :desc).find_by(position: 2)
         %>
         <div style="padding:10px; margin-bottom:10px; display: inline-block; border: 1px solid #000;">
-          Q | <%= @seboard_Q.position %> | <%= @seboard_Q.btncolor %> | <%= @seboard_Q.volume %> | <%= @seboard_Q.loopable %> | <%= @seboard_Q.sefile.sedata %> | <%= @seboard_Q.sefile.sename %>
+          Q | <%= @seboard_Q.position %> | <%= @seboard_Q.btncolor %> | <%= @seboard_Q.volume %> | <%= @seboard_Q.loopable %> | <%= @seboard_Q.sefile.sedata %> | <%= @seboard_Q.sefile.sename %> | <%= @seboard_Q.sefile.sedata_cache %>
         </div>
         <div style="padding:10px; margin-bottom:10px; display: inline-block; border: 1px solid #000;">
           W | <%= @seboard_W.position %> | <%= @seboard_W.btncolor %> | <%= @seboard_W.volume %> | <%= @seboard_W.loopable %> | <%= @seboard_W.sefile.sedata %> | <%= @seboard_W.sefile.sedata.identifier %> | <%= @seboard_W.sefile.sename %>
