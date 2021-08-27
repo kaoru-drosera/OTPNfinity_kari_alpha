@@ -27,7 +27,7 @@ class SamplerController < ApplicationController
 
       @sampler = current_user.sampler.build(sampler_params)
       @sampler.seboards.build
-      @sampler.sefile.build
+      @sampler.seboards.sefile.build
 
       # sampler_name_picker.seboards.sefile.sedata.retrieve_from_cache! unless sampler_name_picker.seboards.sefile.sedata.blank?
 
