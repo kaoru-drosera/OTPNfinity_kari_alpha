@@ -9,7 +9,7 @@
   <%= form_with url: root_path, method: :get, local: true, autocomplete: 'off' do |f| %>
     <div class="field has-addons">
       <div class="controll is-expanded">
-        <%= f.text_field :query, value: params[:query], class: 'input', id: 'search-field query', autocomplete: 'off' %>
+        <%= f.text_field :query, value: params[:query], class: 'input', id: 'search-field query', autocomplete: 'off', placeholder: 'サンプラーを検索' %>
       </div><!--  .controll is-expanded -->
         <%# javascript_pack_tag 'suggestionForm' %>
         <%# javascript_pack_tag 'InstantSearch' %>
