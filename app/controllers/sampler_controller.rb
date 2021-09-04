@@ -52,10 +52,6 @@ class SamplerController < ApplicationController
       end
 
     else
-      # puts sampler_name_picker.new_record?
-      # puts sedata_param.new_record?
-      # puts sedata_param
-      puts sedata_param.nil?
       puts sampler_name_param
       puts sampler_name_param.nil?
 
@@ -103,7 +99,8 @@ class SamplerController < ApplicationController
   # end
 
   def update_sampler_params
-    params.require(:sampler).permit(:sampler_name, seboards_attributes: [:position, :btncolor, :volume, :loopable, :id, sefile_attributes: [:sename, :sedata, :id, :sedata_cache]])#.deep_merge!(seboards_attributes:[sefile_attribute:[user_id: current_user.id]])
+    # params.require(:sampler).permit(:sampler_name, seboards_attributes: [:position, :btncolor, :volume, :loopable, :id, sefile_attributes: [:sename, :sedata, :id, :sedata_cache]])#.deep_merge!(seboards_attributes:[sefile_attribute:[user_id: current_user.id]])
+    params.require(:sampler).permit(:sampler_name, {seboards: [:position, :btncolor, :volume, :loopable, :id, {sefile: [:sename, :sedata, :id, :sedata_cache]}]})#.deep_merge!(seboards_attributes:[sefile_attribute:[user_id: current_user.id]])
   end
 
   def sampler_name_param
@@ -115,8 +112,8 @@ class SamplerController < ApplicationController
   end
 
   def sedata_param
+
     # sampler_name_picker[seboards_attributes: [sefile_attributes:[:sedata]]]
-    sampler_params[:sedata]
     # sampler_params.include?(sampler_name_param)
   end
 
