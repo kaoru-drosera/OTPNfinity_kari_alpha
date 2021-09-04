@@ -25,9 +25,13 @@ class SamplerController < ApplicationController
       puts '保存乙'
 
 
-      @sampler = current_user.sampler.build(sampler_params)
-      # @sampler.seboards.build
-      # @sampler.seboards.sefile.build
+      @sampler = sampler_name_picker
+      # @seboards = @sampler.seboards.build
+      # @sefiles = sampler_name_picker.sefile.build
+      #
+      # puts @sampler
+      # puts @seboards
+      # puts @sefiles
 
       # sampler_name_picker.seboards.sefile.sedata.retrieve_from_cache! unless sampler_name_picker.seboards.sefile.sedata.blank?
 
@@ -48,21 +52,28 @@ class SamplerController < ApplicationController
       end
 
     else
-      puts sampler_name_picker.new_record?
+      # puts sampler_name_picker.new_record?
+      # puts sedata_param.new_record?
+      # puts sedata_param
+      puts sedata_param.nil?
+      puts sampler_name_param
+      puts sampler_name_param.nil?
 
       @sampler = sampler_name_picker
 
-      puts has_sedata_ornot
-
-      @sampler.seboards.each do |seboard|
-        puts seboard.sefile.sedata
-        seboard.sefile.sedata.cache! unless seboard.sefile.sedata.blank?
-      end
+      # @sampler = sampler_name_picker
+      # @seboards = @sampler.seboards.build
+      # @sefiles = sampler_name_picker.seboards.each do |seboard|
+      #   seboard.sefile
+      # end
+      # @sefiles.each do |sefile|
+      #   sefile.sefile.sedata
+      # end
 
 
       puts '更新乙'
 
-      unless @sampler.update(update_sampler_params)
+      unless @sampler.update(sampler_params)
         flash[:danger] = "更新に失敗しました"
       else
         flash[:success] = "更新しました"
@@ -75,16 +86,21 @@ class SamplerController < ApplicationController
   end
 
 
-  def show
-    @user = current_user.id
-    @samplers = Sampler.all
-  end
+  # def show
+  #   @user = current_user.id
+  #   @samplers = Sampler.all
+  # end
 
   private
 
   def sampler_params
     params.require(:sampler).permit(:sampler_name, seboards_attributes: [:position, :btncolor, :volume, :loopable, sefile_attributes: [:sename, :sedata, :sedata_cache]])#.deep_merge!(seboards_attributes:[sefile_attributes:[user_id: current_user.id]])
+    # params.require(:sampler).permit(:sampler_name, seboards_attributes: [:position, :btncolor, :volume, :loopable, sefile_attributes: [sefile_params]])#.deep_merge!(seboards_attributes:[sefile_attributes:[user_id: current_user.id]])
   end
+
+  # def sefile_params
+  #   params.require(:sampler).permit(seboards_attributes:[sefile_attributes:[:sename, :sedata, :sedata_cache]])#.deep_merge!(seboards_attributes:[sefile_attributes:[user_id: current_user.id]])
+  # end
 
   def update_sampler_params
     params.require(:sampler).permit(:sampler_name, seboards_attributes: [:position, :btncolor, :volume, :loopable, :id, sefile_attributes: [:sename, :sedata, :id, :sedata_cache]])#.deep_merge!(seboards_attributes:[sefile_attribute:[user_id: current_user.id]])
@@ -98,23 +114,12 @@ class SamplerController < ApplicationController
     current_user.sampler.find_or_initialize_by(sampler_name: sampler_name_param)
   end
 
-
-
   def sedata_param
-    sampler_params[seboards_attributes: [sefile_attributes: [:sedata]]]
+    # sampler_name_picker[seboards_attributes: [sefile_attributes:[:sedata]]]
+    sampler_params[:sedata]
+    # sampler_params.include?(sampler_name_param)
   end
 
-  def has_sedata_ornot
-    current_user.sampler.each do |a_sampler|
-      a_sampler.seboards.each do |seboard|
-        seboard.sefile
-      end
-    end
-  end
-
-  def find_or_initialize
-
-  end
 
 
 end

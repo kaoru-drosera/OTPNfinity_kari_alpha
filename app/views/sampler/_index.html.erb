@@ -55,6 +55,7 @@
             btnColorQ[<%= @seboard_Q.btncolor %> - 1].checked = true;
             btnColorInit(btnColorQ, bg_Q);
             soundQ.src = "<%= @seboard_Q.sefile.sedata %>";
+            senameQ.value = "<%= @seboard_Q.sefile.sename %>";
 
             loopQ.checked = <%= @seboard_Q.loopable %>;
             loopQ.loop = <%= @seboard_Q.loopable %>;
@@ -68,6 +69,7 @@
             btnColorW[<%= @seboard_W.btncolor %> - 1].checked = true;
             btnColorInit(btnColorW, bg_W);
             soundW.src = "<%= @seboard_W.sefile.sedata %>";
+            senameW.value = "<%= @seboard_W.sefile.sename %>";
 
             loopW.checked = <%= @seboard_W.loopable %>;
             loopW.loop = <%= @seboard_W.loopable %>;
