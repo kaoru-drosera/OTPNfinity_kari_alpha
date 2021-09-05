@@ -47,14 +47,30 @@
     <input type="file" id="selectFile_w" onclick="readFile(soundW, form_fileW)" accept="sounds/*">
     <input type="checkbox" onclick="loopInit(soundW, loopW, loopValue_w)" id="loopable_w" name="loopable?" value=""> -->
   </div><!--  .case-btn-d -->
-  <div class="case-btn-e case-btn" onclick="play(soundE, loopE, loopValue_e)">
+  <div id="bg-e" class="case-btn-e case-btn" onclick="play(soundE, loopE, loopValue_e); btnColorInit(btnColorE, bg_E)">
     <p>E</p>
+    <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][3][position]", :value => "3" %>
+    <%= sb.range_field :volume, :name=>"sampler[seboards_attributes][3][volume]", :onchange=>"volumeInit(soundW, volumeW, volumeValue_w)", :id=>"vol-e", :value=>50, :min=>1, :max=>99 %>
+
+    <div class="radio-field_e">
+      <%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][3][btncolor]", checked: true, :class=>"red" %>
+      <%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][3][btncolor]", :class=>"blue" %>
+      <%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][3][btncolor]", :class=>"white" %>
+    </div><!--  .radio-field_q -->
+
+    <%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][3][loopable]", :onclick=>"loopInit(soundE, loopE, loopValue_e)", :id=>"loopable_e", :checked_value =>true, :unchecked_value=>false %>
+      <%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][3][sefile_attributes][sedata]", :id=>"selectFile_e", :onclick=>"readFile(soundE, form_fileE)" %>
+      <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][3][sefile_attributes][sename]", :id=>"senameE" %>
+      <%= sf.hidden_field :sedata_cache, :name=>"sampler[seboards_attributes][3][sefile_attributes][sedata_cache]" %>
+
     <!-- <button onclick="play()" class="playbtn">[D]</button> -->
-    <input type="range" onchange="volumeInit(soundE, volumeE, volumeValue_e)" id="vol-e" value="50" min="1" max="99">
+    <!-- <input type="range" onchange="volumeInit(soundE, volumeE, volumeValue_e)" id="vol-e" value="50" min="1" max="99">
     <input type="file" id="selectFile_e" onclick="readFile(soundE, form_fileE)" accept="sounds/*">
-    <input type="checkbox" onclick="loopInit(soundE, loopE, loopValue_e)" id="loopable_e" name="loopable?" value="">
+    <input type="checkbox" onclick="loopInit(soundE, loopE, loopValue_e)" id="loopable_e" name="loopable?" value=""> -->
   </div><!--  .case-btn-d -->
+
   <div class="case-btn-r case-btn" onclick="play(soundR, loopR, loopValue_r)">
+
     <p>R</p>
     <!-- <button onclick="play()" class="playbtn">[D]</button> -->
     <input type="range" onchange="volumeInit(soundR, volumeR, volumeValue_r)" id="vol-r" value="50" min="1" max="99">

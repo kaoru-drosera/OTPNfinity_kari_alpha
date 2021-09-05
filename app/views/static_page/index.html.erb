@@ -56,19 +56,20 @@
     var loopW = document.getElementById("loopable_w");
     var loopE = document.getElementById("loopable_e");
     var loopR = document.getElementById("loopable_r");
-    var radioQ = document.getElementById("radio-field_q");
-    var radioW = document.getElementById("radio-field_w");
+    // var radioQ = document.getElementById("radio-field_q");
+    // var radioW = document.getElementById("radio-field_w");
+    // var radioE = document.getElementById("radio-field_e");
     var btnColorQ = document.getElementsByName("sampler[seboards_attributes][1][btncolor]");
     var btnColorW = document.getElementsByName("sampler[seboards_attributes][2][btncolor]");
-    // var btnColorE = document.getElementByName("sampler[seboards_attributes][3][btncolor]");
+    var btnColorE = document.getElementsByName("sampler[seboards_attributes][3][btncolor]");
     // var btnColorR = document.getElementByName("sampler[seboards_attributes][4][btncolor]");
     var bg_Q = document.getElementById("bg-q");
     var bg_W = document.getElementById("bg-w");
-    // var bg_E = document.getElementById("bg-e");
+    var bg_E = document.getElementById("bg-e");
     // var bg_R = document.getElementById("bg-r");
     var senameQ = document.getElementById("senameQ");
     var senameW = document.getElementById("senameW");
-    // var senameE = document.getElementById("senameE");
+    var senameE = document.getElementById("senameE");
     // var senameR = document.getElementById("senameR");
     var volumeValue_q;
     var volumeValue_w;
@@ -346,8 +347,8 @@
 
   window.addEventListener('load',function(){
 
-        var btnColors = [btnColorQ, btnColorW];
-        var bgs = [bg_Q, bg_W];
+        var btnColors = [btnColorQ, btnColorW, btnColorE];
+        var bgs = [bg_Q, bg_W, bg_E];
 
         // ↓ ここからの部分を関数化して、複数アクションで呼ぼう。
         var mapping_btbColors = btnColors.map(function(v){
@@ -362,8 +363,8 @@
 
   });
 
-  var btnColors = [btnColorQ, btnColorW];
-  var bgs = [bg_Q, bg_W];
+  var btnColors = [btnColorQ, btnColorW, btnColorE];
+  var bgs = [bg_Q, bg_W, bg_E];
 
   var mapping_btbColors = btnColors.map(function(v){
     var mapping_bgs = bgs.map(function(z){
