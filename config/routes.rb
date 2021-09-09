@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   # get 'sampler/index'
   # 基本「ホーム画面からXXしたい」という時は
   # ↓ こんな感じで書いた方が無難かもしれない。
-  get '/' => 'sampler#index'
+  # 投稿を改造し終えて、一覧を出したい時はここをコメントアウト
+  # get '/' => 'sampler#index'
   resources :samplers, only: [:save, :index, :submit]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # devise_scope :user do
