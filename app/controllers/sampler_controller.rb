@@ -52,8 +52,6 @@ class SamplerController < ApplicationController
 
       @sampler = sampler_name_picker
 
-      puts has_sedata_ornot
-
       @sampler.seboards.each do |seboard|
         puts seboard.sefile.sedata
         seboard.sefile.sedata.cache! unless seboard.sefile.sedata.blank?
@@ -61,6 +59,9 @@ class SamplerController < ApplicationController
 
 
       puts '更新乙'
+
+      puts sedata_param
+      puts sedata_param.nil?
 
       unless @sampler.update(update_sampler_params)
         flash[:danger] = "更新に失敗しました"
@@ -101,7 +102,7 @@ class SamplerController < ApplicationController
 
 
   def sedata_param
-    sampler_params[seboards_attributes: [sefile_attributes: [:sedata]]]
+    update_sampler_params[:seboards_attributes]
   end
 
   def has_sedata_ornot

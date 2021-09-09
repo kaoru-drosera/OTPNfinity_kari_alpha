@@ -54,7 +54,7 @@
             soundQ.volume = <%= @seboard_Q.volume %> * 0.01;
             btnColorQ[<%= @seboard_Q.btncolor %> - 1].checked = true;
             btnColorInit(btnColorQ, bg_Q);
-            soundQ.src = "<%= @seboard_Q.sefile.sedata %>";
+            soundQ.src = "<%= @seboard_Q.sefile.sedata.url %>";
 
             loopQ.checked = <%= @seboard_Q.loopable %>;
             loopQ.loop = <%= @seboard_Q.loopable %>;
@@ -67,7 +67,7 @@
             soundW.volume = <%= @seboard_W.volume %> * 0.01;
             btnColorW[<%= @seboard_W.btncolor %> - 1].checked = true;
             btnColorInit(btnColorW, bg_W);
-            soundW.src = "<%= @seboard_W.sefile.sedata %>";
+            soundW.src = "<%= @seboard_W.sefile.sedata.url %>";
 
             loopW.checked = <%= @seboard_W.loopable %>;
             loopW.loop = <%= @seboard_W.loopable %>;
