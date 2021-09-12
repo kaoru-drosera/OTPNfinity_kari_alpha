@@ -32,10 +32,10 @@
         @seboard_W = sampler.seboards.order(id: :desc).find_by(position: 2)
         %>
         <div style="padding:10px; margin-bottom:10px; display: inline-block; border: 1px solid #000;">
-          Q | <%= @seboard_Q.position %> | <%= @seboard_Q.btncolor %> | <%= @seboard_Q.volume %> | <%= @seboard_Q.loopable %> | <%= @seboard_Q.sefile.sedata %> | <%= @seboard_Q.sefile.sename %> | <%= @seboard_Q.sefile.sedata_cache %>
+          Q | <%= @seboard_Q.position %> | <%= @seboard_Q.btncolor %> | <%= @seboard_Q.volume %> | <%= @seboard_Q.loopable %> | <%= @seboard_Q.sefile.sedata %> | <%= @seboard_Q.sefile.sename %> | <%= @seboard_Q.sefile.sepath %> | <%= @seboard_Q.sefile.sename %>
         </div>
         <div style="padding:10px; margin-bottom:10px; display: inline-block; border: 1px solid #000;">
-          W | <%= @seboard_W.position %> | <%= @seboard_W.btncolor %> | <%= @seboard_W.volume %> | <%= @seboard_W.loopable %> | <%= @seboard_W.sefile.sedata %> | <%= @seboard_W.sefile.sedata.identifier %> | <%= @seboard_W.sefile.sename %>
+          W | <%= @seboard_W.position %> | <%= @seboard_W.btncolor %> | <%= @seboard_W.volume %> | <%= @seboard_W.loopable %> | <%= @seboard_W.sefile.sedata %> | <%= @seboard_W.sefile.sename %> | <%= @seboard_W.sefile.sepath %> | <%= @seboard_W.sefile.sename %>
         </div>
 
 
@@ -54,7 +54,19 @@
             soundQ.volume = <%= @seboard_Q.volume %> * 0.01;
             btnColorQ[<%= @seboard_Q.btncolor %> - 1].checked = true;
             btnColorInit(btnColorQ, bg_Q);
-            soundQ.src = "<%= @seboard_Q.sefile.sedata.url %>";
+
+            if("<%= @seboard_Q.sefile.sedata %>"){
+              sepathQ.value = "<%= @seboard_Q.sefile.sedata.url %>";
+              soundQ.src = "<%= @seboard_Q.sefile.sedata.url %>";
+              console.log(sepathQ.value);
+            }else if("<%= @seboard_Q.sefile.sepath %>"){
+              sepathQ.value = "<%= @seboard_Q.sefile.sepath %>"
+              soundQ.src = "<%= @seboard_Q.sefile.sepath %>";
+              console.log(sepathQ.value);
+            }else{
+              sepathQ.value = "";
+              soundQ.src = "";
+            }
 
             loopQ.checked = <%= @seboard_Q.loopable %>;
             loopQ.loop = <%= @seboard_Q.loopable %>;
@@ -68,6 +80,19 @@
             btnColorW[<%= @seboard_W.btncolor %> - 1].checked = true;
             btnColorInit(btnColorW, bg_W);
             soundW.src = "<%= @seboard_W.sefile.sedata.url %>";
+
+            if("<%= @seboard_W.sefile.sedata %>"){
+              sepathW.value = "<%= @seboard_W.sefile.sedata.url %>";
+              soundW.src = "<%= @seboard_W.sefile.sedata.url %>";
+              console.log(sepathW.value);
+            }else if("<%= @seboard_W.sefile.sepath %>"){
+              sepathW.value = "<%= @seboard_W.sefile.sepath %>"
+              soundW.src = "<%= @seboard_W.sefile.sepath %>";
+              console.log(sepathW.value);
+            }else{
+              sepathW.value = "";
+              soundW.src = "";
+            }
 
             loopW.checked = <%= @seboard_W.loopable %>;
             loopW.loop = <%= @seboard_W.loopable %>;

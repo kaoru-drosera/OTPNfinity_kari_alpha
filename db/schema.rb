@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2021_08_15_070757) do
     t.bigint "user_id"
     t.string "sename"
     t.string "sedata"
+    t.string "sepath"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "seboard_id"

@@ -54,12 +54,20 @@ class SamplerController < ApplicationController
   private
 
   def sampler_params
+<<<<<<< HEAD
     params.require(:sampler).permit(:sampler_name)#.deep_merge!(seboards_attributes:[sefile_attributes:[user_id: current_user.id]])
     # params.require(:sampler).permit(:sampler_name, seboards_attributes: [:position, :btncolor, :volume, :loopable, sefile_attributes: [sefile_params]])#.deep_merge!(seboards_attributes:[sefile_attributes:[user_id: current_user.id]])
   end
   def seboards_params
     params.require(:sampler).permit({seboards_attributes: [][:position, :btncolor, :volume, :loopable]})#.deep_merge!(seboards_attributes:[sefile_attributes:[user_id: current_user.id]])
     # params.require(:sampler).permit(:sampler_name, seboards_attributes: [:position, :btncolor, :volume, :loopable, sefile_attributes: [sefile_params]])#.deep_merge!(seboards_attributes:[sefile_attributes:[user_id: current_user.id]])
+=======
+    params.require(:sampler).permit(:sampler_name, seboards_attributes: [:position, :btncolor, :volume, :loopable, sefile_attributes: [:sename, :sedata, :sepath, :sedata_cache]])#.deep_merge!(seboards_attributes:[sefile_attributes:[user_id: current_user.id]])
+  end
+
+  def update_sampler_params
+    params.require(:sampler).permit(:sampler_name, seboards_attributes: [:position, :btncolor, :volume, :loopable, :id, sefile_attributes: [:sename, :sedata, :sepath, :id, :sedata_cache]])#.deep_merge!(seboards_attributes:[sefile_attribute:[user_id: current_user.id]])
+>>>>>>> sepath
   end
   def sefile_params
     params.require(:sampler).permit( {seboards_attributes:[ {sefile_attributes: [:sename, :sedata, :sedata_cache]} ]} )#.deep_merge!(seboards_attributes:[sefile_attributes:[user_id: current_user.id]])

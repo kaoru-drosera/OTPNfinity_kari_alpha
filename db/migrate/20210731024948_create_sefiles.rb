@@ -5,6 +5,7 @@ class CreateSefiles < ActiveRecord::Migration[6.1]
       # t.references :seboard, null: true, foreign_key: true
       t.string :sename
       t.string :sedata
+      t.string :sepath
 
       t.timestamps
     end

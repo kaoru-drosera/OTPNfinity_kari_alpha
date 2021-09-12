@@ -71,6 +71,10 @@
     var senameW = document.getElementById("senameW");
     var senameE = document.getElementById("senameE");
     // var senameR = document.getElementById("senameR");
+    var sepathQ = document.getElementById("sepathQ");
+    var sepathW = document.getElementById("sepathW");
+    // var sepathE = document.getElementById("sepathE");
+    // var sepathR = document.getElementById("sepathR");
     var volumeValue_q;
     var volumeValue_w;
     var volumeValue_e;
@@ -282,17 +286,27 @@
 
 
     // 音声選択フォーム読み込み(プロトタイプ)
-    function readFile(soundName,form){
+    function readFile(soundName,form,sepath){
       form.addEventListener('change',function(form){
         var reader = new FileReader();
         reader.onload = function(form){
           soundName.src = form.target.result;
         }
-        reader.readAsDataURL(form.target.files[0]);
+        // sepath.value = "";
 
         console.log(soundName);
-        console.log(form);
+        console.log(form.target.result);
+        console.log(form.target.result != null);
         console.log(reader);
+        console.log(sepath);
+
+        if (form.target.files[0]) {
+          // ファイルの値は「form.target.files[0]」で取得している。
+          reader.readAsDataURL(form.target.files[0]);
+        } else {
+          // なので、ファイルに値がない場合の処理はここにelseを使って書くようにするといい。
+          soundName.src = sepath.value;
+        }
       });
     };
 
