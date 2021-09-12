@@ -18,7 +18,7 @@
       <%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][1][btncolor]", :class=>"white" %>
     </div><!--  .radio-field_q -->
     <%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][1][loopable]", :onclick=>"loopInit(soundQ, loopQ, loopValue_q)", :id=>"loopable_q", :checked_value =>true, :unchecked_value=>false %>
-      <%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][1][sefile_attributes][sedata]", :id=>"selectFile_q", :onclick=>"readFile(soundQ, form_fileQ)" %>
+      <%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][1][sefile_attributes][sedata]", :id=>"selectFile_q", :onclick=>"readFile(soundQ, form_fileQ, sepathQ)" %>
       <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][1][sefile_attributes][sename]", :id=>"senameQ" %>
       <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][1][sefile_attributes][sepath]", :id=>"sepathQ" %>
 
@@ -37,7 +37,7 @@
       <%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][2][btncolor]", :class=>"white" %>
     </div><!--  .radio-field_q -->
     <%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][2][loopable]", :onclick=>"loopInit(soundW, loopW, loopValue_w)", :id=>"loopable_w", :checked_value =>true, :unchecked_value=>false %>
-      <%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][2][sefile_attributes][sedata]", :id=>"selectFile_w", :onclick=>"readFile(soundW, form_fileW)" %>
+      <%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][2][sefile_attributes][sedata]", :id=>"selectFile_w", :onclick=>"readFile(soundW, form_fileW, sepathW)" %>
       <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][2][sefile_attributes][sename]", :id=>"senameW" %>
       <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][2][sefile_attributes][sepath]", :id=>"sepathW" %>
 

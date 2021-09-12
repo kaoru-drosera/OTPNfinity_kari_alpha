@@ -32,10 +32,10 @@
         @seboard_W = sampler.seboards.order(id: :desc).find_by(position: 2)
         %>
         <div style="padding:10px; margin-bottom:10px; display: inline-block; border: 1px solid #000;">
-          Q | <%= @seboard_Q.position %> | <%= @seboard_Q.btncolor %> | <%= @seboard_Q.volume %> | <%= @seboard_Q.loopable %> | <%= @seboard_Q.sefile.sedata %> | <%= @seboard_Q.sefile.sename %> | <%= @seboard_Q.sefile.sedata_cache %>
+          Q | <%= @seboard_Q.position %> | <%= @seboard_Q.btncolor %> | <%= @seboard_Q.volume %> | <%= @seboard_Q.loopable %> | <%= @seboard_Q.sefile.sedata %> | <%= @seboard_Q.sefile.sename %> | <%= @seboard_Q.sefile.sepath %> | <%= @seboard_Q.sefile.sename %>
         </div>
         <div style="padding:10px; margin-bottom:10px; display: inline-block; border: 1px solid #000;">
-          W | <%= @seboard_W.position %> | <%= @seboard_W.btncolor %> | <%= @seboard_W.volume %> | <%= @seboard_W.loopable %> | <%= @seboard_W.sefile.sedata %> | <%= @seboard_W.sefile.sedata.identifier %> | <%= @seboard_W.sefile.sename %>
+          W | <%= @seboard_W.position %> | <%= @seboard_W.btncolor %> | <%= @seboard_W.volume %> | <%= @seboard_W.loopable %> | <%= @seboard_W.sefile.sedata %> | <%= @seboard_W.sefile.sename %> | <%= @seboard_W.sefile.sepath %> | <%= @seboard_W.sefile.sename %>
         </div>
 
 
@@ -63,6 +63,9 @@
               sepathQ.value = "<%= @seboard_Q.sefile.sepath %>"
               soundQ.src = "<%= @seboard_Q.sefile.sepath %>";
               console.log(sepathQ.value);
+            }else{
+              sepathQ.value = "";
+              soundQ.src = "";
             }
 
             loopQ.checked = <%= @seboard_Q.loopable %>;
@@ -80,10 +83,15 @@
 
             if("<%= @seboard_W.sefile.sedata %>"){
               sepathW.value = "<%= @seboard_W.sefile.sedata.url %>";
+              soundW.src = "<%= @seboard_W.sefile.sedata.url %>";
               console.log(sepathW.value);
             }else if("<%= @seboard_W.sefile.sepath %>"){
               sepathW.value = "<%= @seboard_W.sefile.sepath %>"
+              soundW.src = "<%= @seboard_W.sefile.sepath %>";
               console.log(sepathW.value);
+            }else{
+              sepathW.value = "";
+              soundW.src = "";
             }
 
             loopW.checked = <%= @seboard_W.loopable %>;

@@ -285,17 +285,19 @@
 
 
     // 音声選択フォーム読み込み(プロトタイプ)
-    function readFile(soundName,form){
+    function readFile(soundName,form,sepath){
       form.addEventListener('change',function(form){
         var reader = new FileReader();
         reader.onload = function(form){
           soundName.src = form.target.result;
         }
         reader.readAsDataURL(form.target.files[0]);
+        sepath.value = "";
 
         console.log(soundName);
         console.log(form);
         console.log(reader);
+        console.log(sepath);
       });
     };
 
