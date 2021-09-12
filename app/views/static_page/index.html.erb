@@ -291,13 +291,21 @@
         reader.onload = function(form){
           soundName.src = form.target.result;
         }
-        reader.readAsDataURL(form.target.files[0]);
-        sepath.value = "";
+        // sepath.value = "";
 
         console.log(soundName);
-        console.log(form);
+        console.log(form.target.result);
+        console.log(form.target.result != null);
         console.log(reader);
         console.log(sepath);
+
+        if (form.target.files[0]) {
+          // ファイルの値は「form.target.files[0]」で取得している。
+          reader.readAsDataURL(form.target.files[0]);
+        } else {
+          // なので、ファイルに値がない場合の処理はここにelseを使って書くようにするといい。
+          soundName.src = sepath.value;
+        }
       });
     };
 
