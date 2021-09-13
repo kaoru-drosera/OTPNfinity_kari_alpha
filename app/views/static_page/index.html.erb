@@ -378,15 +378,36 @@
   // });
   window.addEventListener('load',function(){
 
-    <% @samplers_init.each do |sampler| %>
-    samplerName.value = "<%= sampler.sampler_name %>";
+    <% if user_signed_in? %>
 
-    <%
-    @seboard_Q = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 1)
-    @seboard_W = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 2)
-    %>
+      <% @samplers_init.each do |sampler| %>
+      samplerName.value = "<%= sampler.sampler_name %>";
 
-    <%= render partial: 'shared/samplerReader' %>
+      <%
+      @seboard_Q = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 1)
+      @seboard_W = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 2)
+      %>
+
+      <%= render partial: 'shared/samplerReader' %>
+
+      <% end %>
+
+
+    <% else %>
+
+      var btnColors = [btnColorQ, btnColorW, btnColorE];
+      var bgs = [bg_Q, bg_W, bg_E];
+
+      // ↓ ここからの部分を関数化して、複数アクションで呼ぼう。
+      var mapping_btbColors = btnColors.map(function(v){
+        var mapping_bgs = bgs.map(function(z){
+
+        console.log(v);
+        console.log(z);
+        btnColorInit(v, z);
+        });
+      });
+      // ↑ ここまでの部分を関数化して、複数アクションで呼ぼう。
 
     <% end %>
 
