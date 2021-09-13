@@ -31,5 +31,8 @@ module OTPNfinityKari
 
     # carrierwaveエラー対策
     config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
+
+    # タイムゾーンを日本時刻に
+    config.time_zone = 'Tokyo'
   end
 end

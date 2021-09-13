@@ -10,6 +10,8 @@ class StaticPageController < ApplicationController
   def index
     if user_signed_in?
       @samplers = current_user.sampler.includes(seboards: :sefile).order("created_at DESC").algolia_search(params[:query])
+      @samplers_init = current_user.sampler.order("updated_at ASC").includes(seboards: :sefile)
+
       # @seboards = current_user.sampler.seboards.each do |seboard|
       #   seboard.includes(:sefile).order("created_at DESC")
       # end

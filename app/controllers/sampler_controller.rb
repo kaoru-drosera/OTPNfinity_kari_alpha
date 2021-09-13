@@ -7,6 +7,7 @@ class SamplerController < ApplicationController
   def index
     @user = current_user.id
     @samplers = current_user.sampler.includes(seboards: :sefile).order("created_at DESC").algolia_search(params[:query])
+    @samplers_init = current_user.sampler.order("updated_at ASC").includes(seboards: :sefile)
   end
 
   def save
@@ -62,6 +63,7 @@ class SamplerController < ApplicationController
 
       puts '更新乙'
 
+      @sampler.updated_at = Time.now
       unless @sampler.update(update_sampler_params)
         flash[:danger] = "更新に失敗しました"
       else
@@ -87,7 +89,7 @@ class SamplerController < ApplicationController
   end
 
   def update_sampler_params
-    params.require(:sampler).permit(:sampler_name, seboards_attributes: [:position, :btncolor, :volume, :loopable, :id, sefile_attributes: [:sename, :sedata, :sepath, :id, :sedata_cache]])#.deep_merge!(seboards_attributes:[sefile_attribute:[user_id: current_user.id]])
+    params.require(:sampler).permit(:sampler_name, :updated_at, seboards_attributes: [:position, :btncolor, :volume, :loopable, :id, sefile_attributes: [:sename, :sedata, :sepath, :id, :sedata_cache]])#.deep_merge!(seboards_attributes:[sefile_attribute:[user_id: current_user.id]])
   end
 
   def sampler_name_param

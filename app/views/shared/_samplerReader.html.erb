@@ -1,0 +1,56 @@
+
+            // 上段
+            // Q
+            volumeQ.value = <%= @seboard_Q.volume %>;
+            soundQ.volume = <%= @seboard_Q.volume %> * 0.01;
+            btnColorQ[<%= @seboard_Q.btncolor %> - 1].checked = true;
+            btnColorInit(btnColorQ, bg_Q);
+
+            if("<%= @seboard_Q.sefile.sedata %>"){
+              sepathQ.value = "<%= @seboard_Q.sefile.sedata.url %>";
+              soundQ.src = "<%= @seboard_Q.sefile.sedata.url %>";
+              console.log(sepathQ.value);
+            }else if("<%= @seboard_Q.sefile.sepath %>"){
+              sepathQ.value = "<%= @seboard_Q.sefile.sepath %>"
+              soundQ.src = "<%= @seboard_Q.sefile.sepath %>";
+              console.log(sepathQ.value);
+            }else{
+              sepathQ.value = "";
+              soundQ.src = "";
+            }
+
+            loopQ.checked = <%= @seboard_Q.loopable %>;
+            loopQ.loop = <%= @seboard_Q.loopable %>;
+            loopValue_q = <%= @seboard_Q.loopable %>;
+            soundQ.loop = <%= @seboard_Q.loopable %>;
+
+
+            // W
+            volumeW.value = <%= @seboard_W.volume %>;
+            soundW.volume = <%= @seboard_W.volume %> * 0.01;
+            btnColorW[<%= @seboard_W.btncolor %> - 1].checked = true;
+            btnColorInit(btnColorW, bg_W);
+            soundW.src = "<%= @seboard_W.sefile.sedata.url %>";
+
+            if("<%= @seboard_W.sefile.sedata %>"){
+              sepathW.value = "<%= @seboard_W.sefile.sedata.url %>";
+              soundW.src = "<%= @seboard_W.sefile.sedata.url %>";
+              console.log(sepathW.value);
+            }else if("<%= @seboard_W.sefile.sepath %>"){
+              sepathW.value = "<%= @seboard_W.sefile.sepath %>"
+              soundW.src = "<%= @seboard_W.sefile.sepath %>";
+              console.log(sepathW.value);
+            }else{
+              sepathW.value = "";
+              soundW.src = "";
+            }
+
+            loopW.checked = <%= @seboard_W.loopable %>;
+            loopW.loop = <%= @seboard_W.loopable %>;
+            loopValue_w = <%= @seboard_W.loopable %>;
+            soundW.loop = <%= @seboard_W.loopable %>;
+
+
+            // E
+
+            btnColorInit(btnColorE, bg_E);

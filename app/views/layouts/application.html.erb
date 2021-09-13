@@ -23,15 +23,18 @@
 
     <%= render partial: 'layouts/navbar' %>
 
-    <%= render partial: 'sampler/save' %>
+    <div class="grand-flexer">
+
+      <%= render partial: 'sampler/save' %>
 
 
-    <%= yield %>
+      <%= yield %>
 
-    <% if user_signed_in? %>
-    <%= render partial: 'sampler/index' %>
-    <% end %>
+      <% if user_signed_in? %>
+      <%= render partial: 'sampler/index' %>
+      <% end %>
 
+    </div><!--  .sampler-flexer -->
 
     <% unless user_signed_in? %>
 
