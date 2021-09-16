@@ -16,7 +16,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'capybara', '>= 3.26'
 gem 'selenium-webdriver'
-gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 
 # 画像投稿
 gem 'carrierwave'

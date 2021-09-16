@@ -1,15 +1,15 @@
-<% if user_signed_in? %>
 <div class="sampler-index">
 
-
-
   <h4>サンプラー一覧</h4>
+  <% if user_signed_in? %>
 
 
   <%= form_with url: root_path, method: :get, local: true, autocomplete: 'off' do |f| %>
     <div class="field has-addons">
       <div class="controll is-expanded">
-        <%= f.text_field :query, value: params[:query], class: 'input', id: 'search-field query', autocomplete: 'off', placeholder: 'サンプラーを検索' %>
+        <%= f.text_field :query, value: params[:query], class: 'search-field', id: 'search-field query', autocomplete: 'off', placeholder: 'サンプラーを検索' %>
+        <%= f.submit class:'sampler-search', value: "" %>
+        <i class="fas fa-search search"></i>
       </div><!--  .controll is-expanded -->
         <%# javascript_pack_tag 'suggestionForm' %>
         <%# javascript_pack_tag 'InstantSearch' %>
@@ -18,57 +18,56 @@
 
 
 
+  <div class="sampler-scrollx">
+    <div class="sampler-scrolly">
 
-  <div class="jscroll">
+      <div class="jscroll">
 
-    <% @samplers.each do |sampler| %>
-    <div class="scroll-list" id="search-index">
+        <% @samplers.each do |sampler| %>
+        <div class="scroll-list" id="search-index">
 
-      <div class="sampler" id="sampler_<%= sampler.id %>" style="">
-        <p><%= sampler.sampler_name %></p>
+          <div class="sampler" id="sampler_<%= sampler.id %>" style="">
+            <p><%= sampler.sampler_name %></p>
 
-        <%
-        @seboard_Q = sampler.seboards.order(id: :desc).find_by(position: 1)
-        @seboard_W = sampler.seboards.order(id: :desc).find_by(position: 2)
-        %>
-        <div style="padding:10px; margin-bottom:10px; display: inline-block; border: 1px solid #000;">
-          Q | <%= @seboard_Q.position %> | <%= @seboard_Q.btncolor %> | <%= @seboard_Q.volume %> | <%= @seboard_Q.loopable %> | <%= @seboard_Q.sefile.sedata %> | <%= @seboard_Q.sefile.sename %> | <%= @seboard_Q.sefile.sepath %> | <%= @seboard_Q.sefile.sename %>
-        </div>
-        <div style="padding:10px; margin-bottom:10px; display: inline-block; border: 1px solid #000;">
-          W | <%= @seboard_W.position %> | <%= @seboard_W.btncolor %> | <%= @seboard_W.volume %> | <%= @seboard_W.loopable %> | <%= @seboard_W.sefile.sedata %> | <%= @seboard_W.sefile.sename %> | <%= @seboard_W.sefile.sepath %> | <%= @seboard_W.sefile.sename %>
-        </div>
-
-
-        <script type="text/javascript">
-          var samplerPost_<%= sampler.id %> = document.getElementById('sampler_<%= sampler.id %>');
-
-          samplerPost_<%= sampler.id %>.addEventListener('click',function(){
-            // 音量変更
-
-            console.log(samplerPost_<%= sampler.id %>);
-            samplerName.value = "<%= sampler.sampler_name %>";
-
-            <%= render partial: 'shared/samplerReader' %>
-
-          });
-        </script>
+            <%
+            @seboard_Q = sampler.seboards.order(id: :desc).find_by(position: 1)
+            @seboard_W = sampler.seboards.order(id: :desc).find_by(position: 2)
+            %>
+            <div style="padding:10px; margin-bottom:10px; display: inline-block; border: 1px solid #000;">
+              Q | <%= @seboard_Q.position %> | <%= @seboard_Q.btncolor %> | <%= @seboard_Q.volume %> | <%= @seboard_Q.loopable %> | <%= @seboard_Q.sefile.sedata %> | <%= @seboard_Q.sefile.sename %> | <%= @seboard_Q.sefile.sepath %> | <%= @seboard_Q.sefile.sename %>
+            </div>
+            <div style="padding:10px; margin-bottom:10px; display: inline-block; border: 1px solid #000;">
+              W | <%= @seboard_W.position %> | <%= @seboard_W.btncolor %> | <%= @seboard_W.volume %> | <%= @seboard_W.loopable %> | <%= @seboard_W.sefile.sedata %> | <%= @seboard_W.sefile.sename %> | <%= @seboard_W.sefile.sepath %> | <%= @seboard_W.sefile.sename %>
+            </div>
 
 
-      </div><!--  .option_Q -->
+            <script type="text/javascript">
+              var samplerPost_<%= sampler.id %> = document.getElementById('sampler_<%= sampler.id %>');
 
-    </div><!--  .sampler-index -->
+              samplerPost_<%= sampler.id %>.addEventListener('click',function(){
+                // 音量変更
+
+                console.log(samplerPost_<%= sampler.id %>);
+                samplerName.value = "<%= sampler.sampler_name %>";
+
+                <%= render partial: 'shared/samplerReader' %>
+
+              });
+            </script>
+
+
+          </div><!--  .option_Q -->
+
+        </div><!--  .sampler-index -->
 
 
 
-    <% end %>
-    <%= paginate @samplers %>
-  </div><!--  .jscroll -->
+        <% end %>
+        <%= paginate @samplers %>
+      </div><!--  .jscroll -->
+
+    </div><!--  .sampler-scrolly -->
+  </div><!--  .sampler-scrollx -->
+  <% end %>
+
 </div><!--  .scroll-list jscroll -->
-
-
-
-
-
-
-
-<% end %>

@@ -17,15 +17,24 @@
 // スタイルシート実験　ここまで
 
 // 基本的な設定
-
+body
+{
+  height: 100vh;
+}
 .container
 {
+  position: relative;
   margin: auto;
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
+  // height: 100vh;
+  padding: 124px 0 0 0;
 }
-.flexer,
-.grand-flexer
+.wrapper
+{
+  overflow: visible;
+}
+.flexer
 {
   display: -webkit-flex;
   display: -ms-flex;
@@ -35,11 +44,19 @@
 
 .sound-library
 {
-  width: 18%;
+  width: 20%;
 
   background-color: #ddd;
   padding: 20px;
+  // height: calc(100vh - 84px);
+
 }
+.sampler-index
+{
+  width: 20%;
+  height: calc(100vh - 124px);
+}
+
 .main-sumpler
 {
   width: 45%;
@@ -54,7 +71,32 @@
 }
 
 
+// .alert
+// {
+//   padding-top: 0;
+//   margin-bottom: 0;
+// }
+// .navbar
+// {
+//   margin-bottom: 0;
+// }
+
+
+
 // 基本的な設定 ここまで
+
+
+// fixedメニューバー
+
+.navbar-wrap
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+// fixedメニューバーここまで
 
 
 // 無限スクロール
@@ -109,6 +151,53 @@ nav.pagination
 // リアルタイム検索 ここまで
 
 
+// 検索ウィンドウ
+
+.controll.is-expanded
+{
+  margin: 0 8px;
+  position: relative;
+  .search-field
+  {
+    width: 100%;
+    padding: 8px 8px 8px 36px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+  }
+  .sampler-search
+  {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    outline: none;
+    border: none;
+    width: 20px;
+    height: 20px;
+    outline: none;
+    background-color: transparent;
+  }
+  .fas.fa-search.search
+  {
+    position: absolute;
+    top: 50%;
+    left: 6%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  // .sampler-search
+  // {
+  //   display: none;
+  // }
+}
+
+// 検索ウィンドウ ここまで
+
+
 // 効果音ライブラリ
 
 .sl-content
@@ -143,13 +232,22 @@ nav.pagination
 }
 .btnwrapper-v1
 {
-  width: 50%;
+  width: 55%;
   margin-bottom: 80px;
+}
+.btnwrapper-v1-1
+{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
 }
 .case-btn
 {
-  width: 23%;
-  // height: 100px;
+  width: 160px;
+  height: 160px;
   border: 1px solid #000;
   display: inline-block;
   cursor: pointer;
@@ -195,6 +293,13 @@ nav.pagination
 .sampler-index
 {
   background-color: #ddd;
+}
+
+.sampler-scrollx
+{
+  overflow-x: hidden;
+  overflow-y: visible;
+  height: 300px;
 }
 
 // サンプラー一覧 ここまで

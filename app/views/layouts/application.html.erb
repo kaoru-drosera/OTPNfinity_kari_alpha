@@ -18,23 +18,34 @@
 
 
   <body>
-    <p class="notice"><%= notice %></p><!--  .notice -->
-    <p class="alert"><%= alert %></p><!--  .alert -->
+    <section class="container">
+      <div class="navbar-wrap">
+        <p class="notice"><%= notice %></p><!--  .notice -->
+        <p class="alert"><%= alert %></p><!--  .alert -->
 
-    <%= render partial: 'layouts/navbar' %>
+        <%= render partial: 'layouts/navbar' %>
+      </div><!--  .navbar-wrap -->
 
-    <div class="grand-flexer">
+      <section class="wrapper">
+        <div class="flexer">
 
-      <%= render partial: 'sampler/save' %>
+
+          <div class="sound-library">
+
+          </div><!--  .sound-library -->
+
+          <%= render partial: 'sampler/save' %>
+
+          <%= yield %>
+
+          <%= render partial: 'sampler/index' %>
+
+        </div><!--  .flexer -->
+      </section><!--  .wrapper -->
+    </section><!--  .container -->
 
 
-      <%= yield %>
 
-      <% if user_signed_in? %>
-      <%= render partial: 'sampler/index' %>
-      <% end %>
-
-    </div><!--  .sampler-flexer -->
 
     <% unless user_signed_in? %>
 

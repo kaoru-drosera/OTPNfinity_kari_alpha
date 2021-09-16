@@ -24,7 +24,8 @@ time, mark, audio, video {
     background:transparent;
     line-height: 1;
     list-style: none;
-
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 body {
     line-height:0;
