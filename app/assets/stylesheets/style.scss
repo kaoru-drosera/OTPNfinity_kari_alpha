@@ -16,10 +16,26 @@
 // }
 // スタイルシート実験　ここまで
 
+// カラーパレット
+
+$panel: #333;
+$bg: #222;
+$bg_middle: #2a2a2a;
+$scroll: #444;
+$bg_light: #555;
+$navh: 60px;
+$mainpt: 36px;
+$txt1: #ccc;
+
+// カラーパレットここまで
+
 // 基本的な設定
 body
 {
   height: 100vh;
+  position: relative;
+  padding: $navh 0 0;
+  background-color: $bg;
 }
 .container
 {
@@ -28,11 +44,12 @@ body
   width: 100%;
   max-width: 1200px;
   // height: 100vh;
-  padding: 124px 0 0 0;
+  // padding: 124px 0 0 0;
 }
 .wrapper
 {
   overflow: visible;
+  padding: $mainpt 0 0;
 }
 .flexer
 {
@@ -46,27 +63,27 @@ body
 {
   width: 20%;
 
-  background-color: #ddd;
+  background-color: $panel;
   padding: 20px;
-  // height: calc(100vh - 84px);
+  height: calc(100vh - #{$navh + $mainpt});
 
 }
 .sampler-index
 {
   width: 20%;
-  height: calc(100vh - 124px);
+  height: calc(100vh - #{$navh + $mainpt});
 }
 
 .main-sumpler
 {
   width: 45%;
-  background-color: #ddd;
+  background-color: $panel;
   padding: 30px;
 }
 .right-sumpler-custom
 {
   width: 20%;
-  background-color: #ddd;
+  background-color: $panel;
   padding: 30px;
 }
 
@@ -86,17 +103,119 @@ body
 // 基本的な設定 ここまで
 
 
+// スクロールバー
+
+::-webkit-scrollbar
+{
+  width: 4px;
+  margin-right: 4px;
+}
+::-webkit-scrollbar-track
+{
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: $scroll;
+  border-radius: 4px;
+}
+
+// スクロールバー ここまで
+
+
 // fixedメニューバー
 
+.navbar
+{
+  position: relative;
+  min-height: auto;
+  margin-bottom: 0;
+  border: 1px solid transparent;
+}
+.navbar-toggler
+{
+  opacity: 0;
+}
 .navbar-wrap
 {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 1;
+  height: 60px;
+  background-color: $panel;
+}
+.navbar-flexer
+{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-between;
+  height: $navh;
+  align-items: center;
+  width: 100%;
+}
+.navbar-nav > li > a
+{
+  color: $txt1;
+  border-radius: 4px;
+  transition: .3s;
+  text-decoration: none;
+  padding: 8px 12px;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  &:hover
+  {
+    background-color: rgba(134, 134, 134, 0.5);
+  }
 }
 
+
 // fixedメニューバーここまで
+
+
+// フラッシュメッセージ
+
+.ntf-cont
+{
+  position: absolute;
+  left: 50%;
+  top: 16px;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  // padding: 30px;
+  background-color: $bg_light;
+  border: 2px solid #0f0;
+  border-radius: 6px;
+  width: 40vw;
+  height: 70px;
+  transition: .8s;
+  opacity: 0;
+  z-index: 2;
+  &.ntf-active
+  {
+    display: block;
+    opacity: 1;
+  }
+}
+.ntf-wrap
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  p
+  {
+    color: #0f0;
+  }
+
+}
+
+// フラッシュメッセージ ここまで
 
 
 // 無限スクロール
@@ -107,11 +226,68 @@ nav.pagination
 }
 .jscroll
 {
-  // margin-bottom: 300px;
+  margin-bottom: 20px 0 0;
   .sampler
   {
-    background-color: #eee;
-    margin-bottom: 20px;
+    padding: 16px 10px;
+    // background-color: $panel;
+    margin-bottom: 10px;
+    border-bottom: 1px solid $txt1;
+    cursor: pointer;
+    &:hover
+    {
+      background-color: $bg_middle;
+    }
+  }
+  .sampler-postname-wrapper
+  {
+    margin-bottom: 4px;
+  }
+  .sampler-postname
+  {
+    color: $txt1;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
+.sampler-date-wrapper
+{
+  & > div
+  {
+    p
+    {
+      color: $bg_light;
+      position: relative;
+      margin: 0 0 0 16px;
+      font-size: 10px;
+      &::before
+      {
+        position: absolute;
+        top: 50%;
+        left: -10%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        color: $bg_light;
+        font-family: "Font Awesome 5 Free";
+      	font-weight: 900;
+      }
+    }
+  }
+}
+.sampler-created
+{
+  margin-bottom: 1px;
+  p::before
+  {
+    content: '\f0c7';
+  }
+}
+.sampler-updated
+{
+  p::before
+  {
+    content: '\f304';
   }
 }
 
@@ -161,9 +337,10 @@ nav.pagination
   {
     width: 100%;
     padding: 8px 8px 8px 36px;
-    border-radius: 25px;
+    border-radius: 4px;
+    border: 1px solid #888;
+    background-color: #333;
     outline: none;
-    border: none;
   }
   .sampler-search
   {
@@ -188,6 +365,7 @@ nav.pagination
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+    color: $txt1;
   }
   // .sampler-search
   // {
@@ -230,28 +408,38 @@ nav.pagination
   justify-content: space-between;
   // flex-flow: wrap;
 }
-.btnwrapper-v1
+.btncontainer
 {
-  width: 55%;
+  width: 58%;
   margin-bottom: 80px;
+  background-color: $panel;
+  padding: 0 4px 20px;
 }
-.btnwrapper-v1-1
+.btnwrapper
+{
+
+}
+.btnpanel
 {
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
-
+  align-content: space-between;
+  height: 490px;
 }
 .case-btn
 {
   width: 160px;
   height: 160px;
-  border: 1px solid #000;
+  // border: 1px solid #000;
+  border-radius: 6px;
   display: inline-block;
   cursor: pointer;
   padding: 10px;
+  background-color: $bg;
   input[type=range]
   {
     width: 100%;
@@ -292,14 +480,27 @@ nav.pagination
 
 .sampler-index
 {
-  background-color: #ddd;
+  background-color: $panel;
 }
 
+.sampler-index-wrapper
+{
+  padding: 0 10px;
+}
 .sampler-scrollx
+{
+  overflow: hidden;
+  border-radius: 14px;
+  background-color: $bg;
+  margin-top: 20px;
+}
+.sampler-scrolly
 {
   overflow-x: hidden;
   overflow-y: visible;
-  height: 300px;
+  height: 46vh;
+  margin: 20px auto;
+  padding: 0 16px;
 }
 
 // サンプラー一覧 ここまで

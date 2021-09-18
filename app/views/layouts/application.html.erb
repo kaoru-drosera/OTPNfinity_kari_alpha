@@ -18,13 +18,18 @@
 
 
   <body>
-    <section class="container">
-      <div class="navbar-wrap">
-        <p class="notice"><%= notice %></p><!--  .notice -->
-        <p class="alert"><%= alert %></p><!--  .alert -->
 
-        <%= render partial: 'layouts/navbar' %>
-      </div><!--  .navbar-wrap -->
+    <%= render partial: 'shared/flash' %>
+
+    <div class="navbar-wrap">
+      <div class="container">
+          <%= render partial: 'layouts/navbar' %>
+          <!-- <p class="notice"><%# notice %></p>
+            <p class="alert"><%# alert %></p>< -->
+      </div><!--  .container -->
+    </div><!--  .navbar-wrap -->
+
+    <section class="container">
 
       <section class="wrapper">
         <div class="flexer">

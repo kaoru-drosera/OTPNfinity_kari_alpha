@@ -161,6 +161,8 @@
     console.log(volumeC);
     console.log(volumeV);
 
+    var ntf = document.getElementById("ntf-cont");
+
     var sound = [soundQ, soundW, soundE, soundR, soundA, soundS, soundD, soundF, soundZ, soundX, soundC, soundV];
     // var reader = [readerQ, readerW, readerE, readerR, readerA, readerS, readerD, readerF, readerZ, readerX, readerC, readerV];
     // var reader = [readerD, readerF];
@@ -402,7 +404,16 @@
 
     <% end %>
 
+    setTimeout(ntfRemover, 1500);
+
   });
+
+
+  function ntfRemover(){
+    ntf.classList.remove('ntf-active');
+  }
+  console.log(ntf);
+
 
   var btnColors = [btnColorQ, btnColorW, btnColorE];
   var bgs = [bg_Q, bg_W, bg_E];
@@ -439,6 +450,7 @@
     });
     // ↑ ここまでの部分を関数化して、複数アクションで呼ぼう。
   }
+
 
 
 

@@ -1,25 +1,30 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <% if user_signed_in? %>
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="navbar-flexer" id="navbarNav">
+
+      <div class="left">
+        <a class="" href="#">OTPNfinity_kari</a>
+      </div><!--  .navbar-left -->
+
+      <div class="right">
+        <ul class="navbar-nav">
+          <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to('ログアウト', destroy_user_session_path, method: :delete) %>
           </li><!--  .nav-item active -->
           <li class="nav-item active">
             <!-- <a class="nav-link" type="button" data-toggle="modal" data-target="#editModal">ユーザー編集</a> -->
           </li><!--  .nav-item active -->
-        <% else %>
-        <li class="nav-item active">
-          <a class="nav-link" type="button" data-toggle="modal" data-target="#signUpModal">ユーザー登録</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" type="button" data-toggle="modal" data-target="#logInModal">ログイン</a>
-        </li>
-        <% end %>
-      </ul>
+          <% else %>
+          <li class="nav-item active">
+            <a class="nav-link" type="button" data-toggle="modal" data-target="#signUpModal">ユーザー登録</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" type="button" data-toggle="modal" data-target="#logInModal">ログイン</a>
+          </li>
+          <% end %>
+        </ul>
+      </div><!--  .navbar-right -->
+
+
     </div>
 </nav>

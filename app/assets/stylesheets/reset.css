@@ -26,6 +26,7 @@ time, mark, audio, video {
     list-style: none;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    font-feature-settings: "palt";
 }
 body {
     line-height:0;
