@@ -20,12 +20,14 @@
 
 $panel: #333;
 $bg: #222;
+$panel_dark: #111;
 $bg_middle: #2a2a2a;
 $scroll: #444;
 $bg_light: #555;
 $navh: 60px;
 $mainpt: 36px;
 $txt1: #ccc;
+$vol_scroll: #aaa;
 
 // カラーパレットここまで
 
@@ -155,7 +157,9 @@ body
   align-items: center;
   width: 100%;
 }
+// メニューバーのリンク
 .navbar-nav > li > a
+// .nav-link
 {
   color: $txt1;
   border-radius: 4px;
@@ -167,8 +171,363 @@ body
   &:hover
   {
     background-color: rgba(134, 134, 134, 0.5);
+    outline: none;
+    color: $txt1;
   }
 }
+
+
+// モーダル
+.modal-dialog
+{
+  margin: 160px auto;
+}
+.modal.fade .modal-dialog
+{
+  transform: translate(0, 0);
+}
+.modal-header
+{
+  padding: 15px 20px;
+  border-bottom: 1px solid #ccc;
+
+  .close
+  {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: $bg_middle;
+    opacity: 1;
+    i
+    {
+      color: $txt1;
+      font-size: 24px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+  }
+  .modal-title
+  {
+    color: $txt1;
+    display: inline-block;
+    font-size: 28px;
+  }
+}
+.modal-body
+{
+  &.soundalert
+  {
+    border: none;
+  }
+  // padding: 6px 15px;
+}
+.modal-content
+{
+  overflow: hidden;
+  background-color: $bg;
+}
+.field
+{
+  // background-color: $panel;
+  padding: 10px 10px 20px;
+  color: $txt1;
+  margin-bottom: 10px;
+  border-bottom: 1px solid $bg_light;
+}
+.field-cell
+{
+  position: relative;
+  height: 70px;
+  .field-cell-label
+  {
+    p
+    {
+      color: $txt1;
+      font-size: 18px;
+    }
+  }
+}
+.errmsg-cont
+{
+  height: 10px;
+  margin-bottom: 2px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  p
+  {
+    font-size: 12px;
+    color: $txt1;
+  }
+  .field-cell
+  {
+    height: auto;
+  }
+}
+.field-cell-formwrap
+{
+  margin-top: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 75%;
+}
+.field-cell-formwrap input
+{
+  width: 100%;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #888;
+  background-color: #333;
+  outline: none;
+  color: $txt1;
+}
+.btn-submit.otpnSubmit
+{
+  border-radius: 4px;
+    display: block;
+    width: 40%;
+    /* margin: auto; */
+    background-color: $bg;
+    color: $txt1;
+    padding: 10px;
+    border: 1px solid $txt1;
+    &:hover
+    {
+      &::after
+      {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+    }
+}
+
+// 音量注意
+
+.modal-content.andSoundalert
+{
+  background-color: $bg;
+  border: 4px solid #555;
+}
+.soundalert
+{
+  border: 3px solid $txt1;
+  border-radius: 8px;
+  padding: 40px 20px;
+
+  position: relative;
+  // &::before
+  // {
+  //   content: '';
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   -webkit-transform: translate(-50%, -50%);
+  //   -ms-transform: translate(-50%, -50%);
+  //   transform: translate(-50%, -50%);
+  //   background-color: $txt1;
+  //   width: calc(100% + 3px);
+  //   height: calc(100% + 3px);
+  //   z-index: -1;
+  // }
+  &::after
+  {
+    content: '\f028';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%) rotate(-18deg);
+    -ms-transform: translate(-50%, -50%) rotate(-18deg);
+    transform: translate(-50%, -50%) rotate(-18deg);
+    color: $panel;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    z-index: 0;
+    font-size: 370px;
+  }
+}
+.seal-txtcont
+{
+  position: relative;
+  z-index: 1;
+}
+.seal-ttlwrap
+{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+.seal-ttl
+{
+  color: #ccc;
+  font-size: 32px;
+  position: relative;
+  font-weight: bold;
+  letter-spacing: 16px;
+
+  &::after,
+  &::before
+  {
+    content: '\f071';
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 28px;
+    color: $txt1;
+  }
+  &::before
+  {
+    left: -24%;
+  }
+  &::after
+  {
+    right: -24%;
+  }
+
+}
+.seal-txtwrap
+{
+  p
+  {
+    color: $txt1;
+    line-height: 1.8;
+    text-align: center;
+  }
+}
+
+#signUpErrorModal.show
+{
+  display: block;
+  opacity: 1;
+}
+
+// モーダル ここまで
+
+
+// ユーザー登録エラー 偽モーダル
+
+.signUpError_ttlwrap
+{
+  padding-bottom: 10px;
+}
+.signUpError_ttl
+{
+  color: #ccc;
+  font-size: 24px;
+}
+
+#error_explanation
+{
+  border-top: 1px solid #555;
+  border-bottom: 1px solid #555;
+  padding: 20px 0 20px;
+
+  h2
+  {
+    color: #ccc;
+    padding: 0 10px;
+    font-size: 18px;
+    text-align: left;
+  }
+  ul
+  {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    margin-top: 10px;
+
+    li
+    {
+      color: $txt1;
+      line-height: 1.8;
+      margin-top: 10px;
+      &:last-child
+      {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+.signUpError_subtxtwrap
+{
+  border-bottom: 1px solid #555;
+}
+.signUpError_subtxt
+{
+  color: $txt1;
+  line-height: 1.8;
+  margin: 10px;
+}
+.signUpError_linkwrap
+{
+}
+.signUpError_links
+{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+
+  .button_to
+  {
+    width: 45%;
+
+    .link.quit
+    {
+      width: 100%;
+      height: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: $bg;
+      color: $txt1;
+
+    }
+  }
+
+  .link.entry
+  {
+    width: 45%;
+    position: relative;
+    border: 1px solid #ccc;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: $scroll;
+
+    p
+    {
+      color: $txt1;
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+// ユーザー登録エラー 偽モーダルここまで
 
 
 // fixedメニューバーここまで
@@ -329,7 +688,13 @@ nav.pagination
 
 // 検索ウィンドウ
 
-.controll.is-expanded
+.field.search
+{
+  padding: 10px;
+  border: none;
+  margin-top: 8px;
+}
+.controll.is-expanded.search
 {
   margin: 0 8px;
   position: relative;
@@ -341,6 +706,7 @@ nav.pagination
     border: 1px solid #888;
     background-color: #333;
     outline: none;
+    color: $txt1;
   }
   .sampler-search
   {
@@ -413,25 +779,151 @@ nav.pagination
   width: 58%;
   margin-bottom: 80px;
   background-color: $panel;
-  padding: 0 4px 20px;
+  padding: 0 8px 20px;
 }
 .btnwrapper
 {
 
 }
+
+// 上パネル
+.upper-panel
+{
+  width: 100%;
+  background-color: $scroll;
+  height: 50px;
+  margin-bottom: 10px;
+  padding: 0 4px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.upper-panel-left
+{
+  width: 15%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-between;
+}
+
+  // 設定表示切り替えボタン
+  .sampler-custom-switcher,
+  .mute-switcher
+  {
+    width:  42px;
+    height:  42px;
+    position: relative;
+    background-color: $bg_light;
+    cursor: pointer;
+    i
+    {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      color: $txt1;
+      font-size: 28px;
+    }
+    &.show
+    {
+      &:hover
+      {
+        content: '';
+      }
+      i
+      {
+        color: $bg;
+      }
+    }
+  }
+
+  .upper-panel-right
+  {
+    width: 40%;
+    height: 40px;
+  }
+  .samplername-field-wrap
+  {
+    position: relative;
+    &::before
+    {
+      content: 'サンプラー名';
+      position: absolute;
+      bottom: -6%;
+      right: 0;
+      font-size: 12px;
+      color: #ccc;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 3;
+      padding: 2px 5px;
+      border-radius: 4px;
+
+    }
+  }
+  .samplername-field
+  {
+    position: relative;
+    font-size: 16px;
+    height: 40px;
+    padding: 4px 10px;
+    width: 100%;
+    outline: none;
+
+    border-radius: 4px;
+    border: 1px solid #888;
+    background-color: #333;
+    color: $txt1;
+    &::placeholder
+    {
+      color: $bg_light;
+    }
+  }
+  // 設定表示切り替えボタン ここまで
+
+
+  // ミュートボタン
+  .mute-switcher.show
+  // .mute-switcher:hover
+  {
+    i::after
+    {
+      content: '\f05e';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      color: $txt1;
+      font-size: 28px;
+
+    }
+  }
+
+  // ミュートボタン ここまで
+
+
+
+
 .btnpanel
 {
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
-  // justify-content: space-between;
-  justify-content: space-around;
+  justify-content: space-between;
+  // justify-content: space-around;
   flex-wrap: wrap;
   align-content: space-between;
   height: 490px;
 }
 .case-btn
 {
+  position: relative;
   width: 160px;
   height: 160px;
   // border: 1px solid #000;
@@ -444,36 +936,479 @@ nav.pagination
   {
     width: 100%;
   }
-  input[type=text]
+}
+.case-btn-clickable
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  height: 100%;
+}
+.case-btn-custompanel
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  width: 86%;
+  height: 86%;
+  border: 1px solid $txt1;
+  background-color: rgba(0, 0, 0, 0.7);
+  visibility: hidden;
+  padding: 10px 6px;
+  cursor: default;
+  &.show
   {
-    width: 100%;
-    margin-top: 10px;
+    visibility: visible;
   }
 }
 
 // メインサンプラー ここまで
 
 
+
 // サンプラー設定
 
-.lsc-content
-{
-  a
+  // 音量&ボタン色コンテナ
+
+  .volumeAndRadio-cont
   {
-    padding: 20px;
-    background-color: #eee;
-    display: inline-block;
-    width: 100%;
-    margin: 0 0 10px 0;
-    p
+    margin-bottom: 6px;
+  }
+
+  // 音量&ボタン色コンテナ ここまで
+
+  // 音量バー
+
+  .volume-field
+  {
+    background-color: $panel_dark;
+    padding: 6px;
+    margin-bottom: 6px;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+
+    input[type="range"] {
+      -webkit-appearance: none; /* 🚩これ無しだとスタイルがほぼ全く反映されないので注意 */
+      appearance: none;
+      cursor: pointer; /* カーソルを分かりやすく */
+      outline: none; /* スライダーのアウトラインは見た目がキツイので消す */
+      height: 2px; /* バーの高さ */
+      width: 100%; /* バーの幅 */
+      background: $txt1; /* バーの背景色 */
+      // border-radius: 10px; /* バーの両端の丸み */
+      // border: solid 3px #dff1ff; /* バー周囲の線 */
+    }
+    /* WebKit向けのつまみ */
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none; /*  🚩デフォルトのつまみのスタイルを解除 */
+      background: $txt1; /* 背景色 */
+      width: 14px; /* 幅 */
+      height: 14px; /* 高さ */
+      border-radius: 50%; /* 円形に */
+      // box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15); /* 影 */
+      border: 2px solid $panel_dark;
+    }
+    /* Moz向けのつまみ */
+    input[type="range"]::-moz-range-thumb {
+      -webkit-appearance: none; /*  🚩デフォルトのつまみのスタイルを解除 */
+      background: $txt1; /* 背景色 */
+      width: 14px; /* 幅 */
+      height: 14px; /* 高さ */
+      border-radius: 50%; /* 円形に */
+      // box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15); /* 影 */
+
+      border: 2px solid $panel_dark;
+      border: none; /* デフォルトの線を消す */
+    }
+    /* Firefoxで点線が周りに表示されてしまう問題の解消 */
+    input[type="range"]::-moz-focus-outer
     {
-      display: inline-block;
+      border: 0;
+    }
+
+    input[type="range"]:active::-webkit-slider-thumb
+    {
+      background: $vol_scroll; /* 背景色 */
+    }
+
+  }
+
+  // 音量バー ここまで
+
+
+
+  // ラジオボタン(ボタン色設定)
+
+  .radio-field
+  {
+    background-color: $panel_dark;
+    padding: 2px;
+    display: flex;
+    justify-content: space-between;
+    // flex-wrap: wrap;
+    // align-items: space-between;
+  }
+
+  .lb-rd-color
+  {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    // cursor: pointer;
+    .rd-color
+    {
+      display: none;
+    }
+    input:checked + .rd-mk-color::after
+    {
+      opacity: 1;
+    }
+
+  }
+  .rd-mk-color
+  {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: $scroll;
+    border: 1px solid $panel;
+    cursor: pointer;
+
+    &:after
+    {
+      content: "";
+      width: 50%;
+      height: 50%;
+      background-color: $panel;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    // ラジオボタンの色
+    &.red
+    {
+      background-color: #f00;
+    }
+    &.orange
+    {
+      background-color: #f80;
+    }
+    &.yellow
+    {
+      background-color: #ff0;
+    }
+    &.yellgreen
+    {
+      background-color: #df0;
+    }
+    &.green
+    {
+      background-color: #0f0;
+    }
+    &.blue
+    {
+      background-color: #00f;
+    }
+    &.purple
+    {
+      background-color: #808;
+    }
+    &.pink
+    {
+      background-color: #f0f;
+    }
+    &.white
+    {
+      background-color: #fff;
+    }
+    // ラジオボタンの色 ここまで
+
+
+  }
+
+  // ラジオボタン(ボタン色設定) ここまで
+
+
+  // ファイル読み込み&ループflexer
+
+  .case-btn-miniflexer
+  {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    height: 30px;
+  }
+
+  // ファイル読み込み&ループflexer ここまで
+
+
+  // チェックボックス(ループ)
+
+  .loopable-wrap
+  {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .lb-cb-loopable
+  {
+    position: relative;
+    width: 100%;
+    font-size: 18px;
+    color: $txt1;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    i
+    {
+      position: relative;
+      font-size: 16px;
+      color: $txt1;
+      transform: scale(-1, 1);
+      &::after
+      {
+        content: '\f05e';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%) scale(-1, 1);
+        -ms-transform: translate(-50%, -50%) scale(-1, 1);
+        transform: translate(-50%, -50%) scale(-1, 1);
+
+        font-size: 22px;
+        color: $bg_light;
+      }
+    }
+    input:checked + .cb-mk-loopable::before
+    {
+      background-color: $panel_dark;
+    }
+    input:checked + .cb-mk-loopable::after
+    {
+      right: 4px;
+    }
+    // 間接セレクタ「~」で、同じ階層の値を取得。ただし、「後」の要素に限られるので注意。
+    input:checked ~ i
+    {
+      color: $txt1;
+    }
+    input:checked ~ i::after
+    {
+      content: '';
+      color: $txt1;
     }
   }
-}
+  .cb-loopable
+  {
+    display: none;
+  }
+  .cb-mk-loopable
+  {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    width: 100%;
+    height: 100%;
+    // background-color: $txt1;
+
+    &::before,
+    &::after
+    {
+      content: '';
+      position: absolute;
+      top: 50%;
+      // transition: .3s;
+    }
+    &::before
+    {
+      width: 24px;
+      height: 16px;
+      border-radius: 8px;
+      border: 2px solid $txt1;
+      right: 0;
+      -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      background-color: $bg_light;
+    }
+    &::after
+    {
+      width: 8px;
+      height: 8px;
+      border-radius: 8px;
+      // border: 2px solid $txt1;
+      background-color: $txt1;
+      top: 50%;
+      right: 12px;
+      -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+    }
+
+  }
+
+
+  // チェックボックス(ループ) ここまで
+
+
+  // ファイル読み取り
+
+  .selectfile-cont
+  {
+    width: 60%;
+    height: 28px;
+    display: flex;
+    align-items: center;
+  }
+  .lb-selectFile
+  {
+    cursor: pointer;
+    i
+    {
+      font-size: 18px;
+      color: $txt1;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+    }
+    .selectFile
+    {
+      display: none;
+    }
+  }
+  .readFileWYN
+  {
+    font-size: 8px;
+    color: $txt1;
+  }
+
+  // ファイル読み取り ここまで
+
+
+
+  // sename入力フォーム
+
+  .sename-form
+  {
+    width: 100%;
+    padding: 4px 8px 4px 8px;
+    border-radius: 4px;
+    border: 1px solid $txt1;
+    background-color: rgba(51, 51, 51, 0.5);
+    outline: none;
+    color: $txt1;
+    font-size: 12px;
+  }
+
+  // sename入力フォーム ここまで
+
+
+// .lsc-content
+// {
+//   a
+//   {
+//     padding: 20px;
+//     background-color: #eee;
+//     display: inline-block;
+//     width: 100%;
+//     margin: 0 0 10px 0;
+//     p
+//     {
+//       display: inline-block;
+//     }
+//   }
+// }
 
 
 // サンプラー設定 ここまで
+
+
+
+// サンプラーメインパネル
+
+.main-panel
+{
+  position: relative;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+}
+.key-position
+{
+  p
+  {
+    font-size: 34px;
+    background-color: $bg_light;
+    display: inline-block;
+    /* width: 20%; */
+    color: #fff;
+    border-radius: 8px;
+    padding: 0 5px;
+  }
+}
+.sename-panel
+{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: calc(86% - 20px);
+  overflow-wrap: break-word;
+  p
+  {
+    text-align: right;
+  }
+}
+
+// サンプラーメインパネル ここまで
+
+// 保存ボタン
+
+.downer-panel
+{
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+.submit-btn
+{
+  border: none;
+  height: 50px;
+  /* border-radius: 8px; */
+  cursor: pointer;
+  background-color: $scroll;
+  width: 98%;
+  color: $txt1;
+  transition: .2s;
+  &:hover
+  {
+    background-color: $bg_light;
+  }
+
+}
+
+// 保存ボタン ここまで
 
 
 // サンプラー一覧

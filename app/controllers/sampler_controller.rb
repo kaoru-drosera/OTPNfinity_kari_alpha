@@ -6,8 +6,10 @@ class SamplerController < ApplicationController
   # 投稿を一覧形式にする(予定)
   def index
     @user = current_user.id
-    @samplers = current_user.sampler.includes(seboards: :sefile).order("created_at DESC").algolia_search(params[:query])
+    @samplers = current_user.sampler.order("updated_at ASC").includes(seboards: :sefile).algolia_search(params[:query])
     @samplers_init = current_user.sampler.order("updated_at ASC").includes(seboards: :sefile)
+
+    # @host = request.host
   end
 
   def save

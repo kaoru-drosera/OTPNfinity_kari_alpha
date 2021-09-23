@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     sessions: "users/sessions"
   }
+  devise_scope :user do
+    get '/users', to: 'users/registrations#new'
+  end
   resources :users
 
 

@@ -1,56 +1,355 @@
 
             // 上段
-            // Q
-            volumeQ.value = <%= @seboard_Q.volume %>;
-            soundQ.volume = <%= @seboard_Q.volume %> * 0.01;
-            btnColorQ[<%= @seboard_Q.btncolor %> - 1].checked = true;
-            btnColorInit(btnColorQ, bg_Q);
+              // Q
+              volumeQ.value = <%= @seboard_Q.volume %>;
+              soundQ.volume = <%= @seboard_Q.volume %> * 0.01;
+              btnColorQ[<%= @seboard_Q.btncolor %> - 1].checked = true;
+              btnColorInit(btnColorQ, bg_Q);
+              loopInit(soundQ, loopQ, loopValue_q);
 
-            if("<%= @seboard_Q.sefile.sedata %>"){
-              sepathQ.value = "<%= @seboard_Q.sefile.sedata.url %>";
-              soundQ.src = "<%= @seboard_Q.sefile.sedata.url %>";
-              console.log(sepathQ.value);
-            }else if("<%= @seboard_Q.sefile.sepath %>"){
-              sepathQ.value = "<%= @seboard_Q.sefile.sepath %>"
-              soundQ.src = "<%= @seboard_Q.sefile.sepath %>";
-              console.log(sepathQ.value);
-            }else{
-              sepathQ.value = "";
-              soundQ.src = "";
-            }
+              if("<%= @seboard_Q.sefile.sedata %>"){
+                sepathQ.value = "<%= @seboard_Q.sefile.sedata.url %>";
+                soundQ.src = "<%= @seboard_Q.sefile.sedata.url %>";
+                console.log(sepathQ.value);
+              }else if("<%= @seboard_Q.sefile.sepath %>"){
+                sepathQ.value = "<%= @seboard_Q.sefile.sepath %>";
+                soundQ.src = "<%= @seboard_Q.sefile.sepath %>";
+                console.log(sepathQ.value);
+              }else{
+                sepathQ.value = "";
+                soundQ.src = "";
+              }
 
-            loopQ.checked = <%= @seboard_Q.loopable %>;
-            loopQ.loop = <%= @seboard_Q.loopable %>;
-            loopValue_q = <%= @seboard_Q.loopable %>;
-            soundQ.loop = <%= @seboard_Q.loopable %>;
-
-
-            // W
-            volumeW.value = <%= @seboard_W.volume %>;
-            soundW.volume = <%= @seboard_W.volume %> * 0.01;
-            btnColorW[<%= @seboard_W.btncolor %> - 1].checked = true;
-            btnColorInit(btnColorW, bg_W);
-            soundW.src = "<%= @seboard_W.sefile.sedata.url %>";
-
-            if("<%= @seboard_W.sefile.sedata %>"){
-              sepathW.value = "<%= @seboard_W.sefile.sedata.url %>";
-              soundW.src = "<%= @seboard_W.sefile.sedata.url %>";
-              console.log(sepathW.value);
-            }else if("<%= @seboard_W.sefile.sepath %>"){
-              sepathW.value = "<%= @seboard_W.sefile.sepath %>"
-              soundW.src = "<%= @seboard_W.sefile.sepath %>";
-              console.log(sepathW.value);
-            }else{
-              sepathW.value = "";
-              soundW.src = "";
-            }
-
-            loopW.checked = <%= @seboard_W.loopable %>;
-            loopW.loop = <%= @seboard_W.loopable %>;
-            loopValue_w = <%= @seboard_W.loopable %>;
-            soundW.loop = <%= @seboard_W.loopable %>;
+              loopQ.checked = <%= @seboard_Q.loopable %>;
+              loopQ.loop = <%= @seboard_Q.loopable %>;
+              loopValue_q = <%= @seboard_Q.loopable %>;
+              soundQ.loop = <%= @seboard_Q.loopable %>;
+              senameQ.value = "<%= @seboard_Q.sefile.sename %>";
+              sename_panelQ.innerHTML = "<%= @seboard_Q.sefile.sename %>";
 
 
-            // E
+              // W
+              volumeW.value = <%= @seboard_W.volume %>;
+              soundW.volume = <%= @seboard_W.volume %> * 0.01;
+              btnColorW[<%= @seboard_W.btncolor %> - 1].checked = true;
+              btnColorInit(btnColorW, bg_W);
+              loopInit(soundW, loopW, loopValue_w);
 
-            btnColorInit(btnColorE, bg_E);
+              if("<%= @seboard_W.sefile.sedata %>"){
+                sepathW.value = "<%= @seboard_W.sefile.sedata.url %>";
+                soundW.src = "<%= @seboard_W.sefile.sedata.url %>";
+                console.log(sepathW.value);
+              }else if("<%= @seboard_W.sefile.sepath %>"){
+                sepathW.value = "<%= @seboard_W.sefile.sepath %>";
+                soundW.src = "<%= @seboard_W.sefile.sepath %>";
+                console.log(sepathW.value);
+              }else{
+                sepathW.value = "";
+                soundW.src = "";
+              }
+
+              loopW.checked = <%= @seboard_W.loopable %>;
+              loopW.loop = <%= @seboard_W.loopable %>;
+              loopValue_w = <%= @seboard_W.loopable %>;
+              soundW.loop = <%= @seboard_W.loopable %>;
+              senameW.value = "<%= @seboard_W.sefile.sename %>";
+              sename_panelW.innerHTML = "<%= @seboard_W.sefile.sename %>";
+
+
+
+              // E
+              volumeE.value = <%= @seboard_E.volume %>;
+              soundE.volume = <%= @seboard_E.volume %> * 0.01;
+              btnColorE[<%= @seboard_E.btncolor %> - 1].checked = true;
+              btnColorInit(btnColorE, bg_E);
+              loopInit(soundE, loopE, loopValue_e);
+
+              if("<%= @seboard_E.sefile.sedata %>"){
+                sepathE.value = "<%= @seboard_E.sefile.sedata.url %>";
+                soundE.src = "<%= @seboard_E.sefile.sedata.url %>";
+                console.log(sepathE.value);
+              }else if("<%= @seboard_E.sefile.sepath %>"){
+                sepathE.value = "<%= @seboard_E.sefile.sepath %>";
+                soundE.src = "<%= @seboard_E.sefile.sepath %>";
+                console.log(sepathE.value);
+              }else{
+                sepathE.value = "";
+                soundE.src = "";
+              }
+
+              loopE.checked = <%= @seboard_E.loopable %>;
+              loopE.loop = <%= @seboard_E.loopable %>;
+              loopValue_e = <%= @seboard_E.loopable %>;
+              soundE.loop = <%= @seboard_E.loopable %>;
+              senameE.value = "<%= @seboard_E.sefile.sename %>";
+              sename_panelE.innerHTML = "<%= @seboard_E.sefile.sename %>";
+
+
+              // R
+              volumeR.value = <%= @seboard_R.volume %>;
+              soundR.volume = <%= @seboard_R.volume %> * 0.01;
+              btnColorR[<%= @seboard_R.btncolor %> - 1].checked = true;
+              btnColorInit(btnColorR, bg_R);
+              loopInit(soundR, loopR, loopValue_r);
+
+              if("<%= @seboard_R.sefile.sedata %>"){
+                sepathR.value = "<%= @seboard_R.sefile.sedata.url %>";
+                soundR.src = "<%= @seboard_R.sefile.sedata.url %>";
+                console.log(sepathR.value);
+              }else if("<%= @seboard_R.sefile.sepath %>"){
+                sepathR.value = "<%= @seboard_R.sefile.sepath %>";
+                soundR.src = "<%= @seboard_R.sefile.sepath %>";
+                console.log(sepathR.value);
+              }else{
+                sepathR.value = "";
+                soundR.src = "";
+              }
+
+              loopR.checked = <%= @seboard_R.loopable %>;
+              loopR.loop = <%= @seboard_R.loopable %>;
+              loopValue_r = <%= @seboard_R.loopable %>;
+              soundR.loop = <%= @seboard_R.loopable %>;
+              senameR.value = "<%= @seboard_R.sefile.sename %>";
+              sename_panelR.innerHTML = "<%= @seboard_R.sefile.sename %>";
+
+
+
+            // 中段
+              // A
+              volumeA.value = <%= @seboard_A.volume %>;
+              soundA.volume = <%= @seboard_A.volume %> * 0.01;
+              btnColorA[<%= @seboard_A.btncolor %> - 1].checked = true;
+              btnColorInit(btnColorA, bg_A);
+              loopInit(soundA, loopA, loopValue_a);
+
+              if("<%= @seboard_A.sefile.sedata %>"){
+                sepathA.value = "<%= @seboard_A.sefile.sedata.url %>";
+                soundA.src = "<%= @seboard_A.sefile.sedata.url %>";
+                console.log(sepathA.value);
+              }else if("<%= @seboard_A.sefile.sepath %>"){
+                sepathA.value = "<%= @seboard_A.sefile.sepath %>";
+                soundA.src = "<%= @seboard_A.sefile.sepath %>";
+                console.log(sepathA.value);
+              }else{
+                sepathA.value = "";
+                soundA.src = "";
+              }
+
+              loopA.checked = <%= @seboard_A.loopable %>;
+              loopA.loop = <%= @seboard_A.loopable %>;
+              loopValue_a = <%= @seboard_A.loopable %>;
+              soundA.loop = <%= @seboard_A.loopable %>;
+              senameA.value = "<%= @seboard_A.sefile.sename %>";
+              sename_panelA.innerHTML = "<%= @seboard_A.sefile.sename %>";
+
+
+              // S
+              volumeS.value = <%= @seboard_S.volume %>;
+              soundS.volume = <%= @seboard_S.volume %> * 0.01;
+              btnColorS[<%= @seboard_S.btncolor %> - 1].checked = true;
+              btnColorInit(btnColorS, bg_S);
+              loopInit(soundS, loopS, loopValue_s);
+
+              if("<%= @seboard_S.sefile.sedata %>"){
+                sepathS.value = "<%= @seboard_S.sefile.sedata.url %>";
+                soundS.src = "<%= @seboard_S.sefile.sedata.url %>";
+                console.log(sepathS.value);
+              }else if("<%= @seboard_S.sefile.sepath %>"){
+                sepathS.value = "<%= @seboard_S.sefile.sepath %>";
+                soundS.src = "<%= @seboard_S.sefile.sepath %>";
+                console.log(sepathS.value);
+              }else{
+                sepathS.value = "";
+                soundS.src = "";
+              }
+
+              loopS.checked = <%= @seboard_S.loopable %>;
+              loopS.loop = <%= @seboard_S.loopable %>;
+              loopValue_s = <%= @seboard_S.loopable %>;
+              soundS.loop = <%= @seboard_S.loopable %>;
+              senameS.value = "<%= @seboard_S.sefile.sename %>";
+              sename_panelS.innerHTML = "<%= @seboard_S.sefile.sename %>";
+
+
+              // D
+              volumeD.value = <%= @seboard_D.volume %>;
+              soundD.volume = <%= @seboard_D.volume %> * 0.01;
+              btnColorD[<%= @seboard_D.btncolor %> - 1].checked = true;
+              btnColorInit(btnColorD, bg_D);
+
+              if("<%= @seboard_D.sefile.sedata %>"){
+                sepathD.value = "<%= @seboard_D.sefile.sedata.url %>";
+                soundD.src = "<%= @seboard_D.sefile.sedata.url %>";
+                console.log(sepathD.value);
+              }else if("<%= @seboard_D.sefile.sepath %>"){
+                sepathD.value = "<%= @seboard_D.sefile.sepath %>";
+                soundD.src = "<%= @seboard_D.sefile.sepath %>";
+                console.log(sepathD.value);
+              }else{
+                sepathD.value = "";
+                soundD.src = "";
+              }
+
+              loopD.checked = <%= @seboard_D.loopable %>;
+              loopD.loop = <%= @seboard_D.loopable %>;
+              loopValue_d = <%= @seboard_D.loopable %>;
+              soundD.loop = <%= @seboard_D.loopable %>;
+              senameD.value = "<%= @seboard_D.sefile.sename %>";
+              sename_panelD.innerHTML = "<%= @seboard_D.sefile.sename %>";
+              console.log(loopD.checked);
+              console.log(loopD.loop);
+              console.log(loopValue_d);
+              loopInit(soundD, loopD, loopValue_d);
+              console.log(loopD.checked);
+              console.log(loopD.loop);
+              console.log(loopValue_d);
+
+
+              // F
+              volumeF.value = <%= @seboard_F.volume %>;
+              soundF.volume = <%= @seboard_F.volume %> * 0.01;
+              btnColorF[<%= @seboard_F.btncolor %> - 1].checked = true;
+              btnColorInit(btnColorF, bg_F);
+
+              if("<%= @seboard_F.sefile.sedata %>"){
+                sepathF.value = "<%= @seboard_F.sefile.sedata.url %>";
+                soundF.src = "<%= @seboard_F.sefile.sedata.url %>";
+                console.log(sepathF.value);
+              }else if("<%= @seboard_F.sefile.sepath %>"){
+                sepathF.value = "<%= @seboard_F.sefile.sepath %>";
+                soundF.src = "<%= @seboard_F.sefile.sepath %>";
+                console.log(sepathF.value);
+              }else{
+                sepathF.value = "";
+                soundF.src = "";
+              }
+
+              loopF.checked = <%= @seboard_F.loopable %>;
+              loopF.loop = <%= @seboard_F.loopable %>;
+              loopValue_f = <%= @seboard_F.loopable %>;
+              soundF.loop = <%= @seboard_F.loopable %>;
+              senameF.value = "<%= @seboard_F.sefile.sename %>";
+              sename_panelF.innerHTML = "<%= @seboard_F.sefile.sename %>";
+              console.log(loopF.checked);
+              console.log(loopF.loop);
+              console.log(loopValue_f);
+              loopInit(soundF, loopF, loopValue_f);
+              console.log(loopF.checked);
+              console.log(loopF.loop);
+              console.log(loopValue_f);
+
+
+            // 下段
+              // Z
+              volumeZ.value = <%= @seboard_Z.volume %>;
+              soundZ.volume = <%= @seboard_Z.volume %> * 0.01;
+              btnColorZ[<%= @seboard_Z.btncolor %> - 1].checked = true;
+              btnColorInit(btnColorZ, bg_Z);
+              loopInit(soundZ, loopZ, loopValue_z);
+
+              if("<%= @seboard_Z.sefile.sedata %>"){
+                sepathZ.value = "<%= @seboard_Z.sefile.sedata.url %>";
+                soundZ.src = "<%= @seboard_Z.sefile.sedata.url %>";
+                console.log(sepathZ.value);
+              }else if("<%= @seboard_Z.sefile.sepath %>"){
+                sepathZ.value = "<%= @seboard_Z.sefile.sepath %>";
+                soundZ.src = "<%= @seboard_Z.sefile.sepath %>";
+                console.log(sepathZ.value);
+              }else{
+                sepathZ.value = "";
+                soundZ.src = "";
+              }
+
+              loopZ.checked = <%= @seboard_Z.loopable %>;
+              loopZ.loop = <%= @seboard_Z.loopable %>;
+              loopValue_z = <%= @seboard_Z.loopable %>;
+              soundZ.loop = <%= @seboard_Z.loopable %>;
+              senameZ.value = "<%= @seboard_Z.sefile.sename %>";
+              sename_panelZ.innerHTML = "<%= @seboard_Z.sefile.sename %>";
+
+
+              // X
+              volumeX.value = <%= @seboard_X.volume %>;
+              soundX.volume = <%= @seboard_X.volume %> * 0.01;
+              btnColorX[<%= @seboard_X.btncolor %> - 1].checked = true;
+              btnColorInit(btnColorX, bg_X);
+              loopInit(soundX, loopX, loopValue_x);
+
+              if("<%= @seboard_X.sefile.sedata %>"){
+                sepathX.value = "<%= @seboard_X.sefile.sedata.url %>";
+                soundX.src = "<%= @seboard_X.sefile.sedata.url %>";
+                console.log(sepathX.value);
+              }else if("<%= @seboard_X.sefile.sepath %>"){
+                sepathX.value = "<%= @seboard_X.sefile.sepath %>";
+                soundX.src = "<%= @seboard_X.sefile.sepath %>";
+                console.log(sepathX.value);
+              }else{
+                sepathX.value = "";
+                soundX.src = "";
+              }
+
+              loopX.checked = <%= @seboard_X.loopable %>;
+              loopX.loop = <%= @seboard_X.loopable %>;
+              loopValue_x = <%= @seboard_X.loopable %>;
+              soundX.loop = <%= @seboard_X.loopable %>;
+              senameX.value = "<%= @seboard_X.sefile.sename %>";
+              sename_panelX.innerHTML = "<%= @seboard_X.sefile.sename %>";
+
+
+
+              // C
+              volumeC.value = <%= @seboard_C.volume %>;
+              soundC.volume = <%= @seboard_C.volume %> * 0.01;
+              btnColorC[<%= @seboard_C.btncolor %> - 1].checked = true;
+              btnColorInit(btnColorC, bg_C);
+              loopInit(soundC, loopC, loopValue_c);
+
+              if("<%= @seboard_C.sefile.sedata %>"){
+                sepathC.value = "<%= @seboard_C.sefile.sedata.url %>";
+                soundC.src = "<%= @seboard_C.sefile.sedata.url %>";
+                console.log(sepathC.value);
+              }else if("<%= @seboard_C.sefile.sepath %>"){
+                sepathC.value = "<%= @seboard_C.sefile.sepath %>";
+                soundC.src = "<%= @seboard_C.sefile.sepath %>";
+                console.log(sepathC.value);
+              }else{
+                sepathC.value = "";
+                soundC.src = "";
+              }
+
+              loopC.checked = <%= @seboard_C.loopable %>;
+              loopC.loop = <%= @seboard_C.loopable %>;
+              loopValue_c = <%= @seboard_C.loopable %>;
+              soundC.loop = <%= @seboard_C.loopable %>;
+              senameC.value = "<%= @seboard_C.sefile.sename %>";
+              sename_panelC.innerHTML = "<%= @seboard_C.sefile.sename %>";
+
+
+
+
+              // V
+              volumeV.value = <%= @seboard_V.volume %>;
+              soundV.volume = <%= @seboard_V.volume %> * 0.01;
+              btnColorV[<%= @seboard_V.btncolor %> - 1].checked = true;
+              btnColorInit(btnColorV, bg_V);
+              loopInit(soundV, loopV, loopValue_v);
+
+              if("<%= @seboard_V.sefile.sedata %>"){
+                sepathV.value = "<%= @seboard_V.sefile.sedata.url %>";
+                soundV.src = "<%= @seboard_V.sefile.sedata.url %>";
+                console.log(sepathV.value);
+              }else if("<%= @seboard_V.sefile.sepath %>"){
+                sepathV.value = "<%= @seboard_V.sefile.sepath %>";
+                soundV.src = "<%= @seboard_V.sefile.sepath %>";
+                console.log(sepathV.value);
+              }else{
+                sepathV.value = "";
+                soundV.src = "";
+              }
+
+              loopV.checked = <%= @seboard_V.loopable %>;
+              loopV.loop = <%= @seboard_V.loopable %>;
+              loopValue_v = <%= @seboard_V.loopable %>;
+              soundV.loop = <%= @seboard_V.loopable %>;
+              senameV.value = "<%= @seboard_V.sefile.sename %>";
+              sename_panelV.innerHTML = "<%= @seboard_V.sefile.sename %>";

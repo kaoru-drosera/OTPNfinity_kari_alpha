@@ -1,52 +1,47 @@
 <div class="modal fade" id="logInModal">
       <div class="modal-dialog">
         <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Log In</h5>
-                <button type="button" class="close" data-dismiss="modal">
-                      <span>&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div>
-                    <h1>Log InNN</h1>
-                    <br>
-                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                        <div class="wrap">
-                              <div class="field">
-                                <label for="user_name">user_name</label>
-                                <%= f.text_field :user_name %>
-                              </div>
-
-                             <div class="field">
-                                <label for="password">Password</label>
-                                <%= f.password_field :password, autocomplete: "off" %>
-                              </div><br>
-
-                              <div>
-                                  <% if devise_mapping.rememberable? -%>
-                                    <div class="field">
-                                          <%= f.check_box :remember_me %>
-                                          <%= f.label :remember_me %>
-                                    </div>
-                                  <% end -%>
-                              </div>
-
-                            <div>
-                              <%= f.submit "Log in", class: 'btn btn-primary' %>
-                            </div>
-
-                            <div>
-                                <% render "devise/shared/links" %>
-                            </div>
-
-                        </div>
-                      <% end %>
+          <div class="modal-header">
+            <h5 class="modal-title">ログイン</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="wrap">
+                <div class="field">
+                  <div class="field-cell">
+                    <div class="field-cell-label"><p>ユーザーネーム</p></div><!--  .label -->
+                    <div class="field-cell-formwrap"><%= f.text_field :user_name %></div><!--  .field-cell-formwrap -->
+                  </div><!--  .field-cell -->
                 </div>
+
+                   <div class="field">
+                     <div class="field-cell">
+                       <div class="field-cell-label"><p>パスワード</p></div><!--  .label -->
+                       <div class="field-cell-formwrap"><%= f.password_field :password, autocomplete: "off" %></div><!--  .field-cell-formwrap -->
+                     </div><!--  .field-cell -->
+                  </div>
+
+                  <% if devise_mapping.rememberable? -%>
+                    <div class="field">
+                      <%= f.check_box :remember_me %>
+                      <%= f.label :remember_me %>
+                    </div>
+                  <% end -%>
+
+                  <div class="field">
+                    <%= f.submit "ログイン", class: 'btn-submit otpnSubmit' %>
+                  </div>
+
+                  <div>
+                      <% render "devise/shared/links" %>
+                  </div>
+
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-              </div>
+            <% end %>
+          </div>
         </div>
     </div>
 </div>

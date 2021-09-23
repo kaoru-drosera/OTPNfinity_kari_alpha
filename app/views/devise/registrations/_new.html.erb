@@ -2,55 +2,73 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title"><h1>Sign UpPPP</h1></h5>
+        <h5 class="modal-title">ユーザー登録</h5>
         <button type="button" class="close" data-dismiss="modal">
-          <span>&times;</span>
+          <i class="fas fa-times"></i>
         </button>
       </div>
-      <p class="alert"><%= alert %></p><!--  .alert -->
-      <%= render "users/shared/error_messages", resource: resource %>
       <div class="modal-body">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
 
           <div class="field">
-            <div class="field-cell"><%= f.label :email %></div><!--  .field-cell -->
-            <p class="field-cell" id="errmsg-email"></p><!--  .field-cell -->
-            <div class="field-cell"><%= f.email_field :email, autofocus: true, autocomplete: "email", size: "30", class:"email_cell" %></div><!--  .field-cell -->
+            <div class="field-cell">
+              <div class="field-cell-label"><p>メールアドレス</p></div><!--  .label -->
+              <div class="field-cell-formwrap">
+                <div class="errmsg-cont"><p class="field-cell" id="errmsg-email"></p><!--  .field-cell --></div><!--  .errmsg-cont -->
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "30", class:"email_cell" %>
+              </div><!--  .field-cell-formwrap -->
+            </div><!--  .field-cell -->
+
           </div>
 
           <div class="field">
-            <div class="field-cell"><%= f.label :user_name %></div><!--  .field-cell -->
-            <p class="field-cell" id="errmsg-username"></p><!--  .field-cell -->
-            <div class="field-cell"><%= f.text_field :user_name, autocomplete: "off" %></div><!--  .field-cell -->
+            <div class="field-cell">
+              <div class="field-cell-label"><p>ユーザーネーム</p></div><!--  .label -->
+              <div class="field-cell-formwrap">
+                <div class="errmsg-cont"><p class="field-cell" id="errmsg-username"></p><!--  .field-cell --></div><!--  .errmsg-cont -->
+                <%= f.text_field :user_name, autocomplete: "off" %>
+              </div><!--  .field-cell-formwrap -->
+            </div><!--  .field-cell -->
           </div><!--  .field -->
 
           <div class="field">
-            <div class="field-cell"><%= f.label :password %></div><!--  .field-cell -->
-            <p class="field-cell" id="errmsg-password"></p><!--  .field-cell -->
-            <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %>
-            <div class="field-cell"><%= f.password_field :password, autocomplete: "off", size: "30" %></div><!--  .field-cell -->
+            <div class="field-cell">
+
+              <div class="field-cell-label"><p>パスワード</p></div><!--  .label -->
+              <div class="field-cell-formwrap">
+                <div class="errmsg-cont"><p class="field-cell" id="errmsg-password"></p><!--  .field-cell --></div><!--  .errmsg-cont -->
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %>
+                <%= f.password_field :password, autocomplete: "off", size: "30" %>
+              </div><!--  .field-cell-formwrap -->
+
+
+            </div><!--  .field-cell -->
           </div>
 
           <div class="field">
-            <div class="field-cell"><%= f.label :password_confirmation %></div><!--  .field-cell -->
-            <p class="field-cell" id="errmsg-pswconfirm"></p><!--  .field-cell -->
-            <div class="field-cell"><%= f.password_field :password_confirmation, autocomplete: "off", size: "30" %></div><!--  .field-cell -->
+            <div class="field-cell">
+              <div class="field-cell-label"><p>パスワード(確認)</p></div><!--  .label -->
+              <div class="field-cell-formwrap">
+                <div class="errmsg-cont"><p class="field-cell" id="errmsg-pswconfirm"></p><!--  .field-cell --></div><!--  .errmsg-cont -->
+                <%= f.password_field :password_confirmation, autocomplete: "off", size: "30" %>
+              </div><!--  .field-cell-formwrap -->
+
+            </div><!--  .field-cell -->
           </div>
 
-          <div class="actions">
-            <%= f.submit "Sign up", class: 'btn btn-primary', id:'signup_submit' %>
-          </div>
+          <div class="field">
+            <div class="actions">
+              <%= f.submit "登録", class: 'btn-submit otpnSubmit', id:'signup_submit' %>
+            </div>
+          </div><!--  .field -->
+
           <div>
               <% render "devise/shared/links" %>
           </div>
 
         <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
@@ -158,5 +176,44 @@
 
       }, false);
   }, false);
+
+  // モーダル
+  var signupError = document.getElementById("signUpErrorModal");
+
+  // window.addEventListener('load',function(){
+  //   signupError.classList.add('show');
+  // });
+
+  // window.addEventListener('load',function(){
+  //
+  //   console.log("ヴァンパイア朝活");
+  //
+  //   var ref = document.referrer;             // リファラ情報を得る
+  //   var herePath = window.location.pathname; // 現在ページのパス名を得る
+  //
+  //   // リファラ文字列を判別
+  //   if( herePath == "" ) {
+  //       // リファラなしの場合
+  //       console.log("リファラ情報がありません");
+  //   }
+  //   else if( herePath != "/" ) {
+  //       // マッチした場合＝アクセス元が自サイト内の場合
+  //       console.log("自サイト内から来ました");
+  //       window.location.reload();
+  //   } else {
+  //       // マッチしない場合＝アクセス元がサイト外の場合
+  //       console.log("他のサイトから訪れました");
+  //   }
+  //   console.log(ref);
+  //   console.log(herePath);
+  //
+  // });
+
+
+
+
+  <%= render partial: 'shared/main_scripts' %>
+
+
 
 </script>

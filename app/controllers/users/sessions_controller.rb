@@ -30,8 +30,8 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def failed
-       redirect_to root_path
-   end
+    redirect_to root_path
+  end
 
 # protected
 private

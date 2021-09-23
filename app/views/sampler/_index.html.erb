@@ -1,12 +1,12 @@
 <div class="sampler-index">
 
-  <h4>サンプラー一覧</h4>
+  <!-- <h4>サンプラー一覧</h4> -->
   <% if user_signed_in? %>
 
 
   <%= form_with url: root_path, method: :get, local: true, autocomplete: 'off' do |f| %>
-    <div class="field has-addons">
-      <div class="controll is-expanded">
+    <div class="field search has-addons">
+      <div class="controll is-expanded search">
         <%= f.text_field :query, value: params[:query], class: 'search-field', id: 'search-field query', autocomplete: 'off', placeholder: 'サンプラーを検索' %>
         <%= f.submit class:'sampler-search', value: "" %>
         <i class="fas fa-search search"></i>
@@ -43,8 +43,23 @@
 
 
               <%
-              @seboard_Q = sampler.seboards.order(id: :desc).find_by(position: 1)
-              @seboard_W = sampler.seboards.order(id: :desc).find_by(position: 2)
+              # 上段
+              @seboard_Q = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 1)
+              @seboard_W = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 2)
+              @seboard_E = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 3)
+              @seboard_R = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 4)
+
+              # 中段
+              @seboard_A = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 5)
+              @seboard_S = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 6)
+              @seboard_D = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 7)
+              @seboard_F = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 8)
+
+              # 下段
+              @seboard_Z = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 9)
+              @seboard_X = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 10)
+              @seboard_C = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 11)
+              @seboard_V = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 12)
               %>
 
 

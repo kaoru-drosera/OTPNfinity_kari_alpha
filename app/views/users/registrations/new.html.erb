@@ -1,33 +1,39 @@
-<h2>Sign up</h2>
+<div class="modal fade signUpErrorModal" id="signUpErrorModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+          <div class="signUpError_ttlwrap">
+            <h2 class="signUpError_ttl">ユーザー登録に失敗しました</h2>
+          </div><!--  .signUpError_ttlwrap -->
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), remote: true) do |f| %>
+            <%= render "users/shared/error_messages", resource: resource %>
+          <% end %>
+          <div class="signUpError_subtxtwrap">
+            <p class="signUpError_subtxt">申し訳ございません。もう一度ユーザー登録を試してみてください。</p><!--  .signUpError_subtxt -->
+          </div><!--  .signUpError_subtxtwrap -->
+          <div class="signUpError_linkwrap">
+            <div class="signUpError_links">
+              <!-- コードが読み込めない不具合と戦っていた。どうやらrootページ側のscriptが読み込めないらしい。 -->
+              <!-- scriptで再読み込みをさせても治らないため、原因は「rootにきちんと戻れていない」ことにあると考えた。 -->
+              <!-- こうしたら治った。けどどうすれば治るのかはまだわからない。わけがわからない…。 -->
+              <%= button_to "トップに戻る", root_path, class: "link quit"%>
+              <a class="nav-link link entry" id="user-submit-toggler-signuperror" type="button" data-toggle="modal" data-target="#signUpModal"><p>ユーザー登録をやり直す</p></a>
+            </div><!--  .signUpError_links -->
+          </div><!--  .signUpError_linkwrap -->
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+    </div>
   </div>
+</div>
+<script type="text/javascript">
+  var signupError = document.getElementById("signUpErrorModal");
 
-  <div class="field">
-    <div class="field-cell"><%= f.label :user_name %></div><!--  .field-cell -->
-    <div class="field-cell"><%= f.text_field :user_name, autocomplete: "off" %></div><!--  .field-cell -->
-  </div><!--  .field -->
+  window.addEventListener('load',function(){
+    signupError.style.display = "block";
+    signupError.style.opacity = 1;
+    signupError.style.backgroundColor = "rgba(0,0,0, 0.4)";
 
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+  });
+  // $("#signUpErrorModal").modal();
+</script>

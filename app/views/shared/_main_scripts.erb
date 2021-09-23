@@ -1,0 +1,644 @@
+// サンプラー名
+var samplerName = document.getElementById("sampler_name");
+
+// 上段
+  // 音源
+  var soundQ = new Audio();
+  var soundW = new Audio();
+  var soundE = new Audio();
+  var soundR = new Audio();
+  // soundQ.src = "ラッパのファンファーレ.mp3";
+  // soundW.src = "./sounds/ドンドンパフパフ.mp3";
+  // soundE.src = "./sounds/レベルアップ.mp3";
+  // soundR.src = "./sounds/歓声と拍手.mp3";
+  var sepathQ = document.getElementById("sepathQ");
+  var sepathW = document.getElementById("sepathW");
+  var sepathE = document.getElementById("sepathE");
+  var sepathR = document.getElementById("sepathR");
+  // 音源 ここまで
+
+  // ファイル読み込み
+  var form_fileQ = document.getElementById("selectFile_q");
+  var form_fileW = document.getElementById("selectFile_w");
+  var form_fileE = document.getElementById("selectFile_e");
+  var form_fileR = document.getElementById("selectFile_r");
+  var fileWYN_Q = document.getElementById("readFileWYN_q");
+  var fileWYN_W = document.getElementById("readFileWYN_w");
+  var fileWYN_E = document.getElementById("readFileWYN_e");
+  var fileWYN_R = document.getElementById("readFileWYN_r");
+  // ファイル読み込み ここまで
+
+  // 音量・ループ
+  var volumeQ = document.getElementById("vol-q");
+  var volumeW = document.getElementById("vol-w");
+  var volumeE = document.getElementById("vol-e");
+  var volumeR = document.getElementById("vol-r");
+  var loopQ = document.getElementById("loopable_q");
+  var loopW = document.getElementById("loopable_w");
+  var loopE = document.getElementById("loopable_e");
+  var loopR = document.getElementById("loopable_r");
+  var volumeValue_q;
+  var volumeValue_w;
+  var volumeValue_e;
+  var volumeValue_r;
+  var loopValue_q;
+  var loopValue_w;
+  var loopValue_e;
+  var loopValue_r;
+  // 音量・ループ ここまで
+
+  // ボタン色
+  var btnColorQ = document.getElementsByName("sampler[seboards_attributes][1][btncolor]");
+  var btnColorW = document.getElementsByName("sampler[seboards_attributes][2][btncolor]");
+  var btnColorE = document.getElementsByName("sampler[seboards_attributes][3][btncolor]");
+  var btnColorR = document.getElementsByName("sampler[seboards_attributes][4][btncolor]");
+  var bg_Q = document.getElementById("bg-q");
+  var bg_W = document.getElementById("bg-w");
+  var bg_E = document.getElementById("bg-e");
+  var bg_R = document.getElementById("bg-r");
+  // ボタン色 ここまで
+
+  // サンプラー名
+  var senameQ = document.getElementById("senameQ");
+  var senameW = document.getElementById("senameW");
+  var senameE = document.getElementById("senameE");
+  var senameR = document.getElementById("senameR");
+  var sename_panelQ = document.getElementById("sename-panel_q");
+  var sename_panelW = document.getElementById("sename-panel_w");
+  var sename_panelE = document.getElementById("sename-panel_e");
+  var sename_panelR = document.getElementById("sename-panel_r");
+  // サンプラー名 ここまで
+
+
+// console.log(volumeQ);
+// console.log(volumeW);
+// console.log(volumeE);
+// console.log(volumeR);
+// console.log(btnColorQ);
+// console.log(btnColorW);
+// console.log(bg_Q);
+// console.log(bg_W);
+
+
+// 中段
+
+  // 音源
+  var soundA = new Audio();
+  var soundS = new Audio();
+  var soundD = new Audio();
+  var soundF = new Audio();
+  // soundA.src = "./sounds/和太鼓でドン.mp3";
+  // soundS.src = "./sounds/和太鼓でドドン.mp3";
+  // soundD.src = "./sounds/ピコピコハンマー.mp3";
+  // soundF.src = "./sounds/チーン1.mp3";
+  var sepathA = document.getElementById("sepathA");
+  var sepathS = document.getElementById("sepathS");
+  var sepathD = document.getElementById("sepathD");
+  var sepathF = document.getElementById("sepathF");
+  // 音源 ここまで
+
+  // ファイル読み込み
+  var form_fileA = document.getElementById("selectFile_a");
+  var form_fileS = document.getElementById("selectFile_s");
+  var form_fileD = document.getElementById("selectFile_d");
+  var form_fileF = document.getElementById("selectFile_f");
+  var fileWYN_A = document.getElementById("readFileWYN_a");
+  var fileWYN_S = document.getElementById("readFileWYN_s");
+  var fileWYN_D = document.getElementById("readFileWYN_d");
+  var fileWYN_F = document.getElementById("readFileWYN_f");
+  // ファイル読み込み ここまで
+
+  // 音量・ループ
+  var volumeA = document.getElementById("vol-a");
+  var volumeS = document.getElementById("vol-s");
+  var volumeD = document.getElementById("vol-d");
+  var volumeF = document.getElementById("vol-f");
+  var loopA = document.getElementById("loopable_a");
+  var loopS = document.getElementById("loopable_s");
+  var loopD = document.getElementById("loopable_d");
+  var loopF = document.getElementById("loopable_f");
+  var volumeValue_a;
+  var volumeValue_s;
+  var volumeValue_d;
+  var volumeValue_f;
+  var loopValue_a;
+  var loopValue_s;
+  var loopValue_d;
+  var loopValue_f;
+  // 音量・ループ ここまで
+
+  // ボタン色
+  var btnColorA = document.getElementsByName("sampler[seboards_attributes][5][btncolor]");
+  var btnColorS = document.getElementsByName("sampler[seboards_attributes][6][btncolor]");
+  var btnColorD = document.getElementsByName("sampler[seboards_attributes][7][btncolor]");
+  var btnColorF = document.getElementsByName("sampler[seboards_attributes][8][btncolor]");
+  var bg_A = document.getElementById("bg-a");
+  var bg_S = document.getElementById("bg-s");
+  var bg_D = document.getElementById("bg-d");
+  var bg_F = document.getElementById("bg-f");
+  // ボタン色 ここまで
+
+  // サンプラー名
+  var senameA = document.getElementById("senameA");
+  var senameS = document.getElementById("senameS");
+  var senameD = document.getElementById("senameD");
+  var senameF = document.getElementById("senameF");
+  var sename_panelA = document.getElementById("sename-panel_a");
+  var sename_panelS = document.getElementById("sename-panel_s");
+  var sename_panelD = document.getElementById("sename-panel_d");
+  var sename_panelF = document.getElementById("sename-panel_f");
+  // サンプラー名 ここまで
+
+
+// 下段
+
+  // 音源
+  var soundZ = new Audio();
+  var soundX = new Audio();
+  var soundC = new Audio();
+  var soundV = new Audio();
+  // soundZ.src = "./sounds/クイズ出題1.mp3";
+  // soundX.src = "./sounds/決定、ボタン押下22.mp3";
+  // soundC.src = "./sounds/クイズ不正解1.mp3";
+  // soundV.src = "./sounds/クイズ正解1.mp3";
+  var sepathZ = document.getElementById("sepathZ");
+  var sepathX = document.getElementById("sepathX");
+  var sepathC = document.getElementById("sepathC");
+  var sepathV = document.getElementById("sepathV");
+  // 音源 ここまで
+
+
+  // ファイル読み込み
+  var form_fileZ = document.getElementById("selectFile_z");
+  var form_fileX = document.getElementById("selectFile_x");
+  var form_fileC = document.getElementById("selectFile_c");
+  var form_fileV = document.getElementById("selectFile_v");
+  var fileWYN_Z = document.getElementById("readFileWYN_z");
+  var fileWYN_X = document.getElementById("readFileWYN_x");
+  var fileWYN_C = document.getElementById("readFileWYN_c");
+  var fileWYN_V = document.getElementById("readFileWYN_v");
+  // ファイル読み込み ここまで
+
+
+  // 音量・ループ
+  var volumeZ = document.getElementById("vol-z");
+  var volumeX = document.getElementById("vol-x");
+  var volumeC = document.getElementById("vol-c");
+  var volumeV = document.getElementById("vol-v");
+  var loopZ = document.getElementById("loopable_z");
+  var loopX = document.getElementById("loopable_x");
+  var loopC = document.getElementById("loopable_c");
+  var loopV = document.getElementById("loopable_v");
+  var volumeValue_z;
+  var volumeValue_x;
+  var volumeValue_c;
+  var volumeValue_v;
+  var loopValue_z;
+  var loopValue_x;
+  var loopValue_c;
+  var loopValue_v;
+  // 音量・ループ ここまで
+
+
+  // ボタン色
+  var btnColorZ = document.getElementsByName("sampler[seboards_attributes][9][btncolor]");
+  var btnColorX = document.getElementsByName("sampler[seboards_attributes][10][btncolor]");
+  var btnColorC = document.getElementsByName("sampler[seboards_attributes][11][btncolor]");
+  var btnColorV = document.getElementsByName("sampler[seboards_attributes][12][btncolor]");
+  var bg_Z = document.getElementById("bg-z");
+  var bg_X = document.getElementById("bg-x");
+  var bg_C = document.getElementById("bg-c");
+  var bg_V = document.getElementById("bg-v");
+  // ボタン色 ここまで
+
+  // サンプラー名
+  var senameZ = document.getElementById("senameZ");
+  var senameX = document.getElementById("senameX");
+  var senameC = document.getElementById("senameC");
+  var senameV = document.getElementById("senameV");
+  var sename_panelZ = document.getElementById("sename-panel_z");
+  var sename_panelX = document.getElementById("sename-panel_x");
+  var sename_panelC = document.getElementById("sename-panel_c");
+  var sename_panelV = document.getElementById("sename-panel_v");
+  // サンプラー名 ここまで
+
+// 共通
+var ntf = document.getElementById("ntf-cont");
+var signupError = document.getElementById("signUpErrorModal");
+var scSwitcher = document.getElementById("sampler-custom-switcher");
+
+
+
+var sound = [soundQ, soundW, soundE, soundR, soundA, soundS, soundD, soundF, soundZ, soundX, soundC, soundV];
+// var reader = [readerQ, readerW, readerE, readerR, readerA, readerS, readerD, readerF, readerZ, readerX, readerC, readerV];
+// var reader = [readerD, readerF];
+
+// エラー抑制
+// https://qiita.com/krmbn0576/items/e9bc5384b790df9e39ab
+// var promise = Promise.reject(new Error('promise!!!'));
+// promise.catch(function(e){});
+// setTimeout(function(){promise.catch(/* 適切なエラーハンドル */)},1000);
+
+// 初期化？
+var init = sound.map(function(value){
+    console.log(value);
+    value.preload = "auto";
+    value.load();
+  }
+);
+
+
+
+// ミュート
+var mutebtn = document.getElementById('mute-switcher');
+var mute_ornot = false;
+mutebtn.addEventListener('click',function(){
+  mutebtn.classList.toggle('show');
+  mute_ornot = !mute_ornot;
+
+  var init = sound.map(function(value){
+    value.muted = mute_ornot;
+    // console.log(mute_ornot);
+    // console.log(value.muted);
+  });
+
+});
+
+
+
+
+// 設定パネル表示切り替え
+scSwitcher.addEventListener('click',function(){
+  var cbPanel = document.getElementsByClassName('case-btn-custompanel');
+  var cbSwitch = document.getElementById('sampler-custom-switcher');
+  cbSwitch.classList.toggle('show');
+  for(var i=0; i < cbPanel.length; i++){
+    cbPanel[i].classList.toggle('show');
+  }
+
+});
+
+
+
+function volumeInit(soundName, volume, volumeValue){
+  // 音量調節
+  volume.addEventListener('click', function () {
+    volumeValue = (volume.value.length == 1) ? "0.0" + volume.value : "0." + volume.value ;
+    soundName.volume = volumeValue;
+  },false);
+}
+
+function loopInit(soundName, loop, loopValue){
+  // ループ切り替え
+  loop.addEventListener('change', function () {
+    loopValue = (loop.checked == true) ? loop.loop = true : loop.loop = false;
+    soundName.loop = loopValue;
+    console.log(loop.loop);
+  },false);
+}
+// console.log(soundD.loop);
+// console.log(loopValue_f);
+
+var playbtn = document.querySelectorAll('.playbtn');
+
+// キータッチでの再生
+document.body.addEventListener("keydown",
+
+  event => {
+    var whatIsKey = event.key;
+    // 入力中の要素を検出(フォーカスの当たっている要素のタグ名)
+    var whatIsFocus = document.activeElement.tagName;
+    console.log(whatIsFocus);
+    console.log(whatIsFocus != "INPUT");
+    // INPUT要素で入力をしている時、再生を止める
+    if(whatIsFocus != "INPUT"){
+
+      switch (whatIsKey) {
+        // 上段
+        case 'q':
+        play(soundQ, loopQ, loopValue_q);
+        console.log("q pressed");
+        break;
+        case 'w':
+        play(soundW, loopW, loopValue_w);
+        console.log("w pressed");
+        break;
+        case 'e':
+        play(soundE, loopE, loopValue_e);
+        console.log("e pressed");
+        break;
+        case 'r':
+        play(soundR, loopR, loopValue_r);
+        console.log("r pressed");
+        break;
+
+        // 中段
+        case 'a':
+        play(soundA,loopA,loopValue_a);
+        console.log("a pressed");
+        break;
+        case 's':
+        play(soundS,loopS,loopValue_s);
+        console.log("s pressed");
+        break;
+        case 'd':
+        // document.getElementById("caseBtn_d").onclick;
+        play(soundD,loopD,loopValue_d);
+        console.log("d pressed");
+        break;
+        case 'f':
+        // document.getElementById("caseBtn_f").onclick;
+        play(soundF,loopF,loopValue_f);
+        console.log("f pressed");
+        break;
+
+        // 下段
+        case 'z':
+        play(soundZ, loopZ, loopValue_z);
+        console.log("z pressed");
+        break;
+        case 'x':
+        play(soundX, loopX, loopValue_x);
+        console.log("x pressed");
+        break;
+        case 'c':
+        play(soundC, loopC, loopValue_c);
+        console.log("c pressed");
+        break;
+        case 'v':
+        play(soundV, loopV, loopValue_v);
+        console.log("v pressed");
+        break;
+      }
+
+    };
+
+  }
+);
+
+
+
+function play(plaing,loop,loopValue){
+  console.log(loop.loop);
+
+    if(loop.loop == true){
+      console.log("switchPlay mode");
+      if(plaing.paused == false){
+        plaing.pause();
+        console.log("pausing");
+      } else {
+        plaing.currentTime = 0;
+        plaing.play();
+      };
+    } else {
+      console.log("normalPlay mode");
+      plaing.currentTime = 0;
+      plaing.play();
+    };
+
+  console.log(plaing.paused);
+};
+
+
+// 字数省略ツール
+const omit = text => len => ellipsis =>
+  text.length >= len ? text.slice(0, len - ellipsis.length) + ellipsis : text
+
+// 音声選択フォーム読み込み(プロトタイプ)
+function readFile(soundName,form,sepath,fileWYN,sename){
+  form.addEventListener('change',function(form){
+    var reader = new FileReader();
+    reader.onload = function(form){
+      soundName.src = form.target.result;
+    }
+    // sepath.value = "";
+
+    console.log(soundName);
+    console.log(form.target.result);
+    console.log(form.target.result != null);
+    console.log(reader);
+    console.log(sepath);
+
+    if (form.target.files[0]) {
+      // ファイルの値は「form.target.files[0]」で取得している。
+      reader.readAsDataURL(form.target.files[0]);
+      // .nameとすることでファイル名をダイレクトに取ってくることも可能。
+      console.log(form.target.files[0].name);
+      fileWYN.innerHTML = sename.value = omit(form.target.files[0].name)(28)('…');
+    } else {
+      // なので、ファイルに値がない場合の処理はここにelseを使って書くようにするといい。
+      soundName.src = sepath.value;
+      fileWYN.innerHTML = sename.value = "";
+    }
+  });
+};
+
+
+
+// ボタン色
+function btnColorInit(btnColor, bg){
+    console.log(btnColor);
+    console.log(bg);
+    for(var j=0; j<btnColor.length; j++){
+      if(btnColor[j].checked){
+        // console.log(i);
+        console.log(btnColor);
+        var a = btnColor[j].value;
+        console.log(a);
+        // break;
+
+        switch (a) {
+          case "1":
+            bg.style.backgroundColor = "#f00";
+            break;
+          case "2":
+            bg.style.backgroundColor = "#f80";
+            break;
+          case "3":
+            bg.style.backgroundColor = "#ff0";
+            break;
+          case "4":
+            bg.style.backgroundColor = "#0f0";
+            break;
+          case "5":
+            bg.style.backgroundColor = "#08f";
+            break;
+          case "6":
+            bg.style.backgroundColor = "#808";
+            break;
+          case "7":
+            bg.style.backgroundColor = "#f0f";
+            break;
+          case "8":
+            bg.style.backgroundColor = "#fff";
+            break;
+        }
+      }
+    }
+}
+
+window.addEventListener('load',function(){
+
+
+
+<% if user_signed_in? %>
+  <% if @samplers_init.length > 0 %>
+    <% @samplers_init.each do |sampler| %>
+      samplerName.value = "<%= sampler.sampler_name %>";
+
+      <%
+      # 上段
+      @seboard_Q = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 1)
+      @seboard_W = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 2)
+      @seboard_E = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 3)
+      @seboard_R = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 4)
+
+      # 中段
+      @seboard_A = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 5)
+      @seboard_S = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 6)
+      @seboard_D = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 7)
+      @seboard_F = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 8)
+
+      # 下段
+      @seboard_Z = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 9)
+      @seboard_X = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 10)
+      @seboard_C = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 11)
+      @seboard_V = sampler.seboards.order(updated_at: :desc).limit(1).find_by(position: 12)
+      %>
+
+      <%= render partial: 'shared/samplerReader' %>
+
+    <% end %>
+
+  <% else %>
+    btnColorInitZero();
+  <% end %>
+
+<% else %>
+
+  btnColorInitZero();
+
+<% end %>
+
+setTimeout(ntfRemover, 1500);
+
+});
+
+window.addEventListener('load',function(){
+// signupError.modal();
+
+var soundAlertModal = document.getElementById("soundAlertModal");
+var signUpErrorModal = document.getElementById("signUpErrorModal");
+
+// ス　ミ　マ　セ　ン　
+$("#soundAlertModal").modal();
+
+});
+
+
+
+function ntfRemover(){
+ntf.classList.remove('ntf-active');
+}
+// console.log(ntf);
+
+
+var btnColors = [btnColorQ, btnColorW, btnColorE, btnColorR, btnColorA, btnColorS, btnColorD, btnColorF, btnColorZ, btnColorX, btnColorC, btnColorV];
+var bgs = [bg_Q, bg_W, bg_E, bg_R, bg_A, bg_S, bg_D, bg_F, bg_Z, bg_X, bg_C, bg_V];
+
+var mapping_btnColors = btnColors.map(function(v){
+var mapping_bgs = bgs.map(function(z){
+
+  for(var vi=0; vi<v.length; vi++){
+    for(var zi=0; zi<z.length; zi++){
+      // window.addEventListener('load',function(){
+        // console.log(v[vi]);
+        // console.log(z[zi]);
+        btnColorInit(v[vi], z[zi]);
+      // });
+    }
+  }
+
+});
+});
+
+
+function btnColorInitZero(){
+
+
+//
+btnColorInit(btnColorQ, bg_Q);
+btnColorInit(btnColorW, bg_W);
+btnColorInit(btnColorE, bg_E);
+btnColorInit(btnColorR, bg_R);
+btnColorInit(btnColorA, bg_A);
+btnColorInit(btnColorS, bg_S);
+btnColorInit(btnColorD, bg_D);
+btnColorInit(btnColorF, bg_F);
+btnColorInit(btnColorZ, bg_Z);
+btnColorInit(btnColorX, bg_X);
+btnColorInit(btnColorC, bg_C);
+btnColorInit(btnColorV, bg_V);
+//
+
+// var btnColors = [btnColorQ, btnColorW, btnColorE, btnColorR, btnColorA, btnColorS, btnColorD, btnColorF, btnColorZ, btnColorX, btnColorC, btnColorV];
+// var bgs = [bg_Q, bg_W, bg_E, bg_R, bg_A, bg_S, bg_D, bg_F, bg_Z, bg_X, bg_C, bg_V];
+//
+// // ↓ ここからの部分を関数化して、複数アクションで呼ぼう。
+// var mapping_btnColors = btnColors.map(function(v){
+//   var mapping_bgs = bgs.map(function(z){
+//
+//     for(var vi=0; vi<v.length; vi++){
+//       for(var zi=0; zi<z.length; zi++){
+//         console.log(v[vi]);
+//         console.log(z[zi]);
+//         btnColorInit(v[vi], z[zi]);
+//       }
+//     }
+//
+//   });
+// });
+}
+
+
+
+
+
+
+
+
+init;
+
+
+// 無限スクロール実装
+$(window).on('scroll', function() {
+  scrollHeight = $(document).height();
+  scrollPosition = $(window).height() + $(window).scrollTop();
+  if ( (scrollHeight - scrollPosition) / scrollHeight <= 0.15) {
+    $('.jscroll').jscroll({
+      contentSelector: '.scroll-list',
+      nextSelector: 'span.next:last a'
+    });
+  }
+});
+
+
+// ユーザー登録エラー
+
+var signupError = document.getElementById("signUpErrorModal");
+
+window.addEventListener('load',function(){
+  signupError.style.display = "block";
+  signupError.style.opacity = 1;
+  signupError.style.backgroundColor = "rgba(0,0,0, 0.4)";
+
+});
+// $("#signUpErrorModal").modal();
+
+// ユーザー登録エラー
+
+
+// リアルタイム検索実装
+
+
+//

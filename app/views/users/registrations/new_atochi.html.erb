@@ -1,14 +1,18 @@
-<section id="user-submit-modal" class="nav-modal hidden">
+<h2>Sign up</h2>
 
-  <h2>Sign up</h2>
-
-  <%= form_for(resource, as: resource_name, url: root_path) do |f| %>
-  <%# render "users/shared/error_messages", resource: resource %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+
+  <div class="field">
+    <div class="field-cell"><%= f.label :user_name %></div><!--  .field-cell -->
+    <div class="field-cell"><%= f.text_field :user_name, autocomplete: "off" %></div><!--  .field-cell -->
+  </div><!--  .field -->
+
 
   <div class="field">
     <%= f.label :password %>
@@ -26,17 +30,4 @@
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
-  <% end %>
-
-  <%= render "users/shared/links" %>
-
-</section><!-- #user-submit-modal .nav-modal -->
-
-<script type="text/javascript">
-
-  function cancelSubmit(alert){
-    alert(alert);
-    return false;
-  }
-
-</script>
+<% end %>

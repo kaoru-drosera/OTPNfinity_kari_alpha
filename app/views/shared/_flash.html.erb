@@ -2,6 +2,7 @@
   <% flash.each do |key, value| %>
     <div id="ntf-cont" class="ntf-cont ntf-active">
       <div class="ntf-wrap">
+        <!-- content_tag で、使うHTMLタグを決められる。 -->
         <%= content_tag :p, value, class: key %>
       </div><!--  .ntf-wrap -->
     </div><!--  .nft-cont -->
