@@ -33,6 +33,7 @@ import "bootstrap"
 //= require bootstrap-sprockets
 
 //= require jquery.jscroll.min.js
+//= require swiper-bundle
 
 $(window).on('scroll', function() {
   scrollHeight = $(document).height();
@@ -44,6 +45,21 @@ $(window).on('scroll', function() {
     });
   }
 });
+
+// ヘルプ
+var swiper = new Swiper('.swiper-container',{
+  navigation:{
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  pagination: {
+	    el: '.swiper-pagination',
+	    type: 'bullets',
+			clickable: true
+  }
+});
+
+
 
 
 // クリックで値を変更

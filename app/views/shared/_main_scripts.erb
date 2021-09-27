@@ -603,10 +603,6 @@ btnColorInit(btnColorV, bg_V);
 
 
 
-
-
-
-
 init;
 
 
@@ -635,10 +631,22 @@ window.addEventListener('load',function(){
 });
 // $("#signUpErrorModal").modal();
 
-// ユーザー登録エラー
+
+// ヘルプ
+var swiper = new Swiper('.swiper-container',{
+  navigation:{
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  pagination: {
+	    el: '.swiper-pagination',
+	    type: 'bullets',
+			clickable: true
+  }
+});
+
+
+
 
 
 // リアルタイム検索実装
-
-
-//

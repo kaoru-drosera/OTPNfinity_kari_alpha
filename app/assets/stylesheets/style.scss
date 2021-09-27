@@ -139,11 +139,11 @@ body
 }
 .navbar-wrap
 {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 10;
   height: 60px;
   background-color: $panel;
 }
@@ -157,16 +157,42 @@ body
   align-items: center;
   width: 100%;
 }
+// .left,
+// .right
+// {
+//   width: 45%;
+// }
+.right
+{
+  overflow: scroll;
+  padding: 0 20px;
+  &::-webkit-scrollbar
+  {
+    width: 100%;
+    height: 3px;
+  }
+  .navbar-nav
+  {
+    display: flex;
+  }
+}
 // メニューバーのリンク
 .navbar-nav > li > a
 // .nav-link
 {
+  position: relative;
   color: $txt1;
-  border-radius: 4px;
+  border-radius: 10px;
   transition: .3s;
   text-decoration: none;
-  padding: 8px 12px;
+  // padding: 12px;
+  font-size: 28px;
   letter-spacing: 0.8px;
+
+  width: 80px;
+  display: inline-block;
+  text-align: center;
+
   cursor: pointer;
   &:hover
   {
@@ -174,8 +200,40 @@ body
     outline: none;
     color: $txt1;
   }
-}
+  &::after
+  {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    font-size: 8px;
+    background-color: rgba(0, 0, 0, 0.7);
+    line-height: 1.2;
+    border-radius: 4px;
+    width: 92%;
+  }
 
+  i
+  {
+    text-align: center;
+    width: 100%;
+  }
+
+}
+.nav-link.help::after
+{
+  content: 'はじめての方へ';
+}
+.nav-link.signup::after
+{
+  content: 'ユーザー登録';
+}
+.nav-link.login::after
+{
+  content: 'ログイン';
+}
 
 // モーダル
 .modal-dialog
@@ -577,6 +635,116 @@ body
 // フラッシュメッセージ ここまで
 
 
+// ヘルプ
+
+.help
+{
+  overflow: hidden;
+  padding-bottom: 20px;
+  .pro
+  {
+    color: $txt1;
+  }
+}
+.help-contents
+{
+  width: 100%;
+  padding: 0 50px;
+}
+.help-imgwrap
+{
+  position: relative;
+  height: 200px;
+  img
+  {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    // width: 100%;
+    margin: auto;
+    height: 100%;
+  }
+}
+
+.help-txtwrap
+{
+  padding-top: 40px;
+}
+.help-txt-ttl
+{
+  padding-bottom: 16px;
+  p
+  {
+    color: $txt1;
+    font-size: 28px;
+  }
+}
+.help-txt-sub
+{
+  word-wrap: break-word;
+  padding-top: 10px;
+  border-top: 1px solid $scroll;
+  p
+  {
+    color: $txt1;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    .alert
+    {
+      color: #f00;
+      font-size: 12px;
+      padding: 0;
+    }
+  }
+}
+
+.swiper-button-prev.help-prevbtn,
+.swiper-button-next.help-nextbtn
+{
+  &::after
+  {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: rgba(68, 68, 68, 0.7);
+    font-size: 60px;
+  }
+}
+.swiper-button-prev.help-prevbtn::after
+{
+  content: '\f0d9';
+}
+.swiper-button-next.help-nextbtn::after
+{
+  content: '\f0da';
+}
+
+.help
+{
+  .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet
+  {
+    margin: 0 6px;
+  }
+}
+
+.help .swiper-pagination .swiper-pagination-bullet
+{
+  border-radius: 0;
+  background-color: $bg_light;
+  width: 24px;
+  height: 24px;
+  &.swiper-pagination-bullet-active
+  {
+    background-color: $bg_light;
+  }
+}
+
+
+// ヘルプ ここまで
+
+
 // 無限スクロール
 
 nav.pagination
@@ -802,7 +970,7 @@ nav.pagination
 }
 .upper-panel-left
 {
-  width: 15%;
+  width: 90px;
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
@@ -924,7 +1092,7 @@ nav.pagination
 .case-btn
 {
   position: relative;
-  width: 160px;
+  width:24%;
   height: 160px;
   // border: 1px solid #000;
   border-radius: 6px;
@@ -1412,6 +1580,11 @@ nav.pagination
 .sampler-index
 {
   background-color: $panel;
+}
+
+.sampler-index-hider
+{
+  display: none;
 }
 
 .sampler-index-wrapper

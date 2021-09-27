@@ -1,0 +1,415 @@
+// カラーパレット
+
+$panel: #333;
+$bg: #222;
+$panel_dark: #111;
+$bg_middle: #2a2a2a;
+$scroll: #444;
+$bg_light: #555;
+$navh: 60px;
+$mainpt: 36px;
+$txt1: #ccc;
+$vol_scroll: #aaa;
+
+// カラーパレットここまで
+
+
+// maw:1000
+@media (max-width: 1000px) {
+
+  // 基本的な設定
+
+  .wrapper
+  {
+    padding: 16px 0 0;
+  }
+
+  // 基本的な設定 ここまで
+
+
+  //  メインサンプラー
+  .upper-panel-left
+  {
+    width: 90px;
+  }
+  .upper-panel-right
+  {
+    width: 45%;
+    .samplername-field
+    {
+      font-size: 12px;
+    }
+  }
+
+  // サンプラーボタン
+  .case-btn
+  {
+    width: 24%;
+  }
+  .cb-mk-loopable
+  {
+    &::before
+    {
+      display: none;
+    }
+    &::after
+    {
+      display: none;
+    }
+  }
+
+  .radio-field
+  {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  // サンプラーボタン ここまで
+
+  // 保存ボタン
+
+  .downer-panel
+  {
+    margin-top: 12px;
+  }
+
+  // 保存ボタン ここまで
+
+  //  メインサンプラー ここまで
+
+
+
+
+
+
+  // 音量注意
+
+  .soundAlertModal
+  {
+    .modal-dialog
+    {
+      margin: 200px auto;
+    }
+  }
+  .modal-body.soundalert
+  {
+    &.soundalert
+    {
+      padding: 30px 10px;
+    }
+    &::after
+    {
+      font-size: 250px;
+    }
+  }
+  .modal-content.andSoundalert
+  {
+    width: 95%;
+    margin: auto;
+  }
+  .seal-txtcont
+  {
+
+    .seal-ttl
+    {
+      font-size: 28px;
+      letter-spacing: 12px;
+      &::after,
+      &::before
+      {
+        font-size: 18px;
+      }
+      &::before
+      {
+        left: -20%;
+      }
+      &::after
+      {
+        right: -20%;
+      }
+    }
+
+    .seal-txtwrap
+    {
+      p
+      {
+        font-size: 12px;
+      }
+    }
+
+  }
+
+  // 音量注意 ここまで
+
+}
+// maw:1000 ここまで
+
+
+// maw:750px
+@media (max-width: 750px) {
+
+
+    // 基本的な設定
+
+    .flexer
+    {
+      flex-direction: column;
+    }
+
+    .btncontainer
+    {
+      width: 100%;
+      margin-bottom: 16px;
+    }
+
+
+    // 基本的な設定
+
+
+    // サンプラー一覧
+
+    .sampler-index
+    {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      -webkit-transform: translate(0%, 100%);
+      -ms-transform: translate(0%, 100%);
+      transform: translate(0%, 100%);
+
+
+      width: 100%;
+      height: 240px;
+      transition: .2s ease-in-out;
+
+      &.show
+      {
+        -webkit-transform: translate(0%, 0%);
+        -ms-transform: translate(0%, 0%);
+        transform: translate(0%, 0%);
+      }
+    }
+    .sampler-scrolly
+    {
+      height: 16vh;
+    }
+
+
+    .sampler-index-hider
+    {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 32px;
+      -webkit-transform: translate(0, -100%);
+      -ms-transform: translate(0, -100%);
+      transform: translate(0, -100%);
+
+      background-color: $bg_light;
+      border-radius: 8px 8px 0 0;
+
+      .hider-txt
+      {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+
+        font-size: 12px;
+        color: $txt1;
+
+        display: none;
+      }
+
+      .hider-txt.show
+      {
+        display: block;
+      }
+
+    }
+
+    // サンプラー一覧 ここまで
+
+
+    // 効果音ライブラリ
+
+    .sound-library
+    {
+      display: none;
+    }
+
+    .field.search
+    {
+      margin-bottom: 0;
+    }
+    .sampler-scrollx
+    {
+      margin-top: 4px;
+    }
+
+    // 効果音ライブラリ
+
+
+    // モーダル
+
+    #logInModal,
+    #signUpModal
+    {
+      .modal-dialog
+      {
+        width: 95%;
+      }
+    }
+
+    // モーダルここまで
+
+    // ヘルプ
+
+    .modal-dialog.help
+    {
+      width: 95%;
+    }
+    .help-contents
+    {
+      padding: 0;
+    }
+    .help-imgwrap
+    {
+      img
+      {
+        height: auto;
+        width: 100%;
+      }
+    }
+
+
+    // ヘルプ ここまで
+
+  }
+// maw:750px ここまで
+
+
+// maw:600px
+@media (max-width: 600px) {
+
+
+  // ヘルプ
+  .help-txtwrap
+  {
+    padding-top: 24px;
+  }
+  .help-txt-ttl
+  {
+    padding-bottom: 16px;
+    p
+    {
+      font-size: 18px;
+    }
+  }
+  .help-txt-sub
+  {
+    p
+    {
+      margin-bottom: 8px;
+      font-size: 12px;
+      line-height: 1.6;
+      .alert
+      {
+        font-size: 8px;
+      }
+    }
+  }
+
+
+  // ヘルプ ここまで
+
+
+
+  // チェックボックス(ループ)
+
+  .lb-cb-loopable
+  {
+    justify-content: flex-end;
+  }
+
+  .field-cell-formwrap
+  {
+    width: 100%;
+  }
+
+  // チェックボックス(ループ) ここまで
+
+
+}
+// maw:600px ここまで
+
+
+// maw:300px
+
+@media (max-width: 300px) {
+
+  // モーダル
+
+  .modal-header .modal-title
+  {
+
+  }
+
+  // モーダル
+
+  // ヘルプ
+
+  .help-imgwrap
+  {
+    height: 120px;
+    // img
+    // {
+    //   height: auto;
+    //   width: 100%;
+    // }
+  }
+  .help-txtwrap
+  {
+    padding-top: 14px;
+  }
+  .help-txt-ttl
+  {
+    padding-bottom: 8px;
+  }
+  .help-txt-sub
+  {
+
+  }
+
+  .help .swiper-pagination .swiper-pagination-bullet
+  {
+    width: 18px;
+    height: 18px;
+  }
+  .help
+  {
+    .modal-header
+    {
+      border: none;
+      padding: 15px 15px 0;
+      .close
+      {
+        width: 20px;
+        height: 20px;
+
+        background-color: transparent;
+      }
+    }
+  }
+
+
+  // ヘルプ ここまで
+
+}
+
+
+// maw:300px ここまで

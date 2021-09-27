@@ -1,8 +1,12 @@
-<div class="sampler-index">
+<div id="sampler-index-dude" class="sampler-index">
 
   <!-- <h4>サンプラー一覧</h4> -->
   <% if user_signed_in? %>
 
+  <div id="sampler-index-milla" class="sampler-index-hider">
+    <p id="milla-txt_1" class="hider-txt show">サンプラーを読み込む</p><!-- #milla-txt  -->
+    <p id="milla-txt_2" class="hider-txt">一覧を閉じる</p><!-- #milla-txt  -->
+  </div><!--  .sampler-index-hider -->
 
   <%= form_with url: root_path, method: :get, local: true, autocomplete: 'off' do |f| %>
     <div class="field search has-addons">
@@ -97,3 +101,25 @@
   <% end %>
 
 </div><!--  .scroll-list jscroll -->
+
+<script type="text/javascript">
+
+  // サンプラー一覧@スマホ
+
+  var samplerIndexAtMedia = document.getElementById("sampler-index-dude");
+  var samplerIndexHider = document.getElementById("sampler-index-milla");
+  var samplerIndexHiderTxt1 = document.getElementById("milla-txt_1");
+  var samplerIndexHiderTxt2 = document.getElementById("milla-txt_2");
+
+  samplerIndexHider.addEventListener('click',function(){
+    samplerIndexAtMedia.classList.toggle('show');
+    samplerIndexHiderTxt1.classList.toggle('show');
+    samplerIndexHiderTxt2.classList.toggle('show');
+
+
+  });
+
+
+  // サンプラー一覧@スマホ ここまで
+
+</script>

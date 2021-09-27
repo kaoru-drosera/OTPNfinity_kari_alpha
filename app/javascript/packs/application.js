@@ -21,4 +21,8 @@ import "bootstrap"
 
 //= require audiojs
 
+//= require swiper-bundle
+
+
+
 //= require_tree .
