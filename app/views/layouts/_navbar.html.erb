@@ -15,7 +15,7 @@
           </li>
           <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to('ログアウト', destroy_user_session_path, :class=>"nav-link", method: :delete) %>
+            <%= link_to(destroy_user_session_path, :class=>"nav-link logout", method: :delete) do %> <i class="fas fa-sign-out-alt"></i> <% end %>
           </li><!--  .nav-item active -->
           <li class="nav-item active">
             <!-- <a class="nav-link" type="button" data-toggle="modal" data-target="#editModal">ユーザー編集</a> -->

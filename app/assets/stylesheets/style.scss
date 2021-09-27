@@ -234,6 +234,10 @@ body
 {
   content: 'ログイン';
 }
+.nav-link.logout::after
+{
+  content: 'ログアウト';
+}
 
 // モーダル
 .modal-dialog
