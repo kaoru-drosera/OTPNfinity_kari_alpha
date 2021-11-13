@@ -1550,6 +1550,51 @@ nav.pagination
 
 // サンプラーメインパネル ここまで
 
+// サンプラー設定パネル
+
+.customwindow
+{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background-color: $panel_dark;
+  z-index: 1;
+  padding-top: 30px;
+}
+
+.cw-switch
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background-color: $bg;
+}
+
+.custompanel-switch-wrap
+{
+  width: 50%;
+  height: 100px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  margin: auto;
+}
+.custompanel-switch-btn
+{
+  width: 24%;
+  height: 33px;
+  border: 1px solid #fff;
+}
+
+
+// サンプラー設定パネル ここまで
+
 // 保存ボタン
 
 .downer-panel
