@@ -1590,6 +1590,30 @@ nav.pagination
   width: 24%;
   height: 33px;
   border: 1px solid #fff;
+  .cw-active
+  {
+    background-color: #fff;
+  }
+}
+
+.custompanel-window-wrap
+{
+  width: 100%;
+  height: 170px;
+  background-color: #fff;
+  display: block;
+}
+.custompanel-window
+{
+  display: none;
+  &.cw-show
+  {
+    display: block;
+  }
+}
+#custompanel-window1
+{
+  // display: block;
 }
 
 

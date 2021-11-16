@@ -279,6 +279,28 @@ scSwitcher.addEventListener('click',function(){
 });
 
 
+// 設定パネル・ボタン切り替え
+document.addEventListener('DOMContentLoaded',function(){
+  const tabs = document.getElementsByClassName('custompanel-switch-btn');
+  for(let i=0; i<tabs.length; i++){
+    tabs[i].addEventListener('click',tabSwitch,false);
+  }
+
+  function tabSwitch(){
+    // タブのクラス値を変更
+    document.getElementsByClassName('cw-active')[0].classList.remove('cw-active');
+    this.classList.add('cw-active');
+
+    // コンテンツのクラス値を変更
+    document.getElementsByClassName('cw-show')[0].classList.remove('cw-show');
+    const arrayTabs = Array.prototype.slice.call(tabs);
+    const index = arrayTabs.indexOf(this);
+    document.getElementsByClassName('custompanel-window')[index].classList.add('cw-show');
+  }
+
+},false);
+
+
 
 function volumeInit(soundName, volume, volumeValue){
   // 音量調節
