@@ -1,49 +1,577 @@
 
-<div class="btncontainer">
-  <h3>i have no ideas</h3>
+  <div class="btncontainer">
+    <h3>i have no ideas</h3>
 
 
 
-  <%= form_with model: @sampler do |sp| %>
+    <%= form_with model: @sampler do |sp| %>
 
-    <div class="btnwrapper">
+      <div class="btnwrapper">
 
-      <div class="upper-panel">
-        <div class="upper-panel-left">
-          <div id="sampler-custom-switcher" class="sampler-custom-switcher">
-            <i class="fas fa-cog"></i>
-          </div><!--  .sampler-custom -->
-          <div id="mute-switcher" class="mute-switcher">
-            <i class="fas fa-volume-up"></i>
-          </div><!--  .sampler-custom -->
-        </div><!--  .upper-panel-left -->
-        <div class="upper-panel-right">
-          <% if user_signed_in? %>
-            <div class="samplername-field-wrap">
-                <%= sp.text_field :sampler_name, class: "samplername-field", placeholder: "サンプラー名を入力", :name=>"sampler[sampler_name]",required: true %>
-            </div><!--  .samplername-field -->
-          <% end %>
-        </div><!--  .upper-panel-right -->
-      </div><!--  .upper-panel -->
+        <div class="upper-panel">
+          <div class="upper-panel-left">
+            <div id="sampler-custom-switcher" class="sampler-custom-switcher">
+              <i class="fas fa-cog"></i>
+            </div><!--  .sampler-custom -->
+            <div id="mute-switcher" class="mute-switcher">
+              <i class="fas fa-volume-up"></i>
+            </div><!--  .sampler-custom -->
+          </div><!--  .upper-panel-left -->
+          <div class="upper-panel-right">
+            <% if user_signed_in? %>
+              <div class="samplername-field-wrap">
+                  <%= sp.text_field :sampler_name, class: "samplername-field", placeholder: "サンプラー名を入力", :name=>"sampler[sampler_name]",required: true %>
+              </div><!--  .samplername-field -->
+            <% end %>
+          </div><!--  .upper-panel-right -->
+        </div><!--  .upper-panel -->
 
-      <div class="btnpanel">
-        <%= sp.fields_for :seboards do |sb| %>
-          <%= sb.fields_for :sefile do |sf| %>
+        <div class="btnpanel">
+          <%= sp.fields_for :seboards do |sb| %>
+            <%= sb.fields_for :sefile do |sf| %>
 
-          <!-- 上段 -->
-            <!-- Q -->
-            <div class="case-btn case-btn-q" id="bg-q" onclick="btnColorInit(btnColorQ, bg_Q)">
-              <div class="case-btn-clickable" onclick="play(soundQ,loopQ,loopValue_q)">
-                <div class="main-panel">
-                  <div class="key-position">
-                    <p>Q</p>
-                  </div><!--  .key-position -->
-                  <div class="sename-panel">
-                    <p id="sename-panel_q"></p>
-                  </div><!--  .sename_panel -->
-                </div><!--  .main-panel -->
-              </div><!--  .case-btn-clickable -->
-              <div class="case-btn-custompanel">
+            <!-- 上段 -->
+              <!-- Q -->
+              <div class="case-btn case-btn-q" id="bg-q" onclick="btnColorInit(btnColorQ, bg_Q)">
+                <div class="case-btn-clickable" onclick="play(soundQ,loopQ,loopValue_q)">
+                  <div class="main-panel">
+                    <div class="key-position">
+                      <p>Q</p>
+                    </div><!--  .key-position -->
+                    <div class="sename-panel">
+                      <p id="sename-panel_q"></p>
+                    </div><!--  .sename_panel -->
+                  </div><!--  .main-panel -->
+                </div><!--  .case-btn-clickable -->
+                <div class="case-btn-custompanel">
+
+
+
+                </div><!--  .case-btn-custompanel -->
+              </div><!-- #bg-q  -->
+
+              <!-- W -->
+              <div class="case-btn case-btn-w" id="bg-w" onclick="btnColorInit(btnColorW, bg_W)">
+                <div class="case-btn-clickable" onclick="play(soundW,loopW,loopValue_w)">
+                  <div class="main-panel">
+                    <div class="key-position">
+                      <p>W</p>
+                    </div><!--  .key-position -->
+                    <div class="sename-panel">
+                      <p id="sename-panel_w"></p>
+                    </div><!--  .sename_panel -->
+                  </div><!--  .main-panel -->
+                </div><!--  .case-btn-clickable -->
+                <div class="case-btn-custompanel">
+
+
+
+                </div><!--  .case-btn-custompanel -->
+              </div>
+
+              <!-- E -->
+              <div class="case-btn case-btn-e" id="bg-e" onclick="btnColorInit(btnColorE, bg_E)">
+                <div class="case-btn-clickable" onclick="play(soundE,loopE,loopValue_e)">
+                  <div class="main-panel">
+                    <div class="key-position">
+                      <p>E</p>
+                    </div><!--  .key-position -->
+                    <div class="sename-panel">
+                      <p id="sename-panel_e"></p>
+                    </div><!--  .sename_panel -->
+                  </div><!--  .main-panel -->
+                </div><!--  .case-btn-clickable -->
+                <div class="case-btn-custompanel">
+                  <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][3][position]", :value => "3" %>
+                  <div class="volumeAndRadio-cont">
+                    <div class="volume-wrap">
+                      <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][3][volume]", :onchange=>"volumeInit(soundE, volumeE, volumeValue_e)", :id=>"vol-e", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
+                    </div><!--  .volume-wrap -->
+                    <div class="radio-field radio-field_e">
+                      <label class="lb-rd-color" for="_seboards_btncoler3_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][3][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler3_1"%> <span class="rd-mk-color red"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler3_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][3][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler3_2" %> <span class="rd-mk-color orange"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler3_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][3][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler3_3" %> <span class="rd-mk-color yellow"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler3_4"  onclick=""><%= sb.radio_button :btncoler, "4", :name=>"sampler[seboards_attributes][3][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler3_4" %> <span class="rd-mk-color green"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler3_5"  onclick=""><%= sb.radio_button :btncoler, "5", :name=>"sampler[seboards_attributes][3][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler3_5" %> <span class="rd-mk-color blue"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler3_6"  onclick=""><%= sb.radio_button :btncoler, "6", :name=>"sampler[seboards_attributes][3][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler3_6" %> <span class="rd-mk-color purple"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler3_7"  onclick=""><%= sb.radio_button :btncoler, "7", :name=>"sampler[seboards_attributes][3][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler3_7" %> <span class="rd-mk-color pink"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler3_8"  onclick=""><%= sb.radio_button :btncoler, "8", :name=>"sampler[seboards_attributes][3][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler3_8" %> <span class="rd-mk-color white"></span></label>
+                    </div><!--  .radio-field_e -->
+                  </div><!--  .volumeAndRadio-cont -->
+                  <div class="case-btn-miniflexer">
+                    <div class="selectfile-cont">
+                      <div class="selectfile-wrap">
+                        <label class="lb-selectFile" for="selectFile_e"><i class="fas fa-upload"></i><%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][3][sefile_attributes][sedata]", :id=>"selectFile_e", :class=>"selectFile", :onclick=>"readFile(soundE, form_fileE, sepathE, fileWYN_E, senameE)" %></label>
+                      </div><!--  .selectfile-wrap -->
+                      <p id="readFileWYN_e" class="readFileWYN"></p>
+                    </div><!--  .selectfile-wrap -->
+                    <div class="loopable-wrap">
+                      <label class="lb-cb-loopable" for="loopable_e"><%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][3][loopable]", :onclick=>"loopInit(soundE, loopE, loopValue_e)", :id=>"loopable_e", :class=>"cb-loopable", :checked_value =>true, :unchecked_value=>false %> <span class="cb-mk-loopable"></span> <i class="fas fa-undo-alt"></i> </label>
+                    </div><!--  .loopable-wrap -->
+                  </div><!--  .case-btn-miniflexer -->
+                  <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][3][sefile_attributes][sename]", :id=>"senameE", :class=>"sename-form" %>
+                  <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][3][sefile_attributes][sepath]", :id=>"sepathE" %>
+                </div><!--  .case-btn-custompanel -->
+              </div><!-- #bg-e  -->
+
+
+              <!-- R -->
+              <div class="case-btn case-btn-r" id="bg-r" onclick="btnColorInit(btnColorR, bg_R)">
+                <div class="case-btn-clickable" onclick="play(soundR,loopR,loopValue_r)">
+                  <div class="main-panel">
+                    <div class="key-position">
+                      <p>R</p>
+                    </div><!--  .key-position -->
+                    <div class="sename-panel">
+                      <p id="sename-panel_r"></p>
+                    </div><!--  .sename_panel -->
+                  </div><!--  .main-panel -->
+                </div><!--  .case-btn-clickable -->
+                <div class="case-btn-custompanel">
+                  <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][4][position]", :value => "4" %>
+                  <div class="volumeAndRadio-cont">
+                    <div class="volume-wrap">
+                      <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][4][volume]", :onchange=>"volumeInit(soundR, volumeR, volumeValue_r)", :id=>"vol-r", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
+                    </div><!--  .volume-wrap -->
+                    <div class="radio-field radio-field_r">
+                      <label class="lb-rd-color" for="_seboards_btncoler4_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][4][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler4_1"%> <span class="rd-mk-color red"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler4_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][4][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler4_2" %> <span class="rd-mk-color orange"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler4_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][4][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler4_3" %> <span class="rd-mk-color yellow"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler4_4"  onclick=""><%= sb.radio_button :btncoler, "4", :name=>"sampler[seboards_attributes][4][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler4_4" %> <span class="rd-mk-color green"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler4_5"  onclick=""><%= sb.radio_button :btncoler, "5", :name=>"sampler[seboards_attributes][4][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler4_5" %> <span class="rd-mk-color blue"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler4_6"  onclick=""><%= sb.radio_button :btncoler, "6", :name=>"sampler[seboards_attributes][4][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler4_6" %> <span class="rd-mk-color purple"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler4_7"  onclick=""><%= sb.radio_button :btncoler, "7", :name=>"sampler[seboards_attributes][4][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler4_7" %> <span class="rd-mk-color pink"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler4_8"  onclick=""><%= sb.radio_button :btncoler, "8", :name=>"sampler[seboards_attributes][4][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler4_8" %> <span class="rd-mk-color white"></span></label>
+                    </div><!--  .radio-field_r -->
+                  </div><!--  .volumeAndRadio-cont -->
+                  <div class="case-btn-miniflexer">
+                    <div class="selectfile-cont">
+                      <div class="selectfile-wrap">
+                        <label class="lb-selectFile" for="selectFile_r"><i class="fas fa-upload"></i><%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][4][sefile_attributes][sedata]", :id=>"selectFile_r", :class=>"selectFile", :onclick=>"readFile(soundR, form_fileR, sepathR, fileWYN_R, senameR)" %></label>
+                      </div><!--  .selectfile-wrap -->
+                      <p id="readFileWYN_r" class="readFileWYN"></p>
+                    </div><!--  .selectfile-wrap -->
+                    <div class="loopable-wrap">
+                      <label class="lb-cb-loopable" for="loopable_r"><%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][4][loopable]", :onclick=>"loopInit(soundR, loopR, loopValue_r)", :id=>"loopable_r", :class=>"cb-loopable", :checked_value =>true, :unchecked_value=>false %> <span class="cb-mk-loopable"></span> <i class="fas fa-undo-alt"></i> </label>
+                    </div><!--  .loopable-wrap -->
+                  </div><!--  .case-btn-miniflexer -->
+                  <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][4][sefile_attributes][sename]", :id=>"senameR", :class=>"sename-form" %>
+                  <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][4][sefile_attributes][sepath]", :id=>"sepathR" %>
+                </div><!--  .case-btn-custompanel -->
+              </div><!-- #bg-r  -->
+
+
+
+            <!-- 中段 -->
+              <!-- A -->
+              <div class="case-btn case-btn-a" id="bg-a" onclick="btnColorInit(btnColorA, bg_A)">
+                <div class="case-btn-clickable" onclick="play(soundA,loopA,loopValue_a)">
+                  <div class="main-panel">
+                    <div class="key-position">
+                      <p>A</p>
+                    </div><!--  .key-position -->
+                    <div class="sename-panel">
+                      <p id="sename-panel_a"></p>
+                    </div><!--  .sename_panel -->
+                  </div><!--  .main-panel -->
+                </div><!--  .case-btn-clickable -->
+                <div class="case-btn-custompanel">
+                  <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][5][position]", :value => "5" %>
+                  <div class="volumeAndRadio-cont">
+                    <div class="volume-wrap">
+                      <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][5][volume]", :onchange=>"volumeInit(soundA, volumeA, volumeValue_a)", :id=>"vol-a", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
+                    </div><!--  .volume-wrap -->
+                    <div class="radio-field radio-field_a">
+                      <label class="lb-rd-color" for="_seboards_btncoler5_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][5][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler5_1"%> <span class="rd-mk-color red"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler5_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][5][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler5_2" %> <span class="rd-mk-color orange"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler5_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][5][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler5_3" %> <span class="rd-mk-color yellow"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler5_4"  onclick=""><%= sb.radio_button :btncoler, "4", :name=>"sampler[seboards_attributes][5][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler5_4" %> <span class="rd-mk-color green"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler5_5"  onclick=""><%= sb.radio_button :btncoler, "5", :name=>"sampler[seboards_attributes][5][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler5_5" %> <span class="rd-mk-color blue"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler5_6"  onclick=""><%= sb.radio_button :btncoler, "6", :name=>"sampler[seboards_attributes][5][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler5_6" %> <span class="rd-mk-color purple"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler5_7"  onclick=""><%= sb.radio_button :btncoler, "7", :name=>"sampler[seboards_attributes][5][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler5_7" %> <span class="rd-mk-color pink"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler5_8"  onclick=""><%= sb.radio_button :btncoler, "8", :name=>"sampler[seboards_attributes][5][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler5_8" %> <span class="rd-mk-color white"></span></label>
+                    </div><!--  .radio-field_a -->
+                  </div><!--  .volumeAndRadio-cont -->
+                  <div class="case-btn-miniflexer">
+                    <div class="selectfile-cont">
+                      <div class="selectfile-wrap">
+                        <label class="lb-selectFile" for="selectFile_a"><i class="fas fa-upload"></i><%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][5][sefile_attributes][sedata]", :id=>"selectFile_a", :class=>"selectFile", :onclick=>"readFile(soundA, form_fileA, sepathA, fileWYN_A, senameA)" %></label>
+                      </div><!--  .selectfile-wrap -->
+                      <p id="readFileWYN_a" class="readFileWYN"></p>
+                    </div><!--  .selectfile-wrap -->
+                    <div class="loopable-wrap">
+                      <label class="lb-cb-loopable" for="loopable_a"><%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][5][loopable]", :onclick=>"loopInit(soundA, loopA, loopValue_a)", :id=>"loopable_a", :class=>"cb-loopable", :checked_value =>true, :unchecked_value=>false %> <span class="cb-mk-loopable"></span> <i class="fas fa-undo-alt"></i> </label>
+                    </div><!--  .loopable-wrap -->
+                  </div><!--  .case-btn-miniflexer -->
+                  <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][5][sefile_attributes][sename]", :id=>"senameA", :class=>"sename-form" %>
+                  <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][5][sefile_attributes][sepath]", :id=>"sepathA" %>
+                </div><!--  .case-btn-custompanel -->
+              </div><!-- #bg-a  -->
+
+              <!-- S -->
+              <div class="case-btn case-btn-s" id="bg-s" onclick="btnColorInit(btnColorS, bg_S)">
+                <div class="case-btn-clickable" onclick="play(soundS,loopS,loopValue_s)">
+                  <div class="main-panel">
+                    <div class="key-position">
+                      <p>S</p>
+                    </div><!--  .key-position -->
+                    <div class="sename-panel">
+                      <p id="sename-panel_s"></p>
+                    </div><!--  .sename_panel -->
+                  </div><!--  .main-panel -->
+                </div><!--  .case-btn-clickable -->
+                <div class="case-btn-custompanel">
+                  <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][6][position]", :value => "6" %>
+                  <div class="volumeAndRadio-cont">
+                    <div class="volume-wrap">
+                      <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][6][volume]", :onchange=>"volumeInit(soundS, volumeS, volumeValue_s)", :id=>"vol-s", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
+                    </div><!--  .volume-wrap -->
+                    <div class="radio-field radio-field_s">
+                      <label class="lb-rd-color" for="_seboards_btncoler6_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][6][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler6_1"%> <span class="rd-mk-color red"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler6_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][6][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler6_2" %> <span class="rd-mk-color orange"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler6_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][6][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler6_3" %> <span class="rd-mk-color yellow"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler6_4"  onclick=""><%= sb.radio_button :btncoler, "4", :name=>"sampler[seboards_attributes][6][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler6_4" %> <span class="rd-mk-color green"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler6_5"  onclick=""><%= sb.radio_button :btncoler, "5", :name=>"sampler[seboards_attributes][6][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler6_5" %> <span class="rd-mk-color blue"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler6_6"  onclick=""><%= sb.radio_button :btncoler, "6", :name=>"sampler[seboards_attributes][6][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler6_6" %> <span class="rd-mk-color purple"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler6_7"  onclick=""><%= sb.radio_button :btncoler, "7", :name=>"sampler[seboards_attributes][6][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler6_7" %> <span class="rd-mk-color pink"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler6_8"  onclick=""><%= sb.radio_button :btncoler, "8", :name=>"sampler[seboards_attributes][6][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler6_8" %> <span class="rd-mk-color white"></span></label>
+                    </div><!--  .radio-field_s -->
+                  </div><!--  .volumeAndRadio-cont -->
+                  <div class="case-btn-miniflexer">
+                    <div class="selectfile-cont">
+                      <div class="selectfile-wrap">
+                        <label class="lb-selectFile" for="selectFile_s"><i class="fas fa-upload"></i><%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][6][sefile_attributes][sedata]", :id=>"selectFile_s", :class=>"selectFile", :onclick=>"readFile(soundS, form_fileS, sepathS, fileWYN_S, senameS)" %></label>
+                      </div><!--  .selectfile-wrap -->
+                      <p id="readFileWYN_s" class="readFileWYN"></p>
+                    </div><!--  .selectfile-wrap -->
+                    <div class="loopable-wrap">
+                      <label class="lb-cb-loopable" for="loopable_s"><%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][6][loopable]", :onclick=>"loopInit(soundS, loopS, loopValue_s)", :id=>"loopable_s", :class=>"cb-loopable", :checked_value =>true, :unchecked_value=>false %> <span class="cb-mk-loopable"></span> <i class="fas fa-undo-alt"></i> </label>
+                    </div><!--  .loopable-wrap -->
+                  </div><!--  .case-btn-miniflexer -->
+                  <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][6][sefile_attributes][sename]", :id=>"senameS", :class=>"sename-form" %>
+                  <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][6][sefile_attributes][sepath]", :id=>"sepathS" %>
+                </div><!--  .case-btn-custompanel -->
+              </div><!-- #bg-s  -->
+
+              <!-- D -->
+              <div class="case-btn case-btn-d" id="bg-d" onclick="btnColorInit(btnColorD, bg_D)">
+                <div class="case-btn-clickable" onclick="play(soundD,loopD,loopValue_d)">
+                  <div class="main-panel">
+                    <div class="key-position">
+                      <p>D</p>
+                    </div><!--  .key-position -->
+                    <div class="sename-panel">
+                      <p id="sename-panel_d"></p>
+                    </div><!--  .sename_panel -->
+                  </div><!--  .main-panel -->
+                </div><!--  .case-btn-clickable -->
+                <div class="case-btn-custompanel">
+                  <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][7][position]", :value => "7" %>
+                  <div class="volumeAndRadio-cont">
+                    <div class="volume-wrap">
+                      <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][7][volume]", :onchange=>"volumeInit(soundD, volumeD, volumeValue_d)", :id=>"vol-d", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
+                    </div><!--  .volume-wrap -->
+                    <div class="radio-field radio-field_d">
+                      <label class="lb-rd-color" for="_seboards_btncoler7_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][7][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler7_1"%> <span class="rd-mk-color red"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler7_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][7][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler7_2" %> <span class="rd-mk-color orange"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler7_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][7][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler7_3" %> <span class="rd-mk-color yellow"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler7_4"  onclick=""><%= sb.radio_button :btncoler, "4", :name=>"sampler[seboards_attributes][7][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler7_4" %> <span class="rd-mk-color green"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler7_5"  onclick=""><%= sb.radio_button :btncoler, "5", :name=>"sampler[seboards_attributes][7][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler7_5" %> <span class="rd-mk-color blue"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler7_6"  onclick=""><%= sb.radio_button :btncoler, "6", :name=>"sampler[seboards_attributes][7][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler7_6" %> <span class="rd-mk-color purple"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler7_7"  onclick=""><%= sb.radio_button :btncoler, "7", :name=>"sampler[seboards_attributes][7][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler7_7" %> <span class="rd-mk-color pink"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler7_8"  onclick=""><%= sb.radio_button :btncoler, "8", :name=>"sampler[seboards_attributes][7][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler7_8" %> <span class="rd-mk-color white"></span></label>
+                    </div><!--  .radio-field_d -->
+                  </div><!--  .volumeAndRadio-cont -->
+                  <div class="case-btn-miniflexer">
+                    <div class="selectfile-cont">
+                      <div class="selectfile-wrap">
+                        <label class="lb-selectFile" for="selectFile_d"><i class="fas fa-upload"></i><%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][7][sefile_attributes][sedata]", :id=>"selectFile_d", :class=>"selectFile", :onclick=>"readFile(soundD, form_fileD, sepathD, fileWYN_D, senameD)" %></label>
+                      </div><!--  .selectfile-wrap -->
+                      <p id="readFileWYN_d" class="readFileWYN"></p>
+                    </div><!--  .selectfile-wrap -->
+                    <div class="loopable-wrap">
+                      <label class="lb-cb-loopable" for="loopable_d"><%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][7][loopable]", :onclick=>"loopInit(soundD, loopD, loopValue_d)", :id=>"loopable_d", :class=>"cb-loopable", :checked_value =>true, :unchecked_value=>false %> <span class="cb-mk-loopable"></span> <i class="fas fa-undo-alt"></i> </label>
+                    </div><!--  .loopable-wrap -->
+                  </div><!--  .case-btn-miniflexer -->
+                  <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][7][sefile_attributes][sename]", :id=>"senameD", :class=>"sename-form" %>
+                  <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][7][sefile_attributes][sepath]", :id=>"sepathD" %>
+                </div><!--  .case-btn-custompanel -->
+              </div><!-- #bg-d  -->
+
+              <!-- F -->
+              <div class="case-btn case-btn-f" id="bg-f" onclick="btnColorInit(btnColorF, bg_F)">
+                <div class="case-btn-clickable" onclick="play(soundF,loopF,loopValue_f)">
+                  <div class="main-panel">
+                    <div class="key-position">
+                      <p>F</p>
+                    </div><!--  .key-position -->
+                    <div class="sename-panel">
+                      <p id="sename-panel_f"></p>
+                    </div><!--  .sename_panel -->
+                  </div><!--  .main-panel -->
+                </div><!--  .case-btn-clickable -->
+                <div class="case-btn-custompanel">
+                  <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][8][position]", :value => "8" %>
+                  <div class="volumeAndRadio-cont">
+                    <div class="volume-wrap">
+                      <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][8][volume]", :onchange=>"volumeInit(soundF, volumeF, volumeValue_f)", :id=>"vol-f", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
+                    </div><!--  .volume-wrap -->
+                    <div class="radio-field radio-field_f">
+                      <label class="lb-rd-color" for="_seboards_btncoler8_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][8][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler8_1"%> <span class="rd-mk-color red"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler8_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][8][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler8_2" %> <span class="rd-mk-color orange"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler8_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][8][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler8_3" %> <span class="rd-mk-color yellow"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler8_4"  onclick=""><%= sb.radio_button :btncoler, "4", :name=>"sampler[seboards_attributes][8][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler8_4" %> <span class="rd-mk-color green"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler8_5"  onclick=""><%= sb.radio_button :btncoler, "5", :name=>"sampler[seboards_attributes][8][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler8_5" %> <span class="rd-mk-color blue"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler8_6"  onclick=""><%= sb.radio_button :btncoler, "6", :name=>"sampler[seboards_attributes][8][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler8_6" %> <span class="rd-mk-color purple"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler8_7"  onclick=""><%= sb.radio_button :btncoler, "7", :name=>"sampler[seboards_attributes][8][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler8_7" %> <span class="rd-mk-color pink"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler8_8"  onclick=""><%= sb.radio_button :btncoler, "8", :name=>"sampler[seboards_attributes][8][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler8_8" %> <span class="rd-mk-color white"></span></label>
+                    </div><!--  .radio-field_F -->
+                  </div><!--  .volumeAndRadio-cont -->
+                  <div class="case-btn-miniflexer">
+                    <div class="selectfile-cont">
+                      <div class="selectfile-wrap">
+                        <label class="lb-selectFile" for="selectFile_f"><i class="fas fa-upload"></i><%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][8][sefile_attributes][sedata]", :id=>"selectFile_f", :class=>"selectFile", :onclick=>"readFile(soundF, form_fileF, sepathF, fileWYN_F, senameF)" %></label>
+                      </div><!--  .selectfile-wrap -->
+                      <p id="readFileWYN_f" class="readFileWYN"></p>
+                    </div><!--  .selectfile-wrap -->
+                    <div class="loopable-wrap">
+                      <label class="lb-cb-loopable" for="loopable_f"><%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][8][loopable]", :onclick=>"loopInit(soundF, loopF, loopValue_f)", :id=>"loopable_f", :class=>"cb-loopable", :checked_value =>true, :unchecked_value=>false %> <span class="cb-mk-loopable"></span> <i class="fas fa-undo-alt"></i> </label>
+                    </div><!--  .loopable-wrap -->
+                  </div><!--  .case-btn-miniflexer -->
+                  <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][8][sefile_attributes][sename]", :id=>"senameF", :class=>"sename-form" %>
+                  <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][8][sefile_attributes][sepath]", :id=>"sepathF" %>
+                </div><!--  .case-btn-custompanel -->
+              </div><!-- #bg-F  -->
+
+
+
+            <!-- 下段 -->
+              <!-- Z -->
+              <div class="case-btn case-btn-z" id="bg-z" onclick="btnColorInit(btnColorZ, bg_Z)">
+                <div class="case-btn-clickable" onclick="play(soundZ,loopZ,loopValue_z)">
+                  <div class="main-panel">
+                    <div class="key-position">
+                      <p>Z</p>
+                    </div><!--  .key-position -->
+                    <div class="sename-panel">
+                      <p id="sename-panel_z"></p>
+                    </div><!--  .sename_panel -->
+                  </div><!--  .main-panel -->
+                </div><!--  .case-btn-clickable -->
+                <div class="case-btn-custompanel">
+                  <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][9][position]", :value => "9" %>
+                  <div class="volumeAndRadio-cont">
+                    <div class="volume-wrap">
+                      <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][9][volume]", :onchange=>"volumeInit(soundZ, volumeZ, volumeValue_z)", :id=>"vol-z", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
+                    </div><!--  .volume-wrap -->
+                    <div class="radio-field radio-field_z">
+                      <label class="lb-rd-color" for="_seboards_btncoler9_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][9][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler9_1"%> <span class="rd-mk-color red"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler9_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][9][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler9_2" %> <span class="rd-mk-color orange"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler9_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][9][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler9_3" %> <span class="rd-mk-color yellow"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler9_4"  onclick=""><%= sb.radio_button :btncoler, "4", :name=>"sampler[seboards_attributes][9][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler9_4" %> <span class="rd-mk-color green"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler9_5"  onclick=""><%= sb.radio_button :btncoler, "5", :name=>"sampler[seboards_attributes][9][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler9_5" %> <span class="rd-mk-color blue"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler9_6"  onclick=""><%= sb.radio_button :btncoler, "6", :name=>"sampler[seboards_attributes][9][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler9_6" %> <span class="rd-mk-color purple"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler9_7"  onclick=""><%= sb.radio_button :btncoler, "7", :name=>"sampler[seboards_attributes][9][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler9_7" %> <span class="rd-mk-color pink"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler9_8"  onclick=""><%= sb.radio_button :btncoler, "8", :name=>"sampler[seboards_attributes][9][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler9_8" %> <span class="rd-mk-color white"></span></label>
+                    </div><!--  .radio-field_z -->
+                  </div><!--  .volumeAndRadio-cont -->
+                  <div class="case-btn-miniflexer">
+                    <div class="selectfile-cont">
+                      <div class="selectfile-wrap">
+                        <label class="lb-selectFile" for="selectFile_z"><i class="fas fa-upload"></i><%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][9][sefile_attributes][sedata]", :id=>"selectFile_z", :class=>"selectFile", :onclick=>"readFile(soundZ, form_fileZ, sepathZ, fileWYN_Z, senameZ)" %></label>
+                      </div><!--  .selectfile-wrap -->
+                      <p id="readFileWYN_z" class="readFileWYN"></p>
+                    </div><!--  .selectfile-wrap -->
+                    <div class="loopable-wrap">
+                      <label class="lb-cb-loopable" for="loopable_z"><%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][9][loopable]", :onclick=>"loopInit(soundZ, loopZ, loopValue_z)", :id=>"loopable_z", :class=>"cb-loopable", :checked_value =>true, :unchecked_value=>false %> <span class="cb-mk-loopable"></span> <i class="fas fa-undo-alt"></i> </label>
+                    </div><!--  .loopable-wrap -->
+                  </div><!--  .case-btn-miniflexer -->
+                  <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][9][sefile_attributes][sename]", :id=>"senameZ", :class=>"sename-form" %>
+                  <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][9][sefile_attributes][sepath]", :id=>"sepathZ" %>
+                </div><!--  .case-btn-custompanel -->
+              </div><!-- #bg-z  -->
+
+              <!-- X -->
+              <div class="case-btn case-btn-x" id="bg-x" onclick="btnColorInit(btnColorX, bg_X)">
+                <div class="case-btn-clickable" onclick="play(soundX,loopX,loopValue_x)">
+                  <div class="main-panel">
+                    <div class="key-position">
+                      <p>X</p>
+                    </div><!--  .key-position -->
+                    <div class="sename-panel">
+                      <p id="sename-panel_x"></p>
+                    </div><!--  .sename_panel -->
+                  </div><!--  .main-panel -->
+                </div><!--  .case-btn-clickable -->
+                <div class="case-btn-custompanel">
+                  <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][10][position]", :value => "10" %>
+                  <div class="volumeAndRadio-cont">
+                    <div class="volume-wrap">
+                      <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][10][volume]", :onchange=>"volumeInit(soundX, volumeX, volumeValue_x)", :id=>"vol-x", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
+                    </div><!--  .volume-wrap -->
+                    <div class="radio-field radio-field_x">
+                      <label class="lb-rd-color" for="_seboards_btncoler10_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][10][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler10_1"%> <span class="rd-mk-color red"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler10_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][10][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler10_2" %> <span class="rd-mk-color orange"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler10_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][10][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler10_3" %> <span class="rd-mk-color yellow"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler10_4"  onclick=""><%= sb.radio_button :btncoler, "4", :name=>"sampler[seboards_attributes][10][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler10_4" %> <span class="rd-mk-color green"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler10_5"  onclick=""><%= sb.radio_button :btncoler, "5", :name=>"sampler[seboards_attributes][10][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler10_5" %> <span class="rd-mk-color blue"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler10_6"  onclick=""><%= sb.radio_button :btncoler, "6", :name=>"sampler[seboards_attributes][10][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler10_6" %> <span class="rd-mk-color purple"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler10_7"  onclick=""><%= sb.radio_button :btncoler, "7", :name=>"sampler[seboards_attributes][10][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler10_7" %> <span class="rd-mk-color pink"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler10_8"  onclick=""><%= sb.radio_button :btncoler, "8", :name=>"sampler[seboards_attributes][10][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler10_8" %> <span class="rd-mk-color white"></span></label>
+                    </div><!--  .radio-field_x -->
+                  </div><!--  .volumeAndRadio-cont -->
+                  <div class="case-btn-miniflexer">
+                    <div class="selectfile-cont">
+                      <div class="selectfile-wrap">
+                        <label class="lb-selectFile" for="selectFile_x"><i class="fas fa-upload"></i><%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][10][sefile_attributes][sedata]", :id=>"selectFile_x", :class=>"selectFile", :onclick=>"readFile(soundX, form_fileX, sepathX, fileWYN_X, senameX)" %></label>
+                      </div><!--  .selectfile-wrap -->
+                      <p id="readFileWYN_x" class="readFileWYN"></p>
+                    </div><!--  .selectfile-wrap -->
+                    <div class="loopable-wrap">
+                      <label class="lb-cb-loopable" for="loopable_x"><%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][10][loopable]", :onclick=>"loopInit(soundX, loopX, loopValue_x)", :id=>"loopable_x", :class=>"cb-loopable", :checked_value =>true, :unchecked_value=>false %> <span class="cb-mk-loopable"></span> <i class="fas fa-undo-alt"></i> </label>
+                    </div><!--  .loopable-wrap -->
+                  </div><!--  .case-btn-miniflexer -->
+                  <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][10][sefile_attributes][sename]", :id=>"senameX", :class=>"sename-form" %>
+                  <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][10][sefile_attributes][sepath]", :id=>"sepathX" %>
+                </div><!--  .case-btn-custompanel -->
+              </div><!-- #bg-x  -->
+
+              <!-- C -->
+              <div class="case-btn case-btn-c" id="bg-c" onclick="btnColorInit(btnColorC, bg_C)">
+                <div class="case-btn-clickable" onclick="play(soundC,loopC,loopValue_c)">
+                  <div class="main-panel">
+                    <div class="key-position">
+                      <p>C</p>
+                    </div><!--  .key-position -->
+                    <div class="sename-panel">
+                      <p id="sename-panel_c"></p>
+                    </div><!--  .sename_panel -->
+                  </div><!--  .main-panel -->
+                </div><!--  .case-btn-clickable -->
+                <div class="case-btn-custompanel">
+                  <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][11][position]", :value => "11" %>
+                  <div class="volumeAndRadio-cont">
+                    <div class="volume-wrap">
+                      <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][11][volume]", :onchange=>"volumeInit(soundC, volumeC, volumeValue_c)", :id=>"vol-c", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
+                    </div><!--  .volume-wrap -->
+                    <div class="radio-field radio-field_c">
+                      <label class="lb-rd-color" for="_seboards_btncoler11_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][11][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler11_1"%> <span class="rd-mk-color red"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler11_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][11][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler11_2" %> <span class="rd-mk-color orange"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler11_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][11][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler11_3" %> <span class="rd-mk-color yellow"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler11_4"  onclick=""><%= sb.radio_button :btncoler, "4", :name=>"sampler[seboards_attributes][11][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler11_4" %> <span class="rd-mk-color green"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler11_5"  onclick=""><%= sb.radio_button :btncoler, "5", :name=>"sampler[seboards_attributes][11][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler11_5" %> <span class="rd-mk-color blue"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler11_6"  onclick=""><%= sb.radio_button :btncoler, "6", :name=>"sampler[seboards_attributes][11][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler11_6" %> <span class="rd-mk-color purple"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler11_7"  onclick=""><%= sb.radio_button :btncoler, "7", :name=>"sampler[seboards_attributes][11][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler11_7" %> <span class="rd-mk-color pink"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler11_8"  onclick=""><%= sb.radio_button :btncoler, "8", :name=>"sampler[seboards_attributes][11][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler11_8" %> <span class="rd-mk-color white"></span></label>
+                    </div><!--  .radio-field_c -->
+                  </div><!--  .volumeAndRadio-cont -->
+                  <div class="case-btn-miniflexer">
+                    <div class="selectfile-cont">
+                      <div class="selectfile-wrap">
+                        <label class="lb-selectFile" for="selectFile_c"><i class="fas fa-upload"></i><%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][11][sefile_attributes][sedata]", :id=>"selectFile_c", :class=>"selectFile", :onclick=>"readFile(soundC, form_fileC, sepathC, fileWYN_C, senameC)" %></label>
+                      </div><!--  .selectfile-wrap -->
+                      <p id="readFileWYN_c" class="readFileWYN"></p>
+                    </div><!--  .selectfile-wrap -->
+                    <div class="loopable-wrap">
+                      <label class="lb-cb-loopable" for="loopable_c"><%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][11][loopable]", :onclick=>"loopInit(soundC, loopC, loopValue_c)", :id=>"loopable_c", :class=>"cb-loopable", :checked_value =>true, :unchecked_value=>false %> <span class="cb-mk-loopable"></span> <i class="fas fa-undo-alt"></i> </label>
+                    </div><!--  .loopable-wrap -->
+                  </div><!--  .case-btn-miniflexer -->
+                  <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][11][sefile_attributes][sename]", :id=>"senameC", :class=>"sename-form" %>
+                  <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][11][sefile_attributes][sepath]", :id=>"sepathC" %>
+                </div><!--  .case-btn-custompanel -->
+              </div><!-- #bg-c  -->
+
+              <!-- V -->
+              <div class="case-btn case-btn-v" id="bg-v" onclick="btnColorInit(btnColorV, bg_V)">
+                <div class="case-btn-clickable" onclick="play(soundV,loopV,loopValue_v)">
+                  <div class="main-panel">
+                    <div class="key-position">
+                      <p>V</p>
+                    </div><!--  .key-position -->
+                    <div class="sename-panel">
+                      <p id="sename-panel_v"></p>
+                    </div><!--  .sename_panel -->
+                  </div><!--  .main-panel -->
+                </div><!--  .case-btn-clickable -->
+                <div class="case-btn-custompanel">
+                  <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][12][position]", :value => "12" %>
+                  <div class="volumeAndRadio-cont">
+                    <div class="volume-wrap">
+                      <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][12][volume]", :onchange=>"volumeInit(soundV, volumeV, volumeValue_v)", :id=>"vol-v", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
+                    </div><!--  .volume-wrap -->
+                    <div class="radio-field radio-field_v">
+                      <label class="lb-rd-color" for="_seboards_btncoler12_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][12][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler12_1"%> <span class="rd-mk-color red"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler12_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][12][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler12_2" %> <span class="rd-mk-color orange"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler12_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][12][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler12_3" %> <span class="rd-mk-color yellow"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler12_4"  onclick=""><%= sb.radio_button :btncoler, "4", :name=>"sampler[seboards_attributes][12][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler12_4" %> <span class="rd-mk-color green"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler12_5"  onclick=""><%= sb.radio_button :btncoler, "5", :name=>"sampler[seboards_attributes][12][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler12_5" %> <span class="rd-mk-color blue"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler12_6"  onclick=""><%= sb.radio_button :btncoler, "6", :name=>"sampler[seboards_attributes][12][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler12_6" %> <span class="rd-mk-color purple"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler12_7"  onclick=""><%= sb.radio_button :btncoler, "7", :name=>"sampler[seboards_attributes][12][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler12_7" %> <span class="rd-mk-color pink"></span></label>
+                      <label class="lb-rd-color" for="_seboards_btncoler12_8"  onclick=""><%= sb.radio_button :btncoler, "8", :name=>"sampler[seboards_attributes][12][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler12_8" %> <span class="rd-mk-color white"></span></label>
+                    </div><!--  .radio-field_v -->
+                  </div><!--  .volumeAndRadio-cont -->
+                  <div class="case-btn-miniflexer">
+                    <div class="selectfile-cont">
+                      <div class="selectfile-wrap">
+                        <label class="lb-selectFile" for="selectFile_v"><i class="fas fa-upload"></i><%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][12][sefile_attributes][sedata]", :id=>"selectFile_v", :class=>"selectFile", :onclick=>"readFile(soundV, form_fileV, sepathV, fileWYN_V, senameV)" %></label>
+                      </div><!--  .selectfile-wrap -->
+                      <p id="readFileWYN_v" class="readFileWYN"></p>
+                    </div><!--  .selectfile-wrap -->
+                    <div class="loopable-wrap">
+                      <label class="lb-cb-loopable" for="loopable_v"><%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][12][loopable]", :onclick=>"loopInit(soundV, loopV, loopValue_v)", :id=>"loopable_v", :class=>"cb-loopable", :checked_value =>true, :unchecked_value=>false %> <span class="cb-mk-loopable"></span> <i class="fas fa-undo-alt"></i> </label>
+                    </div><!--  .loopable-wrap -->
+                  </div><!--  .case-btn-miniflexer -->
+                  <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][12][sefile_attributes][sename]", :id=>"senameV", :class=>"sename-form" %>
+                  <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][12][sefile_attributes][sepath]", :id=>"sepathV" %>
+                </div><!--  .case-btn-custompanel -->
+              </div><!-- #bg-v  -->
+
+
+        </div><!--  .btnpanel -->
+
+
+        <% if user_signed_in? %>
+          <div class="downer-panel">
+            <%= sp.submit "設定を保存する", class: "submit-btn" %>
+          </div><!--  .downer-panel -->
+        <% end %>
+
+
+      </div><!--  .btnwrapper-v2 -->
+
+
+
+
+
+
+
+
+  </div><!--  .btnwrapper-v1 -->
+
+
+      <section class="customwindow">
+        <div class="cw-switch"></div><!--  .cw-switch -->
+        <div class="container">
+          <div class="custompanel-switch-wrap">
+            <div class="custompanel-switch-btn cw-active" id="custompanel-switch-btn1"></div><!-- #custompanel-switch-btn1 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btn2"></div><!-- #custompanel-switch-btn2 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btn3"></div><!-- #custompanel-switch-btn3 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btn4"></div><!-- #custompanel-switch-btn4 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btn5"></div><!-- #custompanel-switch-btn5 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btn6"></div><!-- #custompanel-switch-btn6 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btn7"></div><!-- #custompanel-switch-btn7 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btn8"></div><!-- #custompanel-switch-btn8 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btn9"></div><!-- #custompanel-switch-btn9 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btn10"></div><!-- #custompanel-switch-btn10 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btn11"></div><!-- #custompanel-switch-btn11 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btn12"></div><!-- #custompanel-switch-btn12 .custompanel-switch-btn -->
+          </div><!--  .custompanel-switch-wrap -->
+
+          <div class="custompanel-window-wrap">
+            <div class="custompanel-window cw-show" id="custompanel-window1">
+              <p>window1</p>
+              <div class="case-btn-custompanelx">
+
                 <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][1][position]", :value => "1" %>
                 <div class="volumeAndRadio-cont">
                   <div class="volume-wrap">
@@ -73,22 +601,15 @@
                 </div><!--  .case-btn-miniflexer -->
                 <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][1][sefile_attributes][sename]", :id=>"senameQ", :class=>"sename-form" %>
                 <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][1][sefile_attributes][sepath]", :id=>"sepathQ" %>
-              </div><!--  .case-btn-custompanel -->
-            </div><!-- #bg-q  -->
 
-            <!-- W -->
-            <div class="case-btn case-btn-w" id="bg-w" onclick="btnColorInit(btnColorW, bg_W)">
-              <div class="case-btn-clickable" onclick="play(soundW,loopW,loopValue_w)">
-                <div class="main-panel">
-                  <div class="key-position">
-                    <p>W</p>
-                  </div><!--  .key-position -->
-                  <div class="sename-panel">
-                    <p id="sename-panel_w"></p>
-                  </div><!--  .sename_panel -->
-                </div><!--  .main-panel -->
-              </div><!--  .case-btn-clickable -->
-              <div class="case-btn-custompanel">
+
+              </div><!--  .case-btn-custompanelx -->
+            </div><!-- #custompanel-window1 .custompanel-window -->
+            <div class="custompanel-window" id="custompanel-window2">
+              <p>window2</p>
+
+              <div class="case-btn-custompanelx">
+
                 <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][2][position]", :value => "2" %>
                 <div class="volumeAndRadio-cont">
                   <div class="volume-wrap">
@@ -118,549 +639,44 @@
                 </div><!--  .case-btn-miniflexer -->
                 <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][2][sefile_attributes][sename]", :id=>"senameW", :class=>"sename-form" %>
                 <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][2][sefile_attributes][sepath]", :id=>"sepathW" %>
-              </div><!--  .case-btn-custompanel -->
-            </div>
 
-            <!-- E -->
-            <div class="case-btn case-btn-e" id="bg-e" onclick="btnColorInit(btnColorE, bg_E)">
-              <div class="case-btn-clickable" onclick="play(soundE,loopE,loopValue_e)">
-                <div class="main-panel">
-                  <div class="key-position">
-                    <p>E</p>
-                  </div><!--  .key-position -->
-                  <div class="sename-panel">
-                    <p id="sename-panel_e"></p>
-                  </div><!--  .sename_panel -->
-                </div><!--  .main-panel -->
-              </div><!--  .case-btn-clickable -->
-              <div class="case-btn-custompanel">
-                <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][3][position]", :value => "3" %>
-                <div class="volumeAndRadio-cont">
-                  <div class="volume-wrap">
-                    <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][3][volume]", :onchange=>"volumeInit(soundE, volumeE, volumeValue_e)", :id=>"vol-e", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
-                  </div><!--  .volume-wrap -->
-                  <div class="radio-field radio-field_e">
-                    <label class="lb-rd-color" for="_seboards_btncoler3_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][3][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler3_1"%> <span class="rd-mk-color red"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler3_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][3][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler3_2" %> <span class="rd-mk-color orange"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler3_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][3][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler3_3" %> <span class="rd-mk-color yellow"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler3_4"  onclick=""><%= sb.radio_button :btncoler, "4", :name=>"sampler[seboards_attributes][3][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler3_4" %> <span class="rd-mk-color green"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler3_5"  onclick=""><%= sb.radio_button :btncoler, "5", :name=>"sampler[seboards_attributes][3][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler3_5" %> <span class="rd-mk-color blue"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler3_6"  onclick=""><%= sb.radio_button :btncoler, "6", :name=>"sampler[seboards_attributes][3][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler3_6" %> <span class="rd-mk-color purple"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler3_7"  onclick=""><%= sb.radio_button :btncoler, "7", :name=>"sampler[seboards_attributes][3][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler3_7" %> <span class="rd-mk-color pink"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler3_8"  onclick=""><%= sb.radio_button :btncoler, "8", :name=>"sampler[seboards_attributes][3][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler3_8" %> <span class="rd-mk-color white"></span></label>
-                  </div><!--  .radio-field_e -->
-                </div><!--  .volumeAndRadio-cont -->
-                <div class="case-btn-miniflexer">
-                  <div class="selectfile-cont">
-                    <div class="selectfile-wrap">
-                      <label class="lb-selectFile" for="selectFile_e"><i class="fas fa-upload"></i><%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][3][sefile_attributes][sedata]", :id=>"selectFile_e", :class=>"selectFile", :onclick=>"readFile(soundE, form_fileE, sepathE, fileWYN_E, senameE)" %></label>
-                    </div><!--  .selectfile-wrap -->
-                    <p id="readFileWYN_e" class="readFileWYN"></p>
-                  </div><!--  .selectfile-wrap -->
-                  <div class="loopable-wrap">
-                    <label class="lb-cb-loopable" for="loopable_e"><%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][3][loopable]", :onclick=>"loopInit(soundE, loopE, loopValue_e)", :id=>"loopable_e", :class=>"cb-loopable", :checked_value =>true, :unchecked_value=>false %> <span class="cb-mk-loopable"></span> <i class="fas fa-undo-alt"></i> </label>
-                  </div><!--  .loopable-wrap -->
-                </div><!--  .case-btn-miniflexer -->
-                <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][3][sefile_attributes][sename]", :id=>"senameE", :class=>"sename-form" %>
-                <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][3][sefile_attributes][sepath]", :id=>"sepathE" %>
-              </div><!--  .case-btn-custompanel -->
-            </div><!-- #bg-e  -->
+              </div><!--  .case-btn-custompanelx -->
 
+            </div><!-- #custompanel-window2 .custompanel-window -->
+            <div class="custompanel-window" id="custompanel-window3">
+              <p>window3</p>
+            </div><!-- #custompanel-window3 .custompanel-window -->
+            <div class="custompanel-window" id="custompanel-window4">
+              <p>window4</p>
+            </div><!-- #custompanel-window4 .custompanel-window -->
+            <div class="custompanel-window" id="custompanel-window5">
+              <p>window5</p>
+            </div><!-- #custompanel-window5 .custompanel-window -->
+            <div class="custompanel-window" id="custompanel-window6">
+              <p>window6</p>
+            </div><!-- #custompanel-window6 .custompanel-window -->
+            <div class="custompanel-window" id="custompanel-window7">
+              <p>window7</p>
+            </div><!-- #custompanel-window7 .custompanel-window -->
+            <div class="custompanel-window" id="custompanel-window8">
+              <p>window8</p>
+            </div><!-- #custompanel-window8 .custompanel-window -->
+            <div class="custompanel-window" id="custompanel-window9">
+              <p>window9</p>
+            </div><!-- #custompanel-window9 .custompanel-window -->
+            <div class="custompanel-window" id="custompanel-window10">
+              <p>window10</p>
+            </div><!-- #custompanel-window10 .custompanel-window -->
+            <div class="custompanel-window" id="custompanel-window11">
+              <p>window11</p>
+            </div><!-- #custompanel-window11 .custompanel-window -->
+            <div class="custompanel-window" id="custompanel-window12">
+              <p>window12</p>
+            </div><!-- #custompanel-window12 .custompanel-window -->
+          </div><!--  .custompanel-window-wrap -->
+        </div><!--  .container -->
 
-            <!-- R -->
-            <div class="case-btn case-btn-r" id="bg-r" onclick="btnColorInit(btnColorR, bg_R)">
-              <div class="case-btn-clickable" onclick="play(soundR,loopR,loopValue_r)">
-                <div class="main-panel">
-                  <div class="key-position">
-                    <p>R</p>
-                  </div><!--  .key-position -->
-                  <div class="sename-panel">
-                    <p id="sename-panel_r"></p>
-                  </div><!--  .sename_panel -->
-                </div><!--  .main-panel -->
-              </div><!--  .case-btn-clickable -->
-              <div class="case-btn-custompanel">
-                <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][4][position]", :value => "4" %>
-                <div class="volumeAndRadio-cont">
-                  <div class="volume-wrap">
-                    <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][4][volume]", :onchange=>"volumeInit(soundR, volumeR, volumeValue_r)", :id=>"vol-r", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
-                  </div><!--  .volume-wrap -->
-                  <div class="radio-field radio-field_r">
-                    <label class="lb-rd-color" for="_seboards_btncoler4_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][4][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler4_1"%> <span class="rd-mk-color red"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler4_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][4][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler4_2" %> <span class="rd-mk-color orange"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler4_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][4][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler4_3" %> <span class="rd-mk-color yellow"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler4_4"  onclick=""><%= sb.radio_button :btncoler, "4", :name=>"sampler[seboards_attributes][4][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler4_4" %> <span class="rd-mk-color green"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler4_5"  onclick=""><%= sb.radio_button :btncoler, "5", :name=>"sampler[seboards_attributes][4][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler4_5" %> <span class="rd-mk-color blue"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler4_6"  onclick=""><%= sb.radio_button :btncoler, "6", :name=>"sampler[seboards_attributes][4][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler4_6" %> <span class="rd-mk-color purple"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler4_7"  onclick=""><%= sb.radio_button :btncoler, "7", :name=>"sampler[seboards_attributes][4][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler4_7" %> <span class="rd-mk-color pink"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler4_8"  onclick=""><%= sb.radio_button :btncoler, "8", :name=>"sampler[seboards_attributes][4][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler4_8" %> <span class="rd-mk-color white"></span></label>
-                  </div><!--  .radio-field_r -->
-                </div><!--  .volumeAndRadio-cont -->
-                <div class="case-btn-miniflexer">
-                  <div class="selectfile-cont">
-                    <div class="selectfile-wrap">
-                      <label class="lb-selectFile" for="selectFile_r"><i class="fas fa-upload"></i><%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][4][sefile_attributes][sedata]", :id=>"selectFile_r", :class=>"selectFile", :onclick=>"readFile(soundR, form_fileR, sepathR, fileWYN_R, senameR)" %></label>
-                    </div><!--  .selectfile-wrap -->
-                    <p id="readFileWYN_r" class="readFileWYN"></p>
-                  </div><!--  .selectfile-wrap -->
-                  <div class="loopable-wrap">
-                    <label class="lb-cb-loopable" for="loopable_r"><%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][4][loopable]", :onclick=>"loopInit(soundR, loopR, loopValue_r)", :id=>"loopable_r", :class=>"cb-loopable", :checked_value =>true, :unchecked_value=>false %> <span class="cb-mk-loopable"></span> <i class="fas fa-undo-alt"></i> </label>
-                  </div><!--  .loopable-wrap -->
-                </div><!--  .case-btn-miniflexer -->
-                <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][4][sefile_attributes][sename]", :id=>"senameR", :class=>"sename-form" %>
-                <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][4][sefile_attributes][sepath]", :id=>"sepathR" %>
-              </div><!--  .case-btn-custompanel -->
-            </div><!-- #bg-r  -->
-
-
-
-          <!-- 中段 -->
-            <!-- A -->
-            <div class="case-btn case-btn-a" id="bg-a" onclick="btnColorInit(btnColorA, bg_A)">
-              <div class="case-btn-clickable" onclick="play(soundA,loopA,loopValue_a)">
-                <div class="main-panel">
-                  <div class="key-position">
-                    <p>A</p>
-                  </div><!--  .key-position -->
-                  <div class="sename-panel">
-                    <p id="sename-panel_a"></p>
-                  </div><!--  .sename_panel -->
-                </div><!--  .main-panel -->
-              </div><!--  .case-btn-clickable -->
-              <div class="case-btn-custompanel">
-                <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][5][position]", :value => "5" %>
-                <div class="volumeAndRadio-cont">
-                  <div class="volume-wrap">
-                    <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][5][volume]", :onchange=>"volumeInit(soundA, volumeA, volumeValue_a)", :id=>"vol-a", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
-                  </div><!--  .volume-wrap -->
-                  <div class="radio-field radio-field_a">
-                    <label class="lb-rd-color" for="_seboards_btncoler5_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][5][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler5_1"%> <span class="rd-mk-color red"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler5_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][5][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler5_2" %> <span class="rd-mk-color orange"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler5_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][5][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler5_3" %> <span class="rd-mk-color yellow"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler5_4"  onclick=""><%= sb.radio_button :btncoler, "4", :name=>"sampler[seboards_attributes][5][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler5_4" %> <span class="rd-mk-color green"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler5_5"  onclick=""><%= sb.radio_button :btncoler, "5", :name=>"sampler[seboards_attributes][5][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler5_5" %> <span class="rd-mk-color blue"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler5_6"  onclick=""><%= sb.radio_button :btncoler, "6", :name=>"sampler[seboards_attributes][5][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler5_6" %> <span class="rd-mk-color purple"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler5_7"  onclick=""><%= sb.radio_button :btncoler, "7", :name=>"sampler[seboards_attributes][5][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler5_7" %> <span class="rd-mk-color pink"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler5_8"  onclick=""><%= sb.radio_button :btncoler, "8", :name=>"sampler[seboards_attributes][5][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler5_8" %> <span class="rd-mk-color white"></span></label>
-                  </div><!--  .radio-field_a -->
-                </div><!--  .volumeAndRadio-cont -->
-                <div class="case-btn-miniflexer">
-                  <div class="selectfile-cont">
-                    <div class="selectfile-wrap">
-                      <label class="lb-selectFile" for="selectFile_a"><i class="fas fa-upload"></i><%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][5][sefile_attributes][sedata]", :id=>"selectFile_a", :class=>"selectFile", :onclick=>"readFile(soundA, form_fileA, sepathA, fileWYN_A, senameA)" %></label>
-                    </div><!--  .selectfile-wrap -->
-                    <p id="readFileWYN_a" class="readFileWYN"></p>
-                  </div><!--  .selectfile-wrap -->
-                  <div class="loopable-wrap">
-                    <label class="lb-cb-loopable" for="loopable_a"><%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][5][loopable]", :onclick=>"loopInit(soundA, loopA, loopValue_a)", :id=>"loopable_a", :class=>"cb-loopable", :checked_value =>true, :unchecked_value=>false %> <span class="cb-mk-loopable"></span> <i class="fas fa-undo-alt"></i> </label>
-                  </div><!--  .loopable-wrap -->
-                </div><!--  .case-btn-miniflexer -->
-                <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][5][sefile_attributes][sename]", :id=>"senameA", :class=>"sename-form" %>
-                <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][5][sefile_attributes][sepath]", :id=>"sepathA" %>
-              </div><!--  .case-btn-custompanel -->
-            </div><!-- #bg-a  -->
-
-            <!-- S -->
-            <div class="case-btn case-btn-s" id="bg-s" onclick="btnColorInit(btnColorS, bg_S)">
-              <div class="case-btn-clickable" onclick="play(soundS,loopS,loopValue_s)">
-                <div class="main-panel">
-                  <div class="key-position">
-                    <p>S</p>
-                  </div><!--  .key-position -->
-                  <div class="sename-panel">
-                    <p id="sename-panel_s"></p>
-                  </div><!--  .sename_panel -->
-                </div><!--  .main-panel -->
-              </div><!--  .case-btn-clickable -->
-              <div class="case-btn-custompanel">
-                <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][6][position]", :value => "6" %>
-                <div class="volumeAndRadio-cont">
-                  <div class="volume-wrap">
-                    <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][6][volume]", :onchange=>"volumeInit(soundS, volumeS, volumeValue_s)", :id=>"vol-s", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
-                  </div><!--  .volume-wrap -->
-                  <div class="radio-field radio-field_s">
-                    <label class="lb-rd-color" for="_seboards_btncoler6_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][6][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler6_1"%> <span class="rd-mk-color red"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler6_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][6][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler6_2" %> <span class="rd-mk-color orange"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler6_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][6][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler6_3" %> <span class="rd-mk-color yellow"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler6_4"  onclick=""><%= sb.radio_button :btncoler, "4", :name=>"sampler[seboards_attributes][6][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler6_4" %> <span class="rd-mk-color green"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler6_5"  onclick=""><%= sb.radio_button :btncoler, "5", :name=>"sampler[seboards_attributes][6][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler6_5" %> <span class="rd-mk-color blue"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler6_6"  onclick=""><%= sb.radio_button :btncoler, "6", :name=>"sampler[seboards_attributes][6][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler6_6" %> <span class="rd-mk-color purple"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler6_7"  onclick=""><%= sb.radio_button :btncoler, "7", :name=>"sampler[seboards_attributes][6][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler6_7" %> <span class="rd-mk-color pink"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler6_8"  onclick=""><%= sb.radio_button :btncoler, "8", :name=>"sampler[seboards_attributes][6][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler6_8" %> <span class="rd-mk-color white"></span></label>
-                  </div><!--  .radio-field_s -->
-                </div><!--  .volumeAndRadio-cont -->
-                <div class="case-btn-miniflexer">
-                  <div class="selectfile-cont">
-                    <div class="selectfile-wrap">
-                      <label class="lb-selectFile" for="selectFile_s"><i class="fas fa-upload"></i><%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][6][sefile_attributes][sedata]", :id=>"selectFile_s", :class=>"selectFile", :onclick=>"readFile(soundS, form_fileS, sepathS, fileWYN_S, senameS)" %></label>
-                    </div><!--  .selectfile-wrap -->
-                    <p id="readFileWYN_s" class="readFileWYN"></p>
-                  </div><!--  .selectfile-wrap -->
-                  <div class="loopable-wrap">
-                    <label class="lb-cb-loopable" for="loopable_s"><%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][6][loopable]", :onclick=>"loopInit(soundS, loopS, loopValue_s)", :id=>"loopable_s", :class=>"cb-loopable", :checked_value =>true, :unchecked_value=>false %> <span class="cb-mk-loopable"></span> <i class="fas fa-undo-alt"></i> </label>
-                  </div><!--  .loopable-wrap -->
-                </div><!--  .case-btn-miniflexer -->
-                <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][6][sefile_attributes][sename]", :id=>"senameS", :class=>"sename-form" %>
-                <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][6][sefile_attributes][sepath]", :id=>"sepathS" %>
-              </div><!--  .case-btn-custompanel -->
-            </div><!-- #bg-s  -->
-
-            <!-- D -->
-            <div class="case-btn case-btn-d" id="bg-d" onclick="btnColorInit(btnColorD, bg_D)">
-              <div class="case-btn-clickable" onclick="play(soundD,loopD,loopValue_d)">
-                <div class="main-panel">
-                  <div class="key-position">
-                    <p>D</p>
-                  </div><!--  .key-position -->
-                  <div class="sename-panel">
-                    <p id="sename-panel_d"></p>
-                  </div><!--  .sename_panel -->
-                </div><!--  .main-panel -->
-              </div><!--  .case-btn-clickable -->
-              <div class="case-btn-custompanel">
-                <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][7][position]", :value => "7" %>
-                <div class="volumeAndRadio-cont">
-                  <div class="volume-wrap">
-                    <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][7][volume]", :onchange=>"volumeInit(soundD, volumeD, volumeValue_d)", :id=>"vol-d", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
-                  </div><!--  .volume-wrap -->
-                  <div class="radio-field radio-field_d">
-                    <label class="lb-rd-color" for="_seboards_btncoler7_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][7][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler7_1"%> <span class="rd-mk-color red"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler7_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][7][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler7_2" %> <span class="rd-mk-color orange"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler7_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][7][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler7_3" %> <span class="rd-mk-color yellow"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler7_4"  onclick=""><%= sb.radio_button :btncoler, "4", :name=>"sampler[seboards_attributes][7][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler7_4" %> <span class="rd-mk-color green"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler7_5"  onclick=""><%= sb.radio_button :btncoler, "5", :name=>"sampler[seboards_attributes][7][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler7_5" %> <span class="rd-mk-color blue"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler7_6"  onclick=""><%= sb.radio_button :btncoler, "6", :name=>"sampler[seboards_attributes][7][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler7_6" %> <span class="rd-mk-color purple"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler7_7"  onclick=""><%= sb.radio_button :btncoler, "7", :name=>"sampler[seboards_attributes][7][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler7_7" %> <span class="rd-mk-color pink"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler7_8"  onclick=""><%= sb.radio_button :btncoler, "8", :name=>"sampler[seboards_attributes][7][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler7_8" %> <span class="rd-mk-color white"></span></label>
-                  </div><!--  .radio-field_d -->
-                </div><!--  .volumeAndRadio-cont -->
-                <div class="case-btn-miniflexer">
-                  <div class="selectfile-cont">
-                    <div class="selectfile-wrap">
-                      <label class="lb-selectFile" for="selectFile_d"><i class="fas fa-upload"></i><%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][7][sefile_attributes][sedata]", :id=>"selectFile_d", :class=>"selectFile", :onclick=>"readFile(soundD, form_fileD, sepathD, fileWYN_D, senameD)" %></label>
-                    </div><!--  .selectfile-wrap -->
-                    <p id="readFileWYN_d" class="readFileWYN"></p>
-                  </div><!--  .selectfile-wrap -->
-                  <div class="loopable-wrap">
-                    <label class="lb-cb-loopable" for="loopable_d"><%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][7][loopable]", :onclick=>"loopInit(soundD, loopD, loopValue_d)", :id=>"loopable_d", :class=>"cb-loopable", :checked_value =>true, :unchecked_value=>false %> <span class="cb-mk-loopable"></span> <i class="fas fa-undo-alt"></i> </label>
-                  </div><!--  .loopable-wrap -->
-                </div><!--  .case-btn-miniflexer -->
-                <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][7][sefile_attributes][sename]", :id=>"senameD", :class=>"sename-form" %>
-                <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][7][sefile_attributes][sepath]", :id=>"sepathD" %>
-              </div><!--  .case-btn-custompanel -->
-            </div><!-- #bg-d  -->
-
-            <!-- F -->
-            <div class="case-btn case-btn-f" id="bg-f" onclick="btnColorInit(btnColorF, bg_F)">
-              <div class="case-btn-clickable" onclick="play(soundF,loopF,loopValue_f)">
-                <div class="main-panel">
-                  <div class="key-position">
-                    <p>F</p>
-                  </div><!--  .key-position -->
-                  <div class="sename-panel">
-                    <p id="sename-panel_f"></p>
-                  </div><!--  .sename_panel -->
-                </div><!--  .main-panel -->
-              </div><!--  .case-btn-clickable -->
-              <div class="case-btn-custompanel">
-                <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][8][position]", :value => "8" %>
-                <div class="volumeAndRadio-cont">
-                  <div class="volume-wrap">
-                    <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][8][volume]", :onchange=>"volumeInit(soundF, volumeF, volumeValue_f)", :id=>"vol-f", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
-                  </div><!--  .volume-wrap -->
-                  <div class="radio-field radio-field_f">
-                    <label class="lb-rd-color" for="_seboards_btncoler8_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][8][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler8_1"%> <span class="rd-mk-color red"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler8_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][8][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler8_2" %> <span class="rd-mk-color orange"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler8_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][8][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler8_3" %> <span class="rd-mk-color yellow"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler8_4"  onclick=""><%= sb.radio_button :btncoler, "4", :name=>"sampler[seboards_attributes][8][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler8_4" %> <span class="rd-mk-color green"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler8_5"  onclick=""><%= sb.radio_button :btncoler, "5", :name=>"sampler[seboards_attributes][8][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler8_5" %> <span class="rd-mk-color blue"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler8_6"  onclick=""><%= sb.radio_button :btncoler, "6", :name=>"sampler[seboards_attributes][8][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler8_6" %> <span class="rd-mk-color purple"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler8_7"  onclick=""><%= sb.radio_button :btncoler, "7", :name=>"sampler[seboards_attributes][8][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler8_7" %> <span class="rd-mk-color pink"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler8_8"  onclick=""><%= sb.radio_button :btncoler, "8", :name=>"sampler[seboards_attributes][8][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler8_8" %> <span class="rd-mk-color white"></span></label>
-                  </div><!--  .radio-field_F -->
-                </div><!--  .volumeAndRadio-cont -->
-                <div class="case-btn-miniflexer">
-                  <div class="selectfile-cont">
-                    <div class="selectfile-wrap">
-                      <label class="lb-selectFile" for="selectFile_f"><i class="fas fa-upload"></i><%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][8][sefile_attributes][sedata]", :id=>"selectFile_f", :class=>"selectFile", :onclick=>"readFile(soundF, form_fileF, sepathF, fileWYN_F, senameF)" %></label>
-                    </div><!--  .selectfile-wrap -->
-                    <p id="readFileWYN_f" class="readFileWYN"></p>
-                  </div><!--  .selectfile-wrap -->
-                  <div class="loopable-wrap">
-                    <label class="lb-cb-loopable" for="loopable_f"><%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][8][loopable]", :onclick=>"loopInit(soundF, loopF, loopValue_f)", :id=>"loopable_f", :class=>"cb-loopable", :checked_value =>true, :unchecked_value=>false %> <span class="cb-mk-loopable"></span> <i class="fas fa-undo-alt"></i> </label>
-                  </div><!--  .loopable-wrap -->
-                </div><!--  .case-btn-miniflexer -->
-                <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][8][sefile_attributes][sename]", :id=>"senameF", :class=>"sename-form" %>
-                <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][8][sefile_attributes][sepath]", :id=>"sepathF" %>
-              </div><!--  .case-btn-custompanel -->
-            </div><!-- #bg-F  -->
-
-
-
-          <!-- 下段 -->
-            <!-- Z -->
-            <div class="case-btn case-btn-z" id="bg-z" onclick="btnColorInit(btnColorZ, bg_Z)">
-              <div class="case-btn-clickable" onclick="play(soundZ,loopZ,loopValue_z)">
-                <div class="main-panel">
-                  <div class="key-position">
-                    <p>Z</p>
-                  </div><!--  .key-position -->
-                  <div class="sename-panel">
-                    <p id="sename-panel_z"></p>
-                  </div><!--  .sename_panel -->
-                </div><!--  .main-panel -->
-              </div><!--  .case-btn-clickable -->
-              <div class="case-btn-custompanel">
-                <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][9][position]", :value => "9" %>
-                <div class="volumeAndRadio-cont">
-                  <div class="volume-wrap">
-                    <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][9][volume]", :onchange=>"volumeInit(soundZ, volumeZ, volumeValue_z)", :id=>"vol-z", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
-                  </div><!--  .volume-wrap -->
-                  <div class="radio-field radio-field_z">
-                    <label class="lb-rd-color" for="_seboards_btncoler9_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][9][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler9_1"%> <span class="rd-mk-color red"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler9_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][9][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler9_2" %> <span class="rd-mk-color orange"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler9_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][9][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler9_3" %> <span class="rd-mk-color yellow"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler9_4"  onclick=""><%= sb.radio_button :btncoler, "4", :name=>"sampler[seboards_attributes][9][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler9_4" %> <span class="rd-mk-color green"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler9_5"  onclick=""><%= sb.radio_button :btncoler, "5", :name=>"sampler[seboards_attributes][9][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler9_5" %> <span class="rd-mk-color blue"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler9_6"  onclick=""><%= sb.radio_button :btncoler, "6", :name=>"sampler[seboards_attributes][9][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler9_6" %> <span class="rd-mk-color purple"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler9_7"  onclick=""><%= sb.radio_button :btncoler, "7", :name=>"sampler[seboards_attributes][9][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler9_7" %> <span class="rd-mk-color pink"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler9_8"  onclick=""><%= sb.radio_button :btncoler, "8", :name=>"sampler[seboards_attributes][9][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler9_8" %> <span class="rd-mk-color white"></span></label>
-                  </div><!--  .radio-field_z -->
-                </div><!--  .volumeAndRadio-cont -->
-                <div class="case-btn-miniflexer">
-                  <div class="selectfile-cont">
-                    <div class="selectfile-wrap">
-                      <label class="lb-selectFile" for="selectFile_z"><i class="fas fa-upload"></i><%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][9][sefile_attributes][sedata]", :id=>"selectFile_z", :class=>"selectFile", :onclick=>"readFile(soundZ, form_fileZ, sepathZ, fileWYN_Z, senameZ)" %></label>
-                    </div><!--  .selectfile-wrap -->
-                    <p id="readFileWYN_z" class="readFileWYN"></p>
-                  </div><!--  .selectfile-wrap -->
-                  <div class="loopable-wrap">
-                    <label class="lb-cb-loopable" for="loopable_z"><%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][9][loopable]", :onclick=>"loopInit(soundZ, loopZ, loopValue_z)", :id=>"loopable_z", :class=>"cb-loopable", :checked_value =>true, :unchecked_value=>false %> <span class="cb-mk-loopable"></span> <i class="fas fa-undo-alt"></i> </label>
-                  </div><!--  .loopable-wrap -->
-                </div><!--  .case-btn-miniflexer -->
-                <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][9][sefile_attributes][sename]", :id=>"senameZ", :class=>"sename-form" %>
-                <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][9][sefile_attributes][sepath]", :id=>"sepathZ" %>
-              </div><!--  .case-btn-custompanel -->
-            </div><!-- #bg-z  -->
-
-            <!-- X -->
-            <div class="case-btn case-btn-x" id="bg-x" onclick="btnColorInit(btnColorX, bg_X)">
-              <div class="case-btn-clickable" onclick="play(soundX,loopX,loopValue_x)">
-                <div class="main-panel">
-                  <div class="key-position">
-                    <p>X</p>
-                  </div><!--  .key-position -->
-                  <div class="sename-panel">
-                    <p id="sename-panel_x"></p>
-                  </div><!--  .sename_panel -->
-                </div><!--  .main-panel -->
-              </div><!--  .case-btn-clickable -->
-              <div class="case-btn-custompanel">
-                <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][10][position]", :value => "10" %>
-                <div class="volumeAndRadio-cont">
-                  <div class="volume-wrap">
-                    <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][10][volume]", :onchange=>"volumeInit(soundX, volumeX, volumeValue_x)", :id=>"vol-x", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
-                  </div><!--  .volume-wrap -->
-                  <div class="radio-field radio-field_x">
-                    <label class="lb-rd-color" for="_seboards_btncoler10_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][10][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler10_1"%> <span class="rd-mk-color red"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler10_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][10][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler10_2" %> <span class="rd-mk-color orange"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler10_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][10][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler10_3" %> <span class="rd-mk-color yellow"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler10_4"  onclick=""><%= sb.radio_button :btncoler, "4", :name=>"sampler[seboards_attributes][10][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler10_4" %> <span class="rd-mk-color green"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler10_5"  onclick=""><%= sb.radio_button :btncoler, "5", :name=>"sampler[seboards_attributes][10][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler10_5" %> <span class="rd-mk-color blue"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler10_6"  onclick=""><%= sb.radio_button :btncoler, "6", :name=>"sampler[seboards_attributes][10][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler10_6" %> <span class="rd-mk-color purple"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler10_7"  onclick=""><%= sb.radio_button :btncoler, "7", :name=>"sampler[seboards_attributes][10][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler10_7" %> <span class="rd-mk-color pink"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler10_8"  onclick=""><%= sb.radio_button :btncoler, "8", :name=>"sampler[seboards_attributes][10][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler10_8" %> <span class="rd-mk-color white"></span></label>
-                  </div><!--  .radio-field_x -->
-                </div><!--  .volumeAndRadio-cont -->
-                <div class="case-btn-miniflexer">
-                  <div class="selectfile-cont">
-                    <div class="selectfile-wrap">
-                      <label class="lb-selectFile" for="selectFile_x"><i class="fas fa-upload"></i><%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][10][sefile_attributes][sedata]", :id=>"selectFile_x", :class=>"selectFile", :onclick=>"readFile(soundX, form_fileX, sepathX, fileWYN_X, senameX)" %></label>
-                    </div><!--  .selectfile-wrap -->
-                    <p id="readFileWYN_x" class="readFileWYN"></p>
-                  </div><!--  .selectfile-wrap -->
-                  <div class="loopable-wrap">
-                    <label class="lb-cb-loopable" for="loopable_x"><%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][10][loopable]", :onclick=>"loopInit(soundX, loopX, loopValue_x)", :id=>"loopable_x", :class=>"cb-loopable", :checked_value =>true, :unchecked_value=>false %> <span class="cb-mk-loopable"></span> <i class="fas fa-undo-alt"></i> </label>
-                  </div><!--  .loopable-wrap -->
-                </div><!--  .case-btn-miniflexer -->
-                <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][10][sefile_attributes][sename]", :id=>"senameX", :class=>"sename-form" %>
-                <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][10][sefile_attributes][sepath]", :id=>"sepathX" %>
-              </div><!--  .case-btn-custompanel -->
-            </div><!-- #bg-x  -->
-
-            <!-- C -->
-            <div class="case-btn case-btn-c" id="bg-c" onclick="btnColorInit(btnColorC, bg_C)">
-              <div class="case-btn-clickable" onclick="play(soundC,loopC,loopValue_c)">
-                <div class="main-panel">
-                  <div class="key-position">
-                    <p>C</p>
-                  </div><!--  .key-position -->
-                  <div class="sename-panel">
-                    <p id="sename-panel_c"></p>
-                  </div><!--  .sename_panel -->
-                </div><!--  .main-panel -->
-              </div><!--  .case-btn-clickable -->
-              <div class="case-btn-custompanel">
-                <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][11][position]", :value => "11" %>
-                <div class="volumeAndRadio-cont">
-                  <div class="volume-wrap">
-                    <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][11][volume]", :onchange=>"volumeInit(soundC, volumeC, volumeValue_c)", :id=>"vol-c", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
-                  </div><!--  .volume-wrap -->
-                  <div class="radio-field radio-field_c">
-                    <label class="lb-rd-color" for="_seboards_btncoler11_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][11][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler11_1"%> <span class="rd-mk-color red"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler11_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][11][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler11_2" %> <span class="rd-mk-color orange"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler11_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][11][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler11_3" %> <span class="rd-mk-color yellow"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler11_4"  onclick=""><%= sb.radio_button :btncoler, "4", :name=>"sampler[seboards_attributes][11][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler11_4" %> <span class="rd-mk-color green"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler11_5"  onclick=""><%= sb.radio_button :btncoler, "5", :name=>"sampler[seboards_attributes][11][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler11_5" %> <span class="rd-mk-color blue"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler11_6"  onclick=""><%= sb.radio_button :btncoler, "6", :name=>"sampler[seboards_attributes][11][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler11_6" %> <span class="rd-mk-color purple"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler11_7"  onclick=""><%= sb.radio_button :btncoler, "7", :name=>"sampler[seboards_attributes][11][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler11_7" %> <span class="rd-mk-color pink"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler11_8"  onclick=""><%= sb.radio_button :btncoler, "8", :name=>"sampler[seboards_attributes][11][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler11_8" %> <span class="rd-mk-color white"></span></label>
-                  </div><!--  .radio-field_c -->
-                </div><!--  .volumeAndRadio-cont -->
-                <div class="case-btn-miniflexer">
-                  <div class="selectfile-cont">
-                    <div class="selectfile-wrap">
-                      <label class="lb-selectFile" for="selectFile_c"><i class="fas fa-upload"></i><%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][11][sefile_attributes][sedata]", :id=>"selectFile_c", :class=>"selectFile", :onclick=>"readFile(soundC, form_fileC, sepathC, fileWYN_C, senameC)" %></label>
-                    </div><!--  .selectfile-wrap -->
-                    <p id="readFileWYN_c" class="readFileWYN"></p>
-                  </div><!--  .selectfile-wrap -->
-                  <div class="loopable-wrap">
-                    <label class="lb-cb-loopable" for="loopable_c"><%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][11][loopable]", :onclick=>"loopInit(soundC, loopC, loopValue_c)", :id=>"loopable_c", :class=>"cb-loopable", :checked_value =>true, :unchecked_value=>false %> <span class="cb-mk-loopable"></span> <i class="fas fa-undo-alt"></i> </label>
-                  </div><!--  .loopable-wrap -->
-                </div><!--  .case-btn-miniflexer -->
-                <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][11][sefile_attributes][sename]", :id=>"senameC", :class=>"sename-form" %>
-                <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][11][sefile_attributes][sepath]", :id=>"sepathC" %>
-              </div><!--  .case-btn-custompanel -->
-            </div><!-- #bg-c  -->
-
-            <!-- V -->
-            <div class="case-btn case-btn-v" id="bg-v" onclick="btnColorInit(btnColorV, bg_V)">
-              <div class="case-btn-clickable" onclick="play(soundV,loopV,loopValue_v)">
-                <div class="main-panel">
-                  <div class="key-position">
-                    <p>V</p>
-                  </div><!--  .key-position -->
-                  <div class="sename-panel">
-                    <p id="sename-panel_v"></p>
-                  </div><!--  .sename_panel -->
-                </div><!--  .main-panel -->
-              </div><!--  .case-btn-clickable -->
-              <div class="case-btn-custompanel">
-                <%= sb.hidden_field :position,:name=>"sampler[seboards_attributes][12][position]", :value => "12" %>
-                <div class="volumeAndRadio-cont">
-                  <div class="volume-wrap">
-                    <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][12][volume]", :onchange=>"volumeInit(soundV, volumeV, volumeValue_v)", :id=>"vol-v", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
-                  </div><!--  .volume-wrap -->
-                  <div class="radio-field radio-field_v">
-                    <label class="lb-rd-color" for="_seboards_btncoler12_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][12][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler12_1"%> <span class="rd-mk-color red"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler12_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][12][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler12_2" %> <span class="rd-mk-color orange"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler12_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][12][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler12_3" %> <span class="rd-mk-color yellow"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler12_4"  onclick=""><%= sb.radio_button :btncoler, "4", :name=>"sampler[seboards_attributes][12][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler12_4" %> <span class="rd-mk-color green"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler12_5"  onclick=""><%= sb.radio_button :btncoler, "5", :name=>"sampler[seboards_attributes][12][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler12_5" %> <span class="rd-mk-color blue"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler12_6"  onclick=""><%= sb.radio_button :btncoler, "6", :name=>"sampler[seboards_attributes][12][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler12_6" %> <span class="rd-mk-color purple"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler12_7"  onclick=""><%= sb.radio_button :btncoler, "7", :name=>"sampler[seboards_attributes][12][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler12_7" %> <span class="rd-mk-color pink"></span></label>
-                    <label class="lb-rd-color" for="_seboards_btncoler12_8"  onclick=""><%= sb.radio_button :btncoler, "8", :name=>"sampler[seboards_attributes][12][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler12_8" %> <span class="rd-mk-color white"></span></label>
-                  </div><!--  .radio-field_v -->
-                </div><!--  .volumeAndRadio-cont -->
-                <div class="case-btn-miniflexer">
-                  <div class="selectfile-cont">
-                    <div class="selectfile-wrap">
-                      <label class="lb-selectFile" for="selectFile_v"><i class="fas fa-upload"></i><%= sf.file_field :sedata, :name=>"sampler[seboards_attributes][12][sefile_attributes][sedata]", :id=>"selectFile_v", :class=>"selectFile", :onclick=>"readFile(soundV, form_fileV, sepathV, fileWYN_V, senameV)" %></label>
-                    </div><!--  .selectfile-wrap -->
-                    <p id="readFileWYN_v" class="readFileWYN"></p>
-                  </div><!--  .selectfile-wrap -->
-                  <div class="loopable-wrap">
-                    <label class="lb-cb-loopable" for="loopable_v"><%= sb.check_box "loopable", :name=>"sampler[seboards_attributes][12][loopable]", :onclick=>"loopInit(soundV, loopV, loopValue_v)", :id=>"loopable_v", :class=>"cb-loopable", :checked_value =>true, :unchecked_value=>false %> <span class="cb-mk-loopable"></span> <i class="fas fa-undo-alt"></i> </label>
-                  </div><!--  .loopable-wrap -->
-                </div><!--  .case-btn-miniflexer -->
-                <%= sf.text_field :sename, :name=>"sampler[seboards_attributes][12][sefile_attributes][sename]", :id=>"senameV", :class=>"sename-form" %>
-                <%= sf.hidden_field :sepath, :name=>"sampler[seboards_attributes][12][sefile_attributes][sepath]", :id=>"sepathV" %>
-              </div><!--  .case-btn-custompanel -->
-            </div><!-- #bg-v  -->
-
-
-          <% end %>
-        <% end %>
-      </div><!--  .btnpanel -->
-
-
-      <% if user_signed_in? %>
-        <div class="downer-panel">
-          <%= sp.submit "設定を保存する", class: "submit-btn" %>
-        </div><!--  .downer-panel -->
-      <% end %>
-
-
-    </div><!--  .btnwrapper-v2 -->
-
-
-
-
-
-
+      </section><!--  .customwindow -->
+    <% end %>
   <% end %>
-
-
-
-</div><!--  .btnwrapper-v1 -->
-
-
-<section class="customwindow">
-  <div class="cw-switch"></div><!--  .cw-switch -->
-  <div class="container">
-    <div class="custompanel-switch-wrap">
-      <div class="custompanel-switch-btn cw-active" id="custompanel-switch-btn1"></div><!-- #custompanel-switch-btn1 .custompanel-switch-btn -->
-      <div class="custompanel-switch-btn" id="custompanel-switch-btn2"></div><!-- #custompanel-switch-btn2 .custompanel-switch-btn -->
-      <div class="custompanel-switch-btn" id="custompanel-switch-btn3"></div><!-- #custompanel-switch-btn3 .custompanel-switch-btn -->
-      <div class="custompanel-switch-btn" id="custompanel-switch-btn4"></div><!-- #custompanel-switch-btn4 .custompanel-switch-btn -->
-      <div class="custompanel-switch-btn" id="custompanel-switch-btn5"></div><!-- #custompanel-switch-btn5 .custompanel-switch-btn -->
-      <div class="custompanel-switch-btn" id="custompanel-switch-btn6"></div><!-- #custompanel-switch-btn6 .custompanel-switch-btn -->
-      <div class="custompanel-switch-btn" id="custompanel-switch-btn7"></div><!-- #custompanel-switch-btn7 .custompanel-switch-btn -->
-      <div class="custompanel-switch-btn" id="custompanel-switch-btn8"></div><!-- #custompanel-switch-btn8 .custompanel-switch-btn -->
-      <div class="custompanel-switch-btn" id="custompanel-switch-btn9"></div><!-- #custompanel-switch-btn9 .custompanel-switch-btn -->
-      <div class="custompanel-switch-btn" id="custompanel-switch-btn10"></div><!-- #custompanel-switch-btn10 .custompanel-switch-btn -->
-      <div class="custompanel-switch-btn" id="custompanel-switch-btn11"></div><!-- #custompanel-switch-btn11 .custompanel-switch-btn -->
-      <div class="custompanel-switch-btn" id="custompanel-switch-btn12"></div><!-- #custompanel-switch-btn12 .custompanel-switch-btn -->
-    </div><!--  .custompanel-switch-wrap -->
-
-    <div class="custompanel-window-wrap">
-      <div class="custompanel-window cw-show" id="custompanel-window1">
-        <p>window1</p>
-      </div><!-- #custompanel-window1 .custompanel-window -->
-      <div class="custompanel-window" id="custompanel-window2">
-        <p>window2</p>
-      </div><!-- #custompanel-window2 .custompanel-window -->
-      <div class="custompanel-window" id="custompanel-window3">
-        <p>window3</p>
-      </div><!-- #custompanel-window3 .custompanel-window -->
-      <div class="custompanel-window" id="custompanel-window4">
-        <p>window4</p>
-      </div><!-- #custompanel-window4 .custompanel-window -->
-      <div class="custompanel-window" id="custompanel-window5">
-        <p>window5</p>
-      </div><!-- #custompanel-window5 .custompanel-window -->
-      <div class="custompanel-window" id="custompanel-window6">
-        <p>window6</p>
-      </div><!-- #custompanel-window6 .custompanel-window -->
-      <div class="custompanel-window" id="custompanel-window7">
-        <p>window7</p>
-      </div><!-- #custompanel-window7 .custompanel-window -->
-      <div class="custompanel-window" id="custompanel-window8">
-        <p>window8</p>
-      </div><!-- #custompanel-window8 .custompanel-window -->
-      <div class="custompanel-window" id="custompanel-window9">
-        <p>window9</p>
-      </div><!-- #custompanel-window9 .custompanel-window -->
-      <div class="custompanel-window" id="custompanel-window10">
-        <p>window10</p>
-      </div><!-- #custompanel-window10 .custompanel-window -->
-      <div class="custompanel-window" id="custompanel-window11">
-        <p>window11</p>
-      </div><!-- #custompanel-window11 .custompanel-window -->
-      <div class="custompanel-window" id="custompanel-window12">
-        <p>window12</p>
-      </div><!-- #custompanel-window12 .custompanel-window -->
-    </div><!--  .custompanel-window-wrap -->
-  </div><!--  .container -->
-
-</section><!--  .customwindow -->
+<% end %>

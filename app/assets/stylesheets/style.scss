@@ -1562,6 +1562,13 @@ nav.pagination
   background-color: $panel_dark;
   z-index: 1;
   padding-top: 30px;
+  .container
+  {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .cw-switch
@@ -1576,7 +1583,8 @@ nav.pagination
 
 .custompanel-switch-wrap
 {
-  width: 50%;
+  // width: 50%;
+  width: 30%;
   height: 100px;
   display: -webkit-flex;
   display: -ms-flex;
@@ -1598,7 +1606,8 @@ nav.pagination
 
 .custompanel-window-wrap
 {
-  width: 100%;
+  // width: 100%;
+  width: 60%;
   height: 170px;
   background-color: #fff;
   display: block;
@@ -1614,6 +1623,11 @@ nav.pagination
 #custompanel-window1
 {
   // display: block;
+}
+
+.case-btn-custompanelx
+{
+  width: 100%;
 }
 
 
