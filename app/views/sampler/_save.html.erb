@@ -32,7 +32,7 @@
 
             <!-- 上段 -->
               <!-- Q -->
-              <div class="case-btn case-btn-q" id="bg-q" onclick="btnColorInit(btnColorQ, bg_Q)">
+              <div class="case-btn case-btn-q" id="bg-q">
                 <div class="case-btn-clickable" onclick="play(soundQ,loopQ,loopValue_q)">
                   <div class="main-panel">
                     <div class="key-position">
@@ -51,7 +51,7 @@
               </div><!-- #bg-q  -->
 
               <!-- W -->
-              <div class="case-btn case-btn-w" id="bg-w" onclick="btnColorInit(btnColorW, bg_W)">
+              <div class="case-btn case-btn-w" id="bg-w">
                 <div class="case-btn-clickable" onclick="play(soundW,loopW,loopValue_w)">
                   <div class="main-panel">
                     <div class="key-position">
@@ -549,9 +549,12 @@
   </div><!--  .btnwrapper-v1 -->
 
 
-      <section class="customwindow">
-        <div class="cw-switch"></div><!--  .cw-switch -->
-        <div class="container">
+      <section class="customwindow" id="customwindow">
+        <div class="cw-switch" id="cw-switch">
+          <p class="cw-txt cw-txt_1 show" id="cw-txt_1"><i class="fas fa-cog"></i>設定を開く</p><!--  .sw-txt_1 -->
+          <p class="cw-txt cw-txt_2" id="cw-txt_2"><i class="fas fa-times"></i>設定を閉じる</p><!--  .sw-txt_2 -->
+        </div><!--  .cw-switch -->
+        <div class="container custompanel-switch-container" id="custompanel-switch-container">
           <div class="custompanel-switch-wrap">
             <div class="custompanel-switch-btn cw-active" id="custompanel-switch-btn1"></div><!-- #custompanel-switch-btn1 .custompanel-switch-btn -->
             <div class="custompanel-switch-btn" id="custompanel-switch-btn2"></div><!-- #custompanel-switch-btn2 .custompanel-switch-btn -->
@@ -577,7 +580,7 @@
                   <div class="volume-wrap">
                     <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][1][volume]", :onchange=>"volumeInit(soundQ, volumeQ, volumeValue_q)", :id=>"vol-q", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
                   </div><!--  .volume-wrap -->
-                  <div class="radio-field radio-field_q">
+                  <div class="radio-field radio-field_q" onclick="btnColorInit(btnColorQ, bg_Q)">
                     <label class="lb-rd-color" for="_seboards_btncoler1_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][1][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler1_1"%> <span class="rd-mk-color red"></span></label>
                     <label class="lb-rd-color" for="_seboards_btncoler1_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][1][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler1_2" %> <span class="rd-mk-color orange"></span></label>
                     <label class="lb-rd-color" for="_seboards_btncoler1_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][1][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler1_3" %> <span class="rd-mk-color yellow"></span></label>
@@ -605,7 +608,7 @@
 
               </div><!--  .case-btn-custompanelx -->
             </div><!-- #custompanel-window1 .custompanel-window -->
-            <div class="custompanel-window" id="custompanel-window2">
+            <div class="custompanel-window" id="custompanel-window2" onclick="btnColorInit(btnColorW, bg_W)">
               <p>window2</p>
 
               <div class="case-btn-custompanelx">
@@ -680,3 +683,17 @@
     <% end %>
   <% end %>
 <% end %>
+
+<script type="text/javascript">
+  var customWindowAtMedia = document.getElementById("customwindow");
+  var customWindowHider = document.getElementById("cw-switch");
+  var customWindowHiderTxt1 = document.getElementById("cw-txt_1");
+  var customWindowHiderTxt2 = document.getElementById("cw-txt_2");
+
+  customWindowHider.addEventListener('click',function(){
+    customWindowAtMedia.classList.toggle('show');
+    customWindowHiderTxt1.classList.toggle('show');
+    customWindowHiderTxt2.classList.toggle('show');
+  });
+
+</script>

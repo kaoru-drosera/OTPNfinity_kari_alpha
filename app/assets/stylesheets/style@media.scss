@@ -201,7 +201,7 @@ $vol_scroll: #aaa;
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
+      width: 50%;
       height: 32px;
       -webkit-transform: translate(0, -100%);
       -ms-transform: translate(0, -100%);
@@ -218,8 +218,10 @@ $vol_scroll: #aaa;
         -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
 
-        font-size: 12px;
+        font-size: 11px;
         color: $txt1;
 
         display: none;

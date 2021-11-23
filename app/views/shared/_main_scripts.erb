@@ -286,6 +286,7 @@ document.addEventListener('DOMContentLoaded',function(){
     tabs[i].addEventListener('click',tabSwitch,false);
   }
 
+  // カスタム画面(スマホ対応)・タブ画面
   function tabSwitch(){
     // タブのクラス値を変更
     document.getElementsByClassName('cw-active')[0].classList.remove('cw-active');
@@ -498,6 +499,8 @@ function btnColorInit(btnColor, bg){
       }
     }
 }
+
+
 
 window.addEventListener('load',function(){
 
