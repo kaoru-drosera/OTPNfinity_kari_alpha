@@ -291,6 +291,41 @@ $vol_scroll: #aaa;
 
     // ヘルプ ここまで
 
+    // サンプラー設定パネル
+    .custompanel-switch-container
+    {
+      flex-direction: column;
+    }
+    .custompanel-switch-wrap
+    {
+      width: 60%;
+    }
+    .custompanel-window-wrap
+    {
+      width: 100%;
+    }
+    .cw-switch
+    {
+      flex-direction: row;
+      width: 50%;
+      height: 32px;
+      right: 0;
+    }
+    .cw-fas
+    {
+      i
+      {
+        font-size: 16px;
+        margin-right: 4px;
+      }
+    }
+    .cw-txt-wrap
+    {
+      margin-top: 0;
+    }
+    // サンプラー設定パネル ここまで
+
+
   }
 // maw:750px ここまで
 
@@ -344,6 +379,16 @@ $vol_scroll: #aaa;
   }
 
   // チェックボックス(ループ) ここまで
+
+  // サンプラー設定パネル
+
+  .custompanel-switch-wrap,
+  .custompanel-window-wrap
+  {
+    width: 100%;
+  }
+
+  // サンプラー設定パネル ここまで
 
 
 }
@@ -412,6 +457,7 @@ $vol_scroll: #aaa;
   // ヘルプ ここまで
 
 }
+
 
 
 // maw:300px ここまで

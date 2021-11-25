@@ -1524,15 +1524,19 @@ nav.pagination
 }
 .key-position
 {
+  display: flex;
+  align-items: center;
+  background-color: $bg_light;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
   p
   {
     font-size: 34px;
-    background-color: $bg_light;
+    width: 100%;
     display: inline-block;
-    /* width: 20%; */
     color: #fff;
-    border-radius: 8px;
-    padding: 0 5px;
+    text-align: center;
   }
 }
 .sename-panel
@@ -1582,6 +1586,23 @@ nav.pagination
   }
 }
 
+.cw-fas
+{
+  i
+  {
+    display: none;
+    color: $txt1;
+    font-size: 36px;
+    &.show
+    {
+      display: inline-block;
+    }
+  }
+}
+.cw-txt-wrap
+{
+  margin-top: 8px;
+}
 .cw-txt
 {
   display: none;
@@ -1590,10 +1611,6 @@ nav.pagination
   font-size: 11px;
   width: 100%;
   text-align: center;
-  i
-  {
-    margin-right: 4px;
-  }
   &.show
   {
     display: inline-block;
@@ -1603,9 +1620,9 @@ nav.pagination
 {
   position: absolute;
   top: 0;
-  right: 0;
-  width: 50%;
-  height: 32px;
+  right: 10%;
+  width: 80px;
+  height: 80px;
   background-color: $panel_dark;
   -webkit-transform: translate(0, -100%);
   -ms-transform: translate(0, -100%);
@@ -1614,6 +1631,7 @@ nav.pagination
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   border-radius: 8px 8px 0 0;
 }
@@ -1635,9 +1653,25 @@ nav.pagination
   width: 24%;
   height: 33px;
   border: 1px solid #fff;
-  .cw-active
+  position: relative;
+  &::before
+  {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $bg;
+    opacity: .8;
+  }
+  &.cw-active
   {
     background-color: #fff;
+    &::before
+    {
+      opacity: 0;
+    }
   }
 }
 

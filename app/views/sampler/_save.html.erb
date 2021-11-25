@@ -51,7 +51,7 @@
               </div><!-- #bg-q  -->
 
               <!-- W -->
-              <div class="case-btn case-btn-w" id="bg-w">
+              <div class="case-btn case-btn-w" id="bg-w" onclick="btnColorInit(btnColorW, bg_W, bgcw_W)">
                 <div class="case-btn-clickable" onclick="play(soundW,loopW,loopValue_w)">
                   <div class="main-panel">
                     <div class="key-position">
@@ -70,7 +70,7 @@
               </div>
 
               <!-- E -->
-              <div class="case-btn case-btn-e" id="bg-e" onclick="btnColorInit(btnColorE, bg_E)">
+              <div class="case-btn case-btn-e" id="bg-e" onclick="btnColorInit(btnColorE, bg_E, bgcw_E)">
                 <div class="case-btn-clickable" onclick="play(soundE,loopE,loopValue_e)">
                   <div class="main-panel">
                     <div class="key-position">
@@ -116,7 +116,7 @@
 
 
               <!-- R -->
-              <div class="case-btn case-btn-r" id="bg-r" onclick="btnColorInit(btnColorR, bg_R)">
+              <div class="case-btn case-btn-r" id="bg-r" onclick="btnColorInit(btnColorR, bg_R, bgcw_R)">
                 <div class="case-btn-clickable" onclick="play(soundR,loopR,loopValue_r)">
                   <div class="main-panel">
                     <div class="key-position">
@@ -551,27 +551,33 @@
 
       <section class="customwindow" id="customwindow">
         <div class="cw-switch" id="cw-switch">
-          <p class="cw-txt cw-txt_1 show" id="cw-txt_1"><i class="fas fa-cog"></i>設定を開く</p><!--  .sw-txt_1 -->
-          <p class="cw-txt cw-txt_2" id="cw-txt_2"><i class="fas fa-times"></i>設定を閉じる</p><!--  .sw-txt_2 -->
+          <div class="cw-fas">
+            <i class="fas fa-cog cw-txt_1 show" id="cw-fas_1"></i>
+            <i class="fas fa-times cw-txt_2" id="cw-fas_2"></i>
+          </div><!--  .cw-fas-cont -->
+          <div class="cw-txt-wrap">
+            <p class="cw-txt cw-txt_1 show" id="cw-txt_1">設定を開く</p><!--  .sw-txt_1 -->
+            <p class="cw-txt cw-txt_2" id="cw-txt_2">設定を閉じる</p><!--  .sw-txt_2 -->
+          </div><!--  .cw-txt-wrap -->
         </div><!--  .cw-switch -->
         <div class="container custompanel-switch-container" id="custompanel-switch-container">
           <div class="custompanel-switch-wrap">
-            <div class="custompanel-switch-btn cw-active" id="custompanel-switch-btn1"></div><!-- #custompanel-switch-btn1 .custompanel-switch-btn -->
-            <div class="custompanel-switch-btn" id="custompanel-switch-btn2"></div><!-- #custompanel-switch-btn2 .custompanel-switch-btn -->
-            <div class="custompanel-switch-btn" id="custompanel-switch-btn3"></div><!-- #custompanel-switch-btn3 .custompanel-switch-btn -->
-            <div class="custompanel-switch-btn" id="custompanel-switch-btn4"></div><!-- #custompanel-switch-btn4 .custompanel-switch-btn -->
-            <div class="custompanel-switch-btn" id="custompanel-switch-btn5"></div><!-- #custompanel-switch-btn5 .custompanel-switch-btn -->
-            <div class="custompanel-switch-btn" id="custompanel-switch-btn6"></div><!-- #custompanel-switch-btn6 .custompanel-switch-btn -->
-            <div class="custompanel-switch-btn" id="custompanel-switch-btn7"></div><!-- #custompanel-switch-btn7 .custompanel-switch-btn -->
-            <div class="custompanel-switch-btn" id="custompanel-switch-btn8"></div><!-- #custompanel-switch-btn8 .custompanel-switch-btn -->
-            <div class="custompanel-switch-btn" id="custompanel-switch-btn9"></div><!-- #custompanel-switch-btn9 .custompanel-switch-btn -->
-            <div class="custompanel-switch-btn" id="custompanel-switch-btn10"></div><!-- #custompanel-switch-btn10 .custompanel-switch-btn -->
-            <div class="custompanel-switch-btn" id="custompanel-switch-btn11"></div><!-- #custompanel-switch-btn11 .custompanel-switch-btn -->
-            <div class="custompanel-switch-btn" id="custompanel-switch-btn12"></div><!-- #custompanel-switch-btn12 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn cw-active" id="custompanel-switch-btnQ"></div><!-- #custompanel-switch-btn1 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btnW"></div><!-- #custompanel-switch-btn2 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btnE"></div><!-- #custompanel-switch-btn3 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btnR"></div><!-- #custompanel-switch-btn4 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btnA"></div><!-- #custompanel-switch-btn5 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btnS"></div><!-- #custompanel-switch-btn6 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btnD"></div><!-- #custompanel-switch-btn7 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btnF"></div><!-- #custompanel-switch-btn8 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btnZ"></div><!-- #custompanel-switch-btn9 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btnX"></div><!-- #custompanel-switch-btn10 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btnC"></div><!-- #custompanel-switch-btn11 .custompanel-switch-btn -->
+            <div class="custompanel-switch-btn" id="custompanel-switch-btnV"></div><!-- #custompanel-switch-btn12 .custompanel-switch-btn -->
           </div><!--  .custompanel-switch-wrap -->
 
           <div class="custompanel-window-wrap">
-            <div class="custompanel-window cw-show" id="custompanel-window1">
+            <div class="custompanel-window cw-show" id="custompanel-windowQ">
               <p>window1</p>
               <div class="case-btn-custompanelx">
 
@@ -580,7 +586,7 @@
                   <div class="volume-wrap">
                     <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][1][volume]", :onchange=>"volumeInit(soundQ, volumeQ, volumeValue_q)", :id=>"vol-q", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
                   </div><!--  .volume-wrap -->
-                  <div class="radio-field radio-field_q" onclick="btnColorInit(btnColorQ, bg_Q)">
+                  <div class="radio-field radio-field_q" onclick="btnColorInit(btnColorQ, bg_Q, bgcw_Q)">
                     <label class="lb-rd-color" for="_seboards_btncoler1_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][1][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler1_1"%> <span class="rd-mk-color red"></span></label>
                     <label class="lb-rd-color" for="_seboards_btncoler1_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][1][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler1_2" %> <span class="rd-mk-color orange"></span></label>
                     <label class="lb-rd-color" for="_seboards_btncoler1_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][1][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler1_3" %> <span class="rd-mk-color yellow"></span></label>
@@ -608,7 +614,7 @@
 
               </div><!--  .case-btn-custompanelx -->
             </div><!-- #custompanel-window1 .custompanel-window -->
-            <div class="custompanel-window" id="custompanel-window2" onclick="btnColorInit(btnColorW, bg_W)">
+            <div class="custompanel-window" id="custompanel-windowW">
               <p>window2</p>
 
               <div class="case-btn-custompanelx">
@@ -618,7 +624,7 @@
                   <div class="volume-wrap">
                     <div class="volume-field"><%= sb.range_field :volume, :name=>"sampler[seboards_attributes][2][volume]", :onchange=>"volumeInit(soundW, volumeW, volumeValue_w)", :id=>"vol-w", :class=>"vol-range", :value=>50, :min=>1, :max=>99 %></div><!--  .volume-flame -->
                   </div><!--  .volume-wrap -->
-                  <div class="radio-field radio-field_w">
+                  <div class="radio-field radio-field_w" onclick="btnColorInit(btnColorW, bg_W, bgcw_W)">
                     <label class="lb-rd-color" for="_seboards_btncoler2_1"  onclick=""><%= sb.radio_button :btncoler, "1", :name=>"sampler[seboards_attributes][2][btncolor]", checked: true, :class=>"rd-color", :id=>"_seboards_btncoler2_1"%> <span class="rd-mk-color red"></span></label>
                     <label class="lb-rd-color" for="_seboards_btncoler2_2"  onclick=""><%= sb.radio_button :btncoler, "2", :name=>"sampler[seboards_attributes][2][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler2_2" %> <span class="rd-mk-color orange"></span></label>
                     <label class="lb-rd-color" for="_seboards_btncoler2_3"  onclick=""><%= sb.radio_button :btncoler, "3", :name=>"sampler[seboards_attributes][2][btncolor]", :class=>"rd-color", :id=>"_seboards_btncoler2_3" %> <span class="rd-mk-color yellow"></span></label>
@@ -646,34 +652,34 @@
               </div><!--  .case-btn-custompanelx -->
 
             </div><!-- #custompanel-window2 .custompanel-window -->
-            <div class="custompanel-window" id="custompanel-window3">
+            <div class="custompanel-window" id="custompanel-windowE">
               <p>window3</p>
             </div><!-- #custompanel-window3 .custompanel-window -->
-            <div class="custompanel-window" id="custompanel-window4">
+            <div class="custompanel-window" id="custompanel-windowR">
               <p>window4</p>
             </div><!-- #custompanel-window4 .custompanel-window -->
-            <div class="custompanel-window" id="custompanel-window5">
+            <div class="custompanel-window" id="custompanel-windowA">
               <p>window5</p>
             </div><!-- #custompanel-window5 .custompanel-window -->
-            <div class="custompanel-window" id="custompanel-window6">
+            <div class="custompanel-window" id="custompanel-windowS">
               <p>window6</p>
             </div><!-- #custompanel-window6 .custompanel-window -->
-            <div class="custompanel-window" id="custompanel-window7">
+            <div class="custompanel-window" id="custompanel-windowD">
               <p>window7</p>
             </div><!-- #custompanel-window7 .custompanel-window -->
-            <div class="custompanel-window" id="custompanel-window8">
+            <div class="custompanel-window" id="custompanel-windowF">
               <p>window8</p>
             </div><!-- #custompanel-window8 .custompanel-window -->
-            <div class="custompanel-window" id="custompanel-window9">
+            <div class="custompanel-window" id="custompanel-windowZ">
               <p>window9</p>
             </div><!-- #custompanel-window9 .custompanel-window -->
-            <div class="custompanel-window" id="custompanel-window10">
+            <div class="custompanel-window" id="custompanel-windowX">
               <p>window10</p>
             </div><!-- #custompanel-window10 .custompanel-window -->
-            <div class="custompanel-window" id="custompanel-window11">
+            <div class="custompanel-window" id="custompanel-windowC">
               <p>window11</p>
             </div><!-- #custompanel-window11 .custompanel-window -->
-            <div class="custompanel-window" id="custompanel-window12">
+            <div class="custompanel-window" id="custompanel-windowV">
               <p>window12</p>
             </div><!-- #custompanel-window12 .custompanel-window -->
           </div><!--  .custompanel-window-wrap -->
@@ -687,6 +693,8 @@
 <script type="text/javascript">
   var customWindowAtMedia = document.getElementById("customwindow");
   var customWindowHider = document.getElementById("cw-switch");
+  var customWindowHiderFas1 = document.getElementById("cw-fas_1");
+  var customWindowHiderFas2 = document.getElementById("cw-fas_2");
   var customWindowHiderTxt1 = document.getElementById("cw-txt_1");
   var customWindowHiderTxt2 = document.getElementById("cw-txt_2");
 
@@ -694,6 +702,8 @@
     customWindowAtMedia.classList.toggle('show');
     customWindowHiderTxt1.classList.toggle('show');
     customWindowHiderTxt2.classList.toggle('show');
+    customWindowHiderFas1.classList.toggle('show');
+    customWindowHiderFas2.classList.toggle('show');
   });
 
 </script>

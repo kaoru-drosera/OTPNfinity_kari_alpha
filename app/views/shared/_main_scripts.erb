@@ -56,7 +56,12 @@ var samplerName = document.getElementById("sampler_name");
   var bg_W = document.getElementById("bg-w");
   var bg_E = document.getElementById("bg-e");
   var bg_R = document.getElementById("bg-r");
+  var bgcw_Q = document.getElementById("custompanel-switch-btnQ");
+  var bgcw_W = document.getElementById("custompanel-switch-btnW");
+  var bgcw_E = document.getElementById("custompanel-switch-btnE");
+  var bgcw_R = document.getElementById("custompanel-switch-btnR");
   // ボタン色 ここまで
+  
 
   // サンプラー名
   var senameQ = document.getElementById("senameQ");
@@ -136,6 +141,10 @@ var samplerName = document.getElementById("sampler_name");
   var bg_S = document.getElementById("bg-s");
   var bg_D = document.getElementById("bg-d");
   var bg_F = document.getElementById("bg-f");
+  var bgcw_A = document.getElementById("custompanel-switch-btnA");
+  var bgcw_S = document.getElementById("custompanel-switch-btnS");
+  var bgcw_D = document.getElementById("custompanel-switch-btnD");
+  var bgcw_F = document.getElementById("custompanel-switch-btnF");
   // ボタン色 ここまで
 
   // サンプラー名
@@ -209,6 +218,10 @@ var samplerName = document.getElementById("sampler_name");
   var bg_X = document.getElementById("bg-x");
   var bg_C = document.getElementById("bg-c");
   var bg_V = document.getElementById("bg-v");
+  var bgcw_Z = document.getElementById("custompanel-switch-btnZ");
+  var bgcw_X = document.getElementById("custompanel-switch-btnX");
+  var bgcw_C = document.getElementById("custompanel-switch-btnC");
+  var bgcw_V = document.getElementById("custompanel-switch-btnV");
   // ボタン色 ここまで
 
   // サンプラー名
@@ -459,13 +472,16 @@ function readFile(soundName,form,sepath,fileWYN,sename){
 
 
 // ボタン色
-function btnColorInit(btnColor, bg){
+function btnColorInit(btnColor, bg, bgcw){
     console.log(btnColor);
     console.log(bg);
+    console.log(bgcw);
     for(var j=0; j<btnColor.length; j++){
       if(btnColor[j].checked){
         // console.log(i);
         console.log(btnColor);
+        console.log(bg);
+        console.log(bgcw);
         var a = btnColor[j].value;
         console.log(a);
         // break;
@@ -473,27 +489,35 @@ function btnColorInit(btnColor, bg){
         switch (a) {
           case "1":
             bg.style.backgroundColor = "#ff7f7f";
+            bgcw.style.backgroundColor = "#ff7f7f";
             break;
           case "2":
             bg.style.backgroundColor = "#ffbf7f";
+            bgcw.style.backgroundColor = "#ffbf7f";
             break;
           case "3":
             bg.style.backgroundColor = "#ffff7f";
+            bgcw.style.backgroundColor = "#ffff7f";
             break;
           case "4":
             bg.style.backgroundColor = "#7fff7f";
+            bgcw.style.backgroundColor = "#7fff7f";
             break;
           case "5":
             bg.style.backgroundColor = "#7fbfff";
+            bgcw.style.backgroundColor = "#7fbfff";
             break;
           case "6":
             bg.style.backgroundColor = "#bf7fff";
+            bgcw.style.backgroundColor = "#bf7fff";
             break;
           case "7":
             bg.style.backgroundColor = "#ff7fff";
+            bgcw.style.backgroundColor = "#ff7fff";
             break;
           case "8":
             bg.style.backgroundColor = "#ccc";
+            bgcw.style.backgroundColor = "#ccc";
             break;
         }
       }
@@ -570,20 +594,26 @@ ntf.classList.remove('ntf-active');
 
 var btnColors = [btnColorQ, btnColorW, btnColorE, btnColorR, btnColorA, btnColorS, btnColorD, btnColorF, btnColorZ, btnColorX, btnColorC, btnColorV];
 var bgs = [bg_Q, bg_W, bg_E, bg_R, bg_A, bg_S, bg_D, bg_F, bg_Z, bg_X, bg_C, bg_V];
+var bgscw = [bgcw_Q, bgcw_W, bgcw_E, bgcw_R, bgcw_A, bgcw_S, bgcw_D, bgcw_F, bgcw_Z, bgcw_X, bgcw_C, bgcw_V];
 
 var mapping_btnColors = btnColors.map(function(v){
 var mapping_bgs = bgs.map(function(z){
+var mapping_bgscw = bgscw.map(function(vz){
 
   for(var vi=0; vi<v.length; vi++){
     for(var zi=0; zi<z.length; zi++){
-      // window.addEventListener('load',function(){
-        // console.log(v[vi]);
-        // console.log(z[zi]);
-        btnColorInit(v[vi], z[zi]);
-      // });
+      for(var vzi=0; vzi<vz.length; vzi++){
+        // window.addEventListener('load',function(){
+          console.log(v[vi]);
+          console.log(z[zi]);
+          console.log(vz[vzi]);
+          btnColorInit(v[vi], z[zi], vz[vzi]);
+        // });
+      }
     }
   }
 
+});
 });
 });
 
@@ -592,18 +622,18 @@ function btnColorInitZero(){
 
 
 //
-btnColorInit(btnColorQ, bg_Q);
-btnColorInit(btnColorW, bg_W);
-btnColorInit(btnColorE, bg_E);
-btnColorInit(btnColorR, bg_R);
-btnColorInit(btnColorA, bg_A);
-btnColorInit(btnColorS, bg_S);
-btnColorInit(btnColorD, bg_D);
-btnColorInit(btnColorF, bg_F);
-btnColorInit(btnColorZ, bg_Z);
-btnColorInit(btnColorX, bg_X);
-btnColorInit(btnColorC, bg_C);
-btnColorInit(btnColorV, bg_V);
+btnColorInit(btnColorQ, bg_Q, bgcw_Q);
+btnColorInit(btnColorW, bg_W, bgcw_W);
+btnColorInit(btnColorE, bg_E, bgcw_E);
+btnColorInit(btnColorR, bg_R, bgcw_R);
+btnColorInit(btnColorA, bg_A, bgcw_A);
+btnColorInit(btnColorS, bg_S, bgcw_S);
+btnColorInit(btnColorD, bg_D, bgcw_D);
+btnColorInit(btnColorF, bg_F, bgcw_F);
+btnColorInit(btnColorZ, bg_Z, bgcw_Z);
+btnColorInit(btnColorX, bg_X, bgcw_X);
+btnColorInit(btnColorC, bg_C, bgcw_C);
+btnColorInit(btnColorV, bg_V, bgcw_V);
 //
 
 // var btnColors = [btnColorQ, btnColorW, btnColorE, btnColorR, btnColorA, btnColorS, btnColorD, btnColorF, btnColorZ, btnColorX, btnColorC, btnColorV];
