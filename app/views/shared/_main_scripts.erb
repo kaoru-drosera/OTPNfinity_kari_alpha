@@ -61,7 +61,7 @@ var samplerName = document.getElementById("sampler_name");
   var bgcw_E = document.getElementById("custompanel-switch-btnE");
   var bgcw_R = document.getElementById("custompanel-switch-btnR");
   // ボタン色 ここまで
-  
+
 
   // サンプラー名
   var senameQ = document.getElementById("senameQ");
@@ -440,7 +440,13 @@ function play(plaing,loop,loopValue){
 const omit = text => len => ellipsis =>
   text.length >= len ? text.slice(0, len - ellipsis.length) + ellipsis : text
 
+
+
 // 音声選択フォーム読み込み(プロトタイプ)
+
+// var allow_exts = new Array('mp3','wave','wav','ogg');
+var allow_exts = new Array('mp3','wav','ogg');
+
 function readFile(soundName,form,sepath,fileWYN,sename){
   form.addEventListener('change',function(form){
     var reader = new FileReader();
@@ -455,7 +461,10 @@ function readFile(soundName,form,sepath,fileWYN,sename){
     console.log(reader);
     console.log(sepath);
 
-    if (form.target.files[0]) {
+    if (!checkExt(form.target.files[0].name)) {
+      alert('拡張子には有効なファイルを利用してください。(mp3,wav,ogg)');
+    } else if(form.target.files[0]){
+
       // ファイルの値は「form.target.files[0]」で取得している。
       reader.readAsDataURL(form.target.files[0]);
       // .nameとすることでファイル名をダイレクトに取ってくることも可能。
@@ -466,6 +475,27 @@ function readFile(soundName,form,sepath,fileWYN,sename){
       soundName.src = sepath.value;
       fileWYN.innerHTML = sename.value = "";
     }
+
+    // ファイルの拡張子が許可されているか判別
+    function checkExt(filename){
+
+      // 比較のため小文字にする
+      var ext = getExt(filename).toLowerCase();
+      console.log(filename + '1');
+      // 拡張子の対象にあるか照合する
+      if(allow_exts.indexOf(ext) === -1) return false;
+      return true
+    }
+
+    // ファイルの拡張子を取得
+    function getExt(filename){
+      console.log(filename + '2');
+      var pos = filename.lastIndexOf('.');
+      if (pos === -1) return '';
+      console.log(filename.slice(pos + 1));
+      return filename.slice(pos + 1);
+    }
+
   });
 };
 
