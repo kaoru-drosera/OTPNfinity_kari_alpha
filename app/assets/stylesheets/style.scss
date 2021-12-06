@@ -1091,22 +1091,30 @@ nav.pagination
   // justify-content: space-around;
   flex-wrap: wrap;
   align-content: space-between;
-  height: 490px;
+  // height: 490px;
 }
 .case-btn
 {
   position: relative;
+  max-width: 24%;
   width:24%;
-  height: 160px;
+  // height: 160px;
   // border: 1px solid #000;
   border-radius: 6px;
   display: inline-block;
   cursor: pointer;
   padding: 10px;
+  margin-bottom: 1%;
   background-color: $bg;
   input[type=range]
   {
     width: 100%;
+  }
+  &::after
+  {
+    content: '';
+    padding-top: 100%;
+    display: block;
   }
 }
 .case-btn-clickable
@@ -1221,14 +1229,29 @@ nav.pagination
 
   // ラジオボタン(ボタン色設定)
 
-  .radio-field
+  .radio-field,
+  .radio-field-neo
   {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
     background-color: $panel_dark;
     padding: 2px;
-    display: flex;
+    // display: flex;
+    display: none;
     justify-content: space-between;
     // flex-wrap: wrap;
-    // align-items: space-between;
+    align-items: center;
+
+    z-index: 1;
+
+    &.rd-active
+    {
+      display: flex;
+    }
   }
 
   .lb-rd-color
@@ -1316,6 +1339,8 @@ nav.pagination
 
   .case-btn-miniflexer
   {
+    position: relative;
+
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
@@ -1567,6 +1592,8 @@ nav.pagination
   transform: translate(0, 100%);
   transition: .2s;
   overflow: visible;
+  background-color: $panel_dark;
+
   &.show
   {
     transform: translate(0, 0);
@@ -1578,8 +1605,11 @@ nav.pagination
   display: -ms-flex;
   display: flex;
   justify-content: space-between;
-  height: 300px;
-  background-color: $panel_dark;
+  align-items: center;
+  padding: 10px;
+  margin: auto;
+  width: 58%;
+  // height: 300px;
   .show
   {
 
@@ -1648,7 +1678,17 @@ nav.pagination
   display: flex;
   flex-flow: wrap;
   justify-content: space-between;
-  margin: auto;
+  // margin: auto;
+
+  position: relative;
+}
+.radio-field-cont
+{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
 }
 .custompanel-switch-btn
 {
@@ -1681,9 +1721,12 @@ nav.pagination
 {
   // width: 100%;
   width: 60%;
-  height: 170px;
-  background-color: #fff;
+  // height: 170px;
+  background-color: $bg;
   display: block;
+  padding: 10px;
+  max-width: 400px;
+
 }
 .custompanel-window
 {

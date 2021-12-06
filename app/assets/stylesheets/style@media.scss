@@ -295,14 +295,18 @@ $vol_scroll: #aaa;
     .custompanel-switch-container
     {
       flex-direction: column;
+      width: 100%;
     }
     .custompanel-switch-wrap
     {
       width: 60%;
+      margin: 0 auto 10px;
+      max-width: 320px;
     }
     .custompanel-window-wrap
     {
       width: 100%;
+      margin: 0 auto;
     }
     .cw-switch
     {

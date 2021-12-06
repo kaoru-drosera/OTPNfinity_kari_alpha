@@ -315,6 +315,35 @@ document.addEventListener('DOMContentLoaded',function(){
 },false);
 
 
+// 設定パネル・ラジオボタン表示切り替え
+document.addEventListener('DOMContentLoaded',function(){
+  const radios = document.getElementsByClassName('radio-field-switch');
+  const radioClosers = document.getElementsByClassName('lb-rd-closer');
+  for(let i=0; i<radios.length; i++){
+    radios[i].addEventListener('click',radioOpen,false);
+  }
+  for(let i=0; i<radioClosers.length; i++){
+    radioClosers[i].addEventListener('click',radioClose,false);
+  }
+
+  // ラジオボタン表示
+  function radioOpen(){
+    // コンテンツのクラス値を変更
+    const arrayTabs = Array.prototype.slice.call(radios);
+    const index = arrayTabs.indexOf(this);
+    document.getElementsByClassName('radio-field-neo')[index].classList.add('rd-active');
+  }
+  // ラジオボタン消去
+  function radioClose(){
+    // コンテンツのクラス値を変更
+    const arrayTabs = Array.prototype.slice.call(radioClosers);
+    const index = arrayTabs.indexOf(this);
+    document.getElementsByClassName('radio-field-neo')[index].classList.remove('rd-active');
+  }
+
+},false);
+
+
 
 function volumeInit(soundName, volume, volumeValue){
   // 音量調節
