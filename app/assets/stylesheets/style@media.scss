@@ -254,6 +254,11 @@ $vol_scroll: #aaa;
         padding-top: 40%;
       }
     }
+    .cwp-keypos
+    {
+      width: 20px;
+      height: 20px;
+    }
     // サンプラー設定パネル ここまで
 
 
@@ -332,6 +337,14 @@ $vol_scroll: #aaa;
     {
       width: 100%;
       margin: 0 auto;
+    }
+    .volume-field
+    {
+      margin-bottom: 12px;
+    }
+    .case-btn-miniflexer
+    {
+      margin-bottom: 12px;
     }
     .cw-switch
     {
