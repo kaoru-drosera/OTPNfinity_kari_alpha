@@ -202,13 +202,15 @@ $vol_scroll: #aaa;
       top: 0;
       left: 0;
       width: 50%;
-      height: 32px;
+      height: 54px;
       -webkit-transform: translate(0, -100%);
       -ms-transform: translate(0, -100%);
       transform: translate(0, -100%);
 
       background-color: $bg_light;
       border-radius: 8px 8px 0 0;
+
+      transition: .3s;
 
       .hider-txt
       {
@@ -221,7 +223,7 @@ $vol_scroll: #aaa;
         width: 100%;
         text-align: center;
 
-        font-size: 11px;
+        font-size: 14px;
         color: $txt1;
 
         display: none;
@@ -233,8 +235,26 @@ $vol_scroll: #aaa;
       }
 
     }
+    .sampler-index.show
+    {
+      .sampler-index-hider
+      {
+        height: 32px;
+      }
+    }
 
     // サンプラー一覧 ここまで
+
+
+    // サンプラー設定パネル
+    .custompanel-switch-btn
+    {
+      &::after
+      {
+        padding-top: 40%;
+      }
+    }
+    // サンプラー設定パネル ここまで
 
 
     // 効果音ライブラリ
@@ -247,6 +267,11 @@ $vol_scroll: #aaa;
     .field.search
     {
       margin-bottom: 0;
+    }
+    .controll.is-expanded.search .sampler-search,
+    .controll.is-expanded.search .fas.fa-search.search
+    {
+      left: 14px;
     }
     .sampler-scrollx
     {
@@ -312,8 +337,16 @@ $vol_scroll: #aaa;
     {
       flex-direction: row;
       width: 50%;
-      height: 32px;
+      height: 54px;
       right: 0;
+      transition: .3s;
+    }
+    .customwindow.show
+    {
+      .cw-switch
+      {
+        height: 32px;
+      }
     }
     .cw-fas
     {
@@ -326,6 +359,12 @@ $vol_scroll: #aaa;
     .cw-txt-wrap
     {
       margin-top: 0;
+    }
+
+    .cw-fas,
+    .cw-txt-wrap p
+    {
+      font-size: 14px;
     }
     // サンプラー設定パネル ここまで
 
@@ -392,6 +431,7 @@ $vol_scroll: #aaa;
     width: 100%;
   }
 
+
   // サンプラー設定パネル ここまで
 
 
@@ -456,12 +496,38 @@ $vol_scroll: #aaa;
       }
     }
   }
-
-
   // ヘルプ ここまで
 
 }
 
+// maw:450px
 
+@media (max-width: 450px) {
+
+  // サンプラーメインパネル
+
+.key-position
+{
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  p
+  {
+    font-size: 20px;
+  }
+}
+.sename-panel
+{
+  p
+  {
+    font-size: 10px;
+  }
+}
+
+// サンプラーメインパネル ここまで
+
+}
+
+// maw:450px ここまで
 
 // maw:300px ここまで
