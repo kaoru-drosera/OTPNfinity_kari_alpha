@@ -331,14 +331,14 @@ document.addEventListener('DOMContentLoaded',function(){
     // コンテンツのクラス値を変更
     const arrayTabs = Array.prototype.slice.call(radios);
     const index = arrayTabs.indexOf(this);
-    document.getElementsByClassName('radio-field-neo')[index].classList.add('rd-active');
+    document.getElementsByClassName('radio-field')[index].classList.add('rd-active');
   }
   // ラジオボタン消去
   function radioClose(){
     // コンテンツのクラス値を変更
     const arrayTabs = Array.prototype.slice.call(radioClosers);
     const index = arrayTabs.indexOf(this);
-    document.getElementsByClassName('radio-field-neo')[index].classList.remove('rd-active');
+    document.getElementsByClassName('radio-field')[index].classList.remove('rd-active');
   }
 
 },false);
