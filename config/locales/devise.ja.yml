@@ -27,6 +27,13 @@ ja:
         updated_at: 更新日
     models:
       user: ユーザー
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              format: "有効な%{attribute}を入力してください。　（%{message}）"
+              invalid: 大文字・小文字・数字・記号を全て含む3-35字
   devise:
     confirmations:
       confirmed: アカウントを登録しました。

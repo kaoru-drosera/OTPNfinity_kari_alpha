@@ -34,5 +34,8 @@ module OTPNfinityKari
 
     # タイムゾーンを日本時刻に
     config.time_zone = 'Tokyo'
+
+    # i18n(device: アカウント管理システム)の設定
+    config.active_model.i18n_customize_full_message = true
   end
 end

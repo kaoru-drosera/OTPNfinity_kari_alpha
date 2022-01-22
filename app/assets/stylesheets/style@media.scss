@@ -166,6 +166,26 @@ $vol_scroll: #aaa;
     // 基本的な設定
 
 
+    // フラッシュメッセージ
+    .ntf-cont
+    {
+      top: 24px;
+      width: 80vw;
+    }
+    .ntf-wrap
+    {
+      width: 85%;
+      .alert
+      {
+        padding: 0;
+        margin: 0;
+      }
+
+    }
+
+    // フラッシュメッセージ ここまで
+
+
     // サンプラー一覧
 
     .sampler-index
@@ -295,6 +315,10 @@ $vol_scroll: #aaa;
       {
         width: 95%;
       }
+    }
+    .signUpError_links .sp
+    {
+      display: none;
     }
 
     // モーダルここまで
