@@ -153,7 +153,7 @@ body
   top: 0;
   left: 0;
   width: 100%;
-  // z-index: 10;
+  z-index: 3;
   height: 60px;
   background-color: $panel;
 }
@@ -166,26 +166,46 @@ body
   height: $navh;
   align-items: center;
   width: 100%;
+  .right
+  {
+    overflow: scroll;
+    margin: 0 20px;
+    width: 36vw;
+    height: 100%;
+    position: relative;
+    &::-webkit-scrollbar
+    {
+      width: 100%;
+      height: 3px;
+    }
+    .navbar-nav
+    {
+      position: absolute;
+      display: flex;
+      justify-content: space-around;
+      top: 0;
+      right: 0;
+      z-index: 20;
+      margin: 0;
+      width: 100%;
+    }
+  }
+}
+.burg-ico
+{
+  position: absolute;
+  top: 0;
+  right: 18px;
+  width: 60px;
+  height: 100%;
+  background-color: $scroll;
+  display: none;
 }
 // .left,
 // .right
 // {
 //   width: 45%;
 // }
-.right
-{
-  overflow: scroll;
-  padding: 0 20px;
-  &::-webkit-scrollbar
-  {
-    width: 100%;
-    height: 3px;
-  }
-  .navbar-nav
-  {
-    display: flex;
-  }
-}
 // メニューバーのリンク
 .navbar-nav > li > a
 // .nav-link
@@ -629,6 +649,7 @@ body
   transition: .8s;
   opacity: 0;
   z-index: 6;
+  pointer-events: none;
   &.ntf-active
   {
     display: block;

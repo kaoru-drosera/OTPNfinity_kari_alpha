@@ -764,3 +764,18 @@ var swiper = new Swiper('.swiper-container',{
 
 
 // リアルタイム検索実装
+
+
+// 簡易ハンバーガーメニュー
+
+var burgIco = document.getElementById('burg-ico');
+var navbarNav = document.getElementById('navbar-nav');
+var burgIcoMenu = document.getElementById('burg-ico_menu');
+var burgIcoClose = document.getElementById('burg-ico_close');
+burgIco.addEventListener('click',function(){
+  navbarNav.classList.toggle('active');
+  burgIcoMenu.classList.toggle('active');
+  burgIcoClose.classList.toggle('active');
+});
+
+// 簡易ハンバーガーメニュー ここまで

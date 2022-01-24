@@ -166,6 +166,69 @@ $vol_scroll: #aaa;
     // 基本的な設定
 
 
+    // fixedメニューバー
+
+    .navbar-flexer
+    {
+      .right
+      {
+        overflow: visible;
+        .navbar-nav
+        {
+          opacity: 0;
+          pointer-events: none;
+          top: 100%;
+          flex-direction: column;
+          width: auto;
+
+          padding: 10px 10px 0;
+          background-color: rgba(17, 17, 17, 0.8);
+          border-radius: 8px;
+          transition: .3s;
+
+          &.active
+          {
+            display: flex;
+            pointer-events: auto;
+            opacity: 1;
+            top: calc(100% + 10px);
+          }
+
+          .nav-item
+          {
+            margin-bottom: 10px;
+          }
+
+        }
+        .burg-ico-wrap
+        {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+        }
+        .burg-ico_
+        {
+          display: none;
+          color: $txt1;
+          font-size: 36px;
+          &.active
+          {
+            display: block;
+          }
+        }
+      }
+    }
+    .burg-ico
+    {
+      display: flex;
+    }
+
+    // fixedメニューバー ここまで
+
+
     // フラッシュメッセージ
     .ntf-cont
     {
