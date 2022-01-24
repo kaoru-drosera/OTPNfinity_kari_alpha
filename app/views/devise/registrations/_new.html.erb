@@ -40,7 +40,7 @@
                 <% if @minimum_password_length %>
                 <em>(<%= @minimum_password_length %> characters minimum)</em>
                 <% end %>
-                <%= f.password_field :password, autocomplete: "off", size: "30" %>
+                <%= f.password_field :password, autocomplete: "off", size: "30", placeholder: "大小文字・数字・記号全て含む3-35字" %>
               </div><!--  .field-cell-formwrap -->
 
 
@@ -52,7 +52,7 @@
               <div class="field-cell-label"><p>パスワード(確認)</p></div><!--  .label -->
               <div class="field-cell-formwrap">
                 <div class="errmsg-cont"><p class="field-cell" id="errmsg-pswconfirm"></p><!--  .field-cell --></div><!--  .errmsg-cont -->
-                <%= f.password_field :password_confirmation, autocomplete: "off", size: "30" %>
+                <%= f.password_field :password_confirmation, autocomplete: "off", size: "30", placeholder: "大小文字・数字・記号全て含む3-35字" %>
               </div><!--  .field-cell-formwrap -->
 
             </div><!--  .field-cell -->
