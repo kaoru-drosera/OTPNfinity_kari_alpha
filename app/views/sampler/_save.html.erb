@@ -840,12 +840,23 @@
   var customWindowHiderTxt1 = document.getElementById("cw-txt_1");
   var customWindowHiderTxt2 = document.getElementById("cw-txt_2");
 
+  var cbSwitch = document.getElementById('sampler-custom-switcher');
+
   customWindowHider.addEventListener('click',function(){
     customWindowAtMedia.classList.toggle('show');
     customWindowHiderTxt1.classList.toggle('show');
     customWindowHiderTxt2.classList.toggle('show');
     customWindowHiderFas1.classList.toggle('show');
     customWindowHiderFas2.classList.toggle('show');
+    cbSwitch.classList.toggle('show');
+  });
+  cbSwitch.addEventListener('click',function(){
+    customWindowAtMedia.classList.toggle('show');
+    customWindowHiderTxt1.classList.toggle('show');
+    customWindowHiderTxt2.classList.toggle('show');
+    customWindowHiderFas1.classList.toggle('show');
+    customWindowHiderFas2.classList.toggle('show');
+    cbSwitch.classList.toggle('show');
   });
 
 </script>
