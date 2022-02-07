@@ -249,6 +249,26 @@ $vol_scroll: #aaa;
     // フラッシュメッセージ ここまで
 
 
+    // ヘルプ
+
+    .help
+    {
+      .pro
+      {
+        .pc
+        {
+          display: none;
+        }
+        .sp
+        {
+          display: inline-block;
+        }
+      }
+    }
+
+    // ヘルプ ここまで
+
+
     // サンプラー一覧
 
     .sampler-index
@@ -400,8 +420,16 @@ $vol_scroll: #aaa;
     {
       img
       {
-        height: auto;
-        width: 100%;
+        // height: auto;
+        // width: 100%;
+      }
+      &.pc
+      {
+        display: none;
+      }
+      &.sp
+      {
+        display: block;
       }
     }
 
@@ -504,6 +532,58 @@ $vol_scroll: #aaa;
     }
   }
 
+  .help
+  {
+    .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet
+    {
+      margin: 0 4px;
+    }
+  }
+  .help .swiper-pagination .swiper-pagination-bullet
+  {
+    width: 18px;
+    height: 18px;
+  }
+  .help-imgwrap
+  {
+    height: 120px;
+    // img
+    // {
+    //   height: auto;
+    //   width: 100%;
+    // }
+  }
+  .help-txtwrap
+  {
+    padding-top: 14px;
+  }
+  .help-txt-ttl
+  {
+    padding-bottom: 8px;
+  }
+  .help-txt-sub
+  {
+
+  }
+
+  .help
+  {
+    .modal-header
+    {
+      border: none;
+      padding: 15px 15px 0;
+      .close
+      {
+        width: 20px;
+        height: 20px;
+
+        background-color: transparent;
+      }
+    }
+  }
+
+
+
 
   // ヘルプ ここまで
 
@@ -554,48 +634,6 @@ $vol_scroll: #aaa;
 
   // ヘルプ
 
-  .help-imgwrap
-  {
-    height: 120px;
-    // img
-    // {
-    //   height: auto;
-    //   width: 100%;
-    // }
-  }
-  .help-txtwrap
-  {
-    padding-top: 14px;
-  }
-  .help-txt-ttl
-  {
-    padding-bottom: 8px;
-  }
-  .help-txt-sub
-  {
-
-  }
-
-  .help .swiper-pagination .swiper-pagination-bullet
-  {
-    width: 18px;
-    height: 18px;
-  }
-  .help
-  {
-    .modal-header
-    {
-      border: none;
-      padding: 15px 15px 0;
-      .close
-      {
-        width: 20px;
-        height: 20px;
-
-        background-color: transparent;
-      }
-    }
-  }
   // ヘルプ ここまで
 
 }

@@ -686,6 +686,14 @@ body
   .pro
   {
     color: $txt1;
+    .pc
+    {
+      display: inline-block;
+    }
+    .sp
+    {
+      display: none;
+    }
   }
 }
 .help-contents
@@ -708,6 +716,14 @@ body
     // width: 100%;
     margin: auto;
     height: 100%;
+  }
+  &.pc
+  {
+    display: block;
+  }
+  &.sp
+  {
+    display: none;
   }
 }
 
