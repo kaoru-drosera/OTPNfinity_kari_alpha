@@ -768,5 +768,20 @@ burgIco.addEventListener('click',function(){
   burgIcoClose.classList.toggle('active');
 });
 
+  // 領域外クリックで閉じる thanks
+  // https://hirakublog.com/outside-click-event-js/
+  document.addEventListener('click', (e) => {
+    if(!e.target.closest('.right')) {
+      //ここに外側をクリックしたときの処理
+      navbarNav.classList.remove('active');
+      burgIcoMenu.classList.add('active');
+      burgIcoClose.classList.remove('active');
+    } else {
+      //ここに内側をクリックしたときの処理
+    }
+  })
+
+// thanks again
+// https://hirakublog.com/outside-click-event-js/
 
 // 簡易ハンバーガーメニュー ここまで
